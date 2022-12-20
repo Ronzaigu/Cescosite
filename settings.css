@@ -1,0 +1,84 @@
+.revers{
+	text-align: right;
+width: 40px;
+height: 40px;
+margin-right: 100%;}
+
+body{
+    text-align: center;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    }
+h1{
+	text-align: center;
+font-size: 110px;
+font-family: 'Bebas Neue', cursive;
+color: white;}
+
+.soustitre{
+	color: white;
+	text-align: center;
+   font-family: 'Bebas Neue', cursive;
+	font-size: 30px;
+
+}
+
+.but{
+
+width: 250px;
+text-align: center;
+
+
+}
+
+.nom{
+height: 30px;
+	margin-bottom: 7.5px;
+}
+
+
+.mdp{
+
+height: 30px;
+	margin-bottom: 7.5px;	
+}
+
+@keyframes pric {
+
+0%{margin-left: 10%;}
+100%{margin-left: 0%;}
+
+}
+
+.div1{
+
+animation-name: pric;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+
+
+}
+
+.img1{
+
+width: 100px;
+
+}
+
+.wsh{
+ width: 450px;
+    border: 20px double black;
+
+    padding: 20px;
+    margin: 20px;
+
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+}

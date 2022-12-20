@@ -1,0 +1,204 @@
+    
+        body{
+    
+          background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+          background-size: 1000000% 1000000%;
+          animation: gradient 15s ease infinite;
+          height: 100vh;
+          overflow-wrap: anywhere;
+      }
+      
+      @keyframes gradient {
+          0% {
+              background-position: 0% 50%;
+          }
+          50% {
+              background-position: 100% 50%;
+          }
+          100% {
+              background-position: 0% 50%;
+          }
+          }
+
+
+  .chatAff{
+    position        : fixed;
+    top             : 10%;
+    left: 80%;
+
+    background-color: aliceblue;
+  }
+    
+    header
+    {
+    
+        color: black;
+        text-align: center;
+        font-size: x-large;
+        margin-top: -2.2%;
+        background-color: white;
+    
+    
+    }
+    
+    
+    article
+    {
+        width: auto;
+        border: 20px solid black;
+        padding: auto;
+        margin: 20px;
+        text-align: center;
+    color: black;
+    background-color: white;
+
+    max-width: 100%;
+    
+    }
+
+    .wait
+    {
+        text-align: center;
+    }
+    
+    .beta{
+        overflow:auto;
+        font-family: 'Bebas Neue', cursive;
+
+    }
+    
+    
+    .articles
+    {
+        border: 10px solid rgb(0, 0, 0);
+        width: 100%;
+    
+    
+        
+    
+    
+    
+    
+    
+    }
+    
+    
+    h1{
+        position: relative;
+    
+    
+    
+    
+    }
+
+    h3{
+        color:white;
+    }
+
+    .avi{
+        display: flex;
+        align-items:flex-end;
+        justify-content: center;
+     
+
+    }
+    
+  .like, .neutrelike, .dislike{
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1cm;
+    border: purple;
+
+  }
+
+
+    
+    .titleh1{
+    
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
+    margin-top: 2%;
+    
+    
+    
+    
+    }
+
+    .comText{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  .coment, .signal{
+    background-color: transparent;
+    border: transparent;
+  }
+    
+    
+    .art{
+    
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Bebas Neue', cursive;
+    }
+
+    
+    .foota{
+    
+    color: black;
+    text-align: center;
+    margin-bottom: 1%;
+    
+    }
+    
+    .con{
+    width: 200px;
+    text-align: center;
+    margin: top 4%;
+    }
+    
+    .chat{
+    
+    width: 100px;
+    
+    }
+    
+    img{
+    
+        max-width: 60%;
+    }
+    
+    .ui{
+    
+    
+    width: 150px;
+    
+    }
+    
+    .butontop{
+    
+    
+    text-align: center;
+    background-color: white;
+     
+    left: 0;
+      right: 0;
+    
+    }
+
+ .op {
+
+
+text-align: center;
+color: black;
+
+ }    
+
+
+.boutton{
+
+	width: 5cm;
+}
+
+
