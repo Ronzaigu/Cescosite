@@ -1,0 +1,67 @@
+body{
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+
+
+
+
+}
+
+header{
+
+
+text-align: center;
+color: white;
+font-family: 'Bebas Neue', cursive;
+font-size: 450%;
+
+}
+
+p{
+
+
+text-align: center;
+color: white;
+font-family: 'Bebas Neue', cursive;
+font-size: 150%;
+}
+
+
+.text{
+
+animation-name: slidein;
+text-align: center;
+width: 40½;
+height: 40%;
+}
+
+.revers{
+width: 40px;
+height: 40px;}
+
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}

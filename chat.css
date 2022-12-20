@@ -1,0 +1,82 @@
+body{
+
+
+	object-position: center;
+	color: aliceblue;
+	overflow-wrap: anywhere;
+	}
+	
+	
+	.mess{
+		text-align: center;
+
+	}
+	
+
+	body{
+    
+		background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+		background-size: 1000000% 1000000%;
+		animation: gradient 15s ease infinite;
+		height: 100vh;
+	}
+	
+	@keyframes gradient {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+		}
+		
+	.titre1{
+	
+	text-align: center;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 150px;
+	color: white;
+	}
+	
+	
+	.zonetxt{
+	text-align: center;
+	
+	
+	
+	}
+	
+	.boutton{
+		
+	width: 200;
+	
+		}
+	
+	.zonne{
+	
+	border: ridge black 5px;
+	resize: none;
+	width: 350px;
+	height: 200px;
+	}
+
+	.revers{
+		width: 40px;
+		height: 40px;
+		
+		
+	}
+		
+.border {width: 450px;
+    border: 20px double black;
+
+    padding: 20px;
+    margin: 20px;
+
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
