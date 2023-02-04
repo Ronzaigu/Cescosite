@@ -13,7 +13,7 @@
 	<title>Parametres</title>
 	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 	<a href="./cescosite.php"> 
-    <img class="revers" src="revers.png">
+ 
     </a>
 
 	<script>
@@ -44,7 +44,7 @@ if (window.location.protocol != "https:") {
 	include_once("db.php");
 	session_start();
 	if(isset($_SESSION['user']) == FALSE){
-		header('Location: Connexion.php');
+		header('Location: ?page=connection');
 	}
 	$userPK = $_SESSION['userPK'];
 	

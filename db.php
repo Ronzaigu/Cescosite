@@ -1,10 +1,12 @@
 <?php
   $servername = "localhost";
 
-
-  $dbname = "a_cool_name";
-  $username = "a_cool_username";
-  $password = "a_secure_password";
+  //$username = "root";
+  //$password = "Ju948979123!";
+  //$dbname = "ju";
+  $dbname = "isxk_rmbi";
+  $username = "isxk_rmbi";
+  $password = "aePee0Seroo@";
   
 
 

@@ -1,0 +1,70 @@
+header
+{
+
+    color: black;
+    text-align: center;
+    font-size: x-large;
+    margin-top: -2.2%;
+    background-color: white;
+
+
+}
+
+body{
+    
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 1000000% 1000000%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    overflow-wrap: anywhere;
+}
+
+h1{
+    position: relative;
+
+
+
+
+}
+
+.titleh1{
+    
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
+    margin-top: 2%;
+    
+    
+    
+    
+    }
+
+
+        
+    .ui{
+    
+    
+        width: 150px;
+        
+        }
+        
+        .butontop{
+        
+        
+        text-align: center;
+        background-color: white;
+         
+        left: 0;
+          right: 0;
+        
+        }
+
+
+
+
+ .op {
+
+
+    text-align: center;
+    color: black;
+    
+     }    

@@ -18,7 +18,7 @@
     echo "Votre message a bien été envoyé !";
 
 
-    header('Location: cescosite.php');
+    header('Location: .?page=home');
 
 
 

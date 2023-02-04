@@ -29,7 +29,7 @@
         if ($result->num_rows >= 1) {
             $sql = "DELETE FROM ju_reaction WHERE USER_Fk = $userPK AND ARTICLE_FK = $num AND type = '$type'";
             if (mysqli_query($conn, $sql)) {
-               header('Location: cescosite.php');
+               header('Location: .?page=home');
           
 
 
@@ -51,7 +51,7 @@
                 $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_like = 'on' AND ju_Users_PK = '$userFK'";
                 $mail = $conn->query($sqlM)->fetch_assoc()["mail"];
                 mail($mail, $_SESSION['user']." a liké votre post", "Le user ".$_SESSION['user']." a soutenus votre post : ".$title."\n\n https://rmbi.ch/cescosite/cescosite.php#art".$num);
-                header('Location: cescosite.php');
+                header('Location: .?page=home');
             echo $type;
 
               

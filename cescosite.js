@@ -44,11 +44,11 @@ function reaction(type, PK){
 
 
     if(user_pk == ''){
-        window.location.href = "Connexion.php"
+        window.location.href = "?page=connection"
        
 
     }else{
-      //  console.log(type)
+      
     //  window.location.href = 'like.php?num='+PK + "&type="+encodeURIComponent(type)
 
         $.post("like.php",{
@@ -57,9 +57,12 @@ function reaction(type, PK){
         })
         
         
-        $.get('getPosts.php', function(result) {
-            $('#pageApi').val(result);
-        }).done(loadLike)
+        $.get('getPosts.php?PK=' + PK, function(result) {
+            data =  JSON.parse(decodeEntity(result))
+            $('#pageApi').val(JSON.stringify( data));
+            loadLike(PK)
+            console.log("ASDwqdqwe")
+        })
     }
    
 }
@@ -116,73 +119,74 @@ function isUserLike(Type, userPK, likes){
 function loadLike()
 {
 
-    data =  JSON.parse(decodeEntity( document.getElementById('pageApi').value ) )
+    dataL =  JSON.parse( document.getElementById('pageApi').value) 
+
+ 
+   
+    
+
     let nbLike = 0
     let nbNeutre = 0
     let nbDislike = 0
     let scrLike = "upvote_vide.png"
     let scrNeutre = "neutrevote_vide.png"
     let scrDislike = "downvote_vide.png"
-    for (let num = 0; num < data.length; num++) {
-        scrLike = "upvote_vide.png"
-        scrNeutre = "neutrevote_vide.png"
-        scrDislike = "downvote_vide.png"
- 
-        let likeHtml = ""
-         nbLike = 0
-         nbNeutre = 0
-         nbDislike = 0
-       
 
-        if(typeof data[num].reaction != "undefined"){
+    let likeHtml = ""
+ 
+
+
+        if(typeof dataL.reaction != "undefined"){
 
             
-            nbLike = countLike( "+", data[num].reaction)
-            nbNeutre = countLike( "=", data[num].reaction)
-            nbDislike = countLike( "-", data[num].reaction)
+            nbLike = countLike( "+", dataL.reaction)
+            nbNeutre = countLike( "=", dataL.reaction)
+            nbDislike = countLike( "-", dataL.reaction)
             user_pk = document.getElementById("user_pk").value
-            if (isUserLike("+", user_pk, data[num].reaction)) {
+            if (isUserLike("+", user_pk, dataL.reaction)) {
                 scrLike = "upvote_plein.png"
             }
-            if (isUserLike("=", user_pk, data[num].reaction)) {
+            if (isUserLike("=", user_pk, dataL.reaction)) {
                 scrNeutre = "neutrevote_plein.png"
             }
-            if (isUserLike("-", user_pk, data[num].reaction)) {
+            if (isUserLike("-", user_pk, dataL.reaction)) {
                 scrDislike = "downvote_plein.png"
             }
         
         }
        // console.log(scrLike)
-        likeHtml += "<button class='like' onclick = 'reaction(\"+\", "+data[num].ARTICLES_PK+")' ><img width =50 src='"+scrLike+"'></button><p>"+nbLike+"</p>"
-        likeHtml += "<button class='neutrelike' onclick = 'reaction(\"=\", "+data[num].ARTICLES_PK+")' ><img width =50 src='"+scrNeutre+"'></button><p>"+nbNeutre+"</p>"
-        likeHtml += "<button class='dislike' onclick = 'reaction(\"-\", "+data[num].ARTICLES_PK+")' ><img width =50 src='"+scrDislike+"'></button><p>"+nbDislike+"</p>"
+        likeHtml += "<button class='like' onclick = 'reaction(\"+\", "+dataL.ARTICLES_PK+")' ><img width =50 src='"+scrLike+"'></button><p>"+nbLike+"</p>"
+        likeHtml += "<button class='neutrelike' onclick = 'reaction(\"=\", "+dataL.ARTICLES_PK+")' ><img width =50 src='"+scrNeutre+"'></button><p>"+nbNeutre+"</p>"
+        likeHtml += "<button class='dislike' onclick = 'reaction(\"-\", "+dataL.ARTICLES_PK+")' ><img width =50 src='"+scrDislike+"'></button><p>"+nbDislike+"</p>"
         
         
 
-        comEmp = document.getElementById('avi' + data[num].ARTICLES_PK)
+        comEmp = document.getElementById('avi' + dataL.ARTICLES_PK)
 
         comEmp.innerHTML = likeHtml
 
-    }
+    
   
 }
 
 
 
-function loadCom()
+function loadCom(pk)
 {
-    data =  JSON.parse(decodeEntity( document.getElementById('pageApi').value ) )
-    for (let num = 0; num < data.length; num++) {
+    console.log("b")
+    let dataC =  JSON.parse( document.getElementById('pageApi').value) 
+
 
         let comesHtml =""
         
+     
   
 
-        if(typeof data[num].comments !== 'undefined'){
-            for (let ii = 0; ii < Object.keys(data[num].comments).length; ii++) {
+        if(typeof dataC.comments !== 'undefined'){
+            for (let ii = 0; ii < Object.keys(dataC.comments).length; ii++) {
                 comesHtml += "<section>"
                 comesHtml += "<b>_______________________</b><br>" 
-                    comesHtml += data[num].comments["com"+ii].content
+                    comesHtml += dataC.comments["com"+ii].content
                     
                     comesHtml += "</section>"
                 
@@ -190,45 +194,46 @@ function loadCom()
         }
         comesHtml += "<b>_______________________</b><br>" 
 
-        comEmp = document.getElementById('com' + data[num].ARTICLES_PK)
+        comEmp = document.getElementById('com' +dataC.ARTICLES_PK)
 
         comEmp.innerHTML = comesHtml
-    }
+    
 }
 
 function loadSite(){
     
 
 
-    if(document.getElementById('pageApi').value != ""){
-        data =  JSON.parse(decodeEntity( document.getElementById('pageApi').value ) )
-            
-
+  
+        let dataS =  JSON.parse( document.getElementById('pageApi').value)
+        
+     
      
 
             artZone = document.getElementById("artZone")
 
             articlesHtml = ""
 
-            for (let i = 0; i < data.length; i++) {
 
+    pk= dataS.ARTICLES_PK
                 
 
-                articlesHtml += "<section id = art"+i+" class= 'articles'>"
+                articlesHtml += "<section id = art"+pk+" class= 'articles'>"
                 
-                articlesHtml += "<h1>" + data[i].title + "</h1><br>"
-                articlesHtml += data[i].content
+                articlesHtml += "<h1>" + dataS.title + "</h1><br>"
+                articlesHtml += dataS.content
                 
-                articlesHtml += "<br><br><strong><i>Article créé par " + data[i].creator + ".    Date : " + data[i].dat + "</strong></i>"
+                articlesHtml += "<br><br><strong><i>Article créé par " + dataS.creator + ".    Date : " + dataS.dat + "</strong></i>"
 
                 articlesHtml += "<br>"
 
-                articlesHtml += "<button onclick = 'coments("+data[i].ARTICLES_PK+")' >Commentaires</button>"
+                articlesHtml += "<button onclick = 'coments("+pk+")' >&dArr;Commentaires&dArr;</button>"
+                articlesHtml += "<button onclick = 'signal("+pk+")' >Signaler</button>"
 
                 comComtentText=""
                 
-                if(document.querySelector("#"+'large_coms'+data[i].ARTICLES_PK)){
-                    displayType = document.getElementById('large_coms'+data[i].ARTICLES_PK).style.display
+                if(document.querySelector("#"+'large_coms'+pk)){
+                    displayType = document.getElementById('large_coms'+pk).style.display
 
                   
 
@@ -239,11 +244,11 @@ function loadSite(){
                     displayType = "none"
                 }
     
-                articlesHtml += "<div style = 'display:"+displayType+"' id = 'large_coms"+data[i].ARTICLES_PK+"'>"
+                articlesHtml += "<div style = 'display:"+displayType+"' id = 'large_coms"+pk+"'>"
                 
-                articlesHtml += "<form class='zonetxt' method='post' onsubmit='return sendComData("+data[i].ARTICLES_PK+");'> <textarea class='comText' id='comText"+data[i].ARTICLES_PK+"' name='textC'></textarea>  <input id = 'title"+data[i].ARTICLES_PK+"' name='title'  style='visibility : hidden' value='"+data[i].title+"'> <br> <input class='boutton' type='image' src='send.png' id='submit' alt='submit'> </form>"
+                articlesHtml += "<form class='zonetxt' method='post' onsubmit='return sendComData("+pk+");'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+dataS.title+"'> <br> <input class='boutton' type='image' src='send.png' id='submit' alt='submit'> </form>"
             
-                articlesHtml += "<div  id = 'com"+data[i].ARTICLES_PK+"'>"
+                articlesHtml += "<div  id = 'com"+pk+"'>"
 
                     //coments here
 
@@ -257,7 +262,7 @@ function loadSite(){
                 //Like here
 
             
-                articlesHtml += "<div class = 'avi' id = 'avi"+data[i].ARTICLES_PK+"'>"
+                articlesHtml += "<div class = 'avi' id = 'avi"+pk+"'>"
 
                 
 
@@ -267,22 +272,12 @@ function loadSite(){
                 articlesHtml += "</section>"
 
                 artZone.innerHTML += articlesHtml
-                articlesHtml = ""
+                
              
                
           
                 
-            }
 
-            
-
-
-
-            
-    }else{
-        
-        
-    }
 }  
 
    
@@ -294,11 +289,12 @@ function decodeEntity(inputStr) {
 
 function sendComData(a_pk)
 {
+    console.log("a")
     user_pk = document.getElementById("user_pk").value
 
 
     if(user_pk == ''){
-        window.location.href = "Connexion.php"
+        window.location.href = "?page=connection"
        
 
     }else{
@@ -323,11 +319,17 @@ function sendComData(a_pk)
 
 
 
-        $.get('getPosts.php', function(result) {
-            $('#pageApi').val(result);
-        }).done(loadCom)
+     
+        $.get('getPosts.php?PK=' + a_pk, function(result) {
+            data =  JSON.parse(decodeEntity(result))
+            $('#pageApi').val(JSON.stringify( data));
+            loadCom(a_pk)
+            document.getElementById("comText" + a_pk).value =""
+        })
 
-        document.getElementById("comText" + a_pk).value =""
+
+      
+        
         
         return false
     }
@@ -335,23 +337,37 @@ function sendComData(a_pk)
 
 
 
-    
+    /*
 
 $.get('getPosts.php', function(result) {
     $('#pageApi').val(result);
 }).done(loadSite, loadLike, loadCom)
 
+*/
 
+$.get('getPosts.php',false , function(result) {
 
-
-
-
-var auto_refresh = setInterval(
     
-    function (){
-
-        $.get('getPosts.php', function(result) {
-            $('#pageApi').val(result);
-        }).done(loadLike(), loadCom())
+    data =  JSON.parse(decodeEntity(result))
+    for (let i = 0; i < data.length; i++) {
+   
+   
+        $('#pageApi').val(JSON.stringify( data[i]));
     
-    }, 3000);
+        loadSite()
+        loadLike()
+        loadCom()
+    }
+
+    
+})
+
+/*
+data =  JSON.parse(decodeEntity( document.getElementById('pageApi').value ) )
+
+for (let i = 0; i < data.length; i++) {
+    loadSite(data[i].ARTICLES_PK)
+    loadLike(data[i].ARTICLES_PK)
+    loadCom(data[i].ARTICLES_PK)
+    
+}*/

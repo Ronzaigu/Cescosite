@@ -17,9 +17,7 @@ include_once("db.php");
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
     </head>
-    <a href="./cescosite.php"> 
-    <img class="revers" src="revers.png">
-    </a>
+   
     <body>
 
 
@@ -129,7 +127,7 @@ include_once("db.php");
                                         
                                     
 
-                                        header('Location: cescosite.php');
+                                        header('Location:');
                                     
                                         
                                     }else{
@@ -193,7 +191,7 @@ include_once("db.php");
 
   
             <input class="buttcon" type="image" src="./buttins1.png">
-        <a class="ins" href="./Connexion.php"><p>Deja un compte ?</p></a>
+        <a class="ins" href="?page=connection"><p>Deja un compte ?</p></a>
         </form>
         
         </div>

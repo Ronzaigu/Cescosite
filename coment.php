@@ -41,7 +41,7 @@ if(isset($_SESSION["user"])){
             mail($mail, $user . " a commenté votre post !", "Le user : " . $_SESSION['user'] . " a commenté votre post : " . $title . " ! \n Avec ce commentaire : " . $content);
 
 
-            header('Location: cescosite.php#' . "art" . $articlePK);
+            header('Location: #' . "art" . $articlePK);
 
         } else {
             echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);

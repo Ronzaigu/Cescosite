@@ -15,7 +15,7 @@
 	<title>Contact</title>
 
 </head>
-<a href="./cescosite.php"><img class="revers" src="./revers.png"></a>
+
 <body>
 <section class = "mail">
 
