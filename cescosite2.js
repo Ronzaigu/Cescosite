@@ -51,7 +51,7 @@ function reaction(type, PK){
 
 
     if(user_pk == ''){
-        window.location.href = "Connexion.php"
+        window.location.href = "?page=connection"
        
 
     }else{
@@ -161,7 +161,7 @@ function sendComData(a_pk)
 
 
     if(user_pk == ''){
-        window.location.href = "Connexion.php"
+        window.location.href = "?page=connection"
        
 
     }else{

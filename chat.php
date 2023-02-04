@@ -22,10 +22,7 @@
 
 
 
-<a href="cescosite.php"> 
-    <img class="revers" src="revers.png">
-    </a>
-    <header><h1 class="titre1">CHAT</h1></header>
+  
 
 
  
@@ -39,7 +36,7 @@ $CHAT_LIMIT = 20;
 
 function containsBadWord($string)
 { 
-    $badWord = array("connard", "pute", "fuck", "sex", "sexy", "connard", "fucke","foutre", "geul", "geule", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "con");
+    $badWord = array("connard", "pute", "fuck", "sex", "sexy", "connard", "fucke","foutre", "geul", "geule","tamer", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "con");
     
 
     for ($i=0; $i<count($badWord); $i++) {
@@ -91,7 +88,7 @@ if(isset($_POST["text"]))
                 while($row = $resultM->fetch_assoc()) {
                     mail($row["mail"], $_SESSION['user']." a envoyé un message dans le chat !", "Voila le message de ".$_SESSION['user']." : ".$text." \n\n  Allez sur https://rmbi.ch/cescosite/chat.php pour lui répondre !");
                 }
-                header('Location: chat.php');
+                header('Location: ?page=chat');
     
             }else{
                 echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
@@ -111,7 +108,7 @@ if(isset($_POST["text"]))
 <form class="zonetxt" method="post" onsubmit="return sendChatData();">
     <textarea class="zonne"name="text" id="chatContent" cols="30" rows="10"></textarea>
     <br/>     
-    <input class="boutton" type="image" src="send.png" id="submit" alt="submit"> 
+    <input class="boutton" type="image" src="./img/send.png" id="submit" alt="submit"> 
 </form>
 
 

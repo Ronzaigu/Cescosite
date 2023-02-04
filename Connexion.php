@@ -17,9 +17,7 @@ include_once("db.php");
 
 
      
-      <a href="cescosite.php"> 
-    <img class="revers" src="revers.png">
-    </a>
+     
 
     </head>
     
@@ -62,7 +60,7 @@ if (isset($_POST['username']))
     session_start();
     $_SESSION["user"] = $username;
     $_SESSION["userPK"] = $row["ju_Users_PK"];
-    header('Location: cescosite.php');
+    header('Location: .?page=home');
     ?>
 
     <?php
@@ -80,9 +78,9 @@ if (isset($_POST['username']))
   
          <input class="buttcon" type="image" src="./Buttcon1.png">   
         
-            <a class="mdp" href="recup.html"><p>Mot de passe oublié ?</p></a><!--Later forgotten password system-->
+            
     
-            <a class="ins" href="Inscription.php"><p>Pas de compte ?</p></a><!--Redirects to Inscritpion.php-->
+            <a class="ins" href="?page=inscription"><p>Pas de compte ?</p></a><!--Redirects to Inscritpion.php-->
         
         </form>
         </div>

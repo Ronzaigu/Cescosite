@@ -10,6 +10,6 @@ mail($destinataire, 'Signalement de l\'article : '.$id , "L'article avec l'id : 
 
 echo "L'article a bien été signalé";
 
-header('Location: cescosite.php#art'.$id);
+header('Location: #art'.$id);
 
 ?>
