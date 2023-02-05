@@ -15,7 +15,13 @@ include_once("db.php");
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-
+<script>
+        
+        if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=inscription"
+            
+        }
+    </script>
     </head>
    
     <body>
@@ -190,7 +196,7 @@ include_once("db.php");
             <div class="h-captcha" data-sitekey="bb8bb61a-c05b-4a17-af23-25991a1329c3"></div>
 
   
-            <input class="buttcon" type="image" src="./buttins1.png">
+            <input class="buttcon" type="image" src="./img/buttins1.png">
         <a class="ins" href="?page=connection"><p>Deja un compte ?</p></a>
         </form>
         

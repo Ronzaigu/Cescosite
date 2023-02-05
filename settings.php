@@ -17,12 +17,12 @@
     </a>
 
 	<script>
-
-if (window.location.protocol != "https:") {
-	window.location.protocol="https:";
-}
-</script>
-
+        
+        if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=settings"
+            
+        }
+    </script>
 
 </head>
 <?php
@@ -125,7 +125,7 @@ if (window.location.protocol != "https:") {
 
 			<input class="nom" type="text" name="newPseudo" placeholder="Nouveau pseudo">
 			<br>
-			<input class="but" type="image" src="eng.png" id="submit" alt="submit"> 
+			<input class="but" type="image" src="./img/eng.png" id="submit" alt="submit"> 
 
 	</form>
 	
@@ -137,7 +137,7 @@ if (window.location.protocol != "https:") {
 		<input class="mdp" type="password" name="oldPass" placeholder="Ancien mot de passe" minlength="0">
 		<br><input class="mdp" type="password" name="newPass" placeholder="Nouveau mot de passe" minlength="8">
 		<br>
-		<input class="but" type="image" src="eng.png" id="submit" alt="submit"> 
+		<input class="but" type="image" src="./img/eng.png" id="submit" alt="submit"> 
 
 
 	</form>
@@ -162,8 +162,8 @@ $(document).ready(function(){
 <body>
 
 
-<a class="btn1" ><img class="img1 "src="afficher.png"></a>
-<a class="btn2" hidden><img class="img1 "src="cacher.png"></a>
+<a class="btn1" ><img class="img1 "src="./img/afficher.png"></a>
+<a class="btn2" hidden><img class="img1 "src="./img/cacher.png"></a>
 	<div class="wsh" hidden>
 	
 		<form action="settings.php" method="post">
@@ -183,7 +183,7 @@ $(document).ready(function(){
 				Recevoir un mail pour les actualitées du site ?    <input type="checkbox" name="new-actu">
 				<br>
 				<input type="text" style = 'display: none;' value = 'The_form_was_sending' name="form_sender">
-				<input class="but" type="image" src="eng.png" id="submit" alt="submit"> 
+				<input class="but" type="image" src="./img/eng.png" id="submit" alt="submit"> 
 
 
 		</form>

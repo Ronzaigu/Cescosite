@@ -25,13 +25,15 @@ include_once("db.php");
         
         </nav>
     <body>
-
     <script>
-
-        if (window.location.protocol != "https:") {
-            window.location.protocol="https:";
+        
+        if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=connection"
+            
         }
     </script>
+      
+
 
     <h1 class="titre">Connexion</h1>
 
@@ -76,7 +78,7 @@ if (isset($_POST['username']))
             <input class="text" type="text" name="username" placeholder = "Nom d'utilisateur" class="pass"/>
             <input class="text" type="password" name="passwd" placeholder = "Mot de passe" class = pass/>
   
-         <input class="buttcon" type="image" src="./Buttcon1.png">   
+         <input class="buttcon" type="image" src="./img/Buttcon1.png">   
         
             
     

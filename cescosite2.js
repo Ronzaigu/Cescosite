@@ -97,9 +97,9 @@ function updateLikes(article){
         let nbLike = 0
         let nbNeutre = 0
         let nbDislike = 0
-        let scrLike = "upvote_vide.png"
-        let scrNeutre = "neutrevote_vide.png"
-        let scrDislike = "downvote_vide.png"
+        let scrLike = "./img/upvote_vide.png"
+        let scrNeutre = "./img/neutrevote_vide.png"
+        let scrDislike = "./img/downvote_vide.png"
 
 
 
@@ -111,13 +111,13 @@ function updateLikes(article){
                 nbDislike = countLike( "-", article.reaction)
                 user_pk = document.getElementById("user_pk").value
                 if (isUserLike("+", user_pk, article.reaction)) {
-                    scrLike = "upvote_plein.png"
+                    scrLike = "./img/upvote_plein.png"
                 }
                 if (isUserLike("=", user_pk, article.reaction)) {
-                    scrNeutre = "neutrevote_plein.png"
+                    scrNeutre = "./img/neutrevote_plein.png"
                 }
                 if (isUserLike("-", user_pk, article.reaction)) {
-                    scrDislike = "downvote_plein.png"
+                    scrDislike = "./img/downvote_plein.png"
                 }
             
             }
@@ -266,7 +266,7 @@ function loadPost(index, data){
 
     articlesHtml += "<div style = 'display:none' id = 'large_coms"+pk+"'>"
     
-    articlesHtml += "<form class='zonetxt' id='comment-form' method='post' id='comForm'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+article.title+"'> <br> <input class='boutton' type='submit' src='send.png' id='submit' alt='submit'> </form>"
+    articlesHtml += "<form class='zonetxt' id='comment-form' method='post' id='comForm'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+article.title+"'> <br> <input class='boutton' type='submit' src='./img/send.png' id='submit' alt='submit'> </form>"
 
     articlesHtml += "<div  id = 'com"+pk+"'>"
 
@@ -286,9 +286,9 @@ function loadPost(index, data){
         let nbLike = 0
         let nbNeutre = 0
         let nbDislike = 0
-        let scrLike = "upvote_vide.png"
-        let scrNeutre = "neutrevote_vide.png"
-        let scrDislike = "downvote_vide.png"
+        let scrLike = "./img/upvote_vide.png"
+        let scrNeutre = "./img/neutrevote_vide.png"
+        let scrDislike = "./img/downvote_vide.png"
 
 
 
@@ -300,13 +300,13 @@ function loadPost(index, data){
                 nbDislike = countLike( "-", article.reaction)
                 user_pk = document.getElementById("user_pk").value
                 if (isUserLike("+", user_pk, article.reaction)) {
-                    scrLike = "upvote_plein.png"
+                    scrLike = "./img/upvote_plein.png"
                 }
                 if (isUserLike("=", user_pk, article.reaction)) {
-                    scrNeutre = "neutrevote_plein.png"
+                    scrNeutre = "./img/neutrevote_plein.png"
                 }
                 if (isUserLike("-", user_pk, article.reaction)) {
-                    scrDislike = "downvote_plein.png"
+                    scrDislike = "./img/downvote_plein.png"
                 }
             
             }

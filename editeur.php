@@ -27,7 +27,13 @@ include_once("db.php");
     <link rel="stylesheet" href="trumbowyg/dist/ui/trumbowyg.min.css">
 
     <!-- Import highlight plugin specific stylesheet -->
-
+    <script>
+        
+        if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=editor"
+            
+        }
+    </script>
 </head>
 
 <body>
@@ -151,7 +157,7 @@ include_once("db.php");
                 <div id='editor'>
 
                 </div>
-                <input class="bouton" type="image" src="postbutt.png" onclick="send()">
+                <input class="bouton" type="image" src="./img/postbutt.png" onclick="send()">
 
 
             </form>

@@ -34,7 +34,7 @@ function decodeEntity(inputStr) {
 function loadChat(){
     data = JSON.parse(decodeEntity(document.getElementById("chatData").value))
     chatHtml = ""
-    console.log(data)
+    
     for (let i = 0; i < data.length; i++) {
       
       chatHtml += "<strong>" + data[i].creator + "</strong>" + "    " + "<em>" + data[i].dat + "</em>";

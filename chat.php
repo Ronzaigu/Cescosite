@@ -18,7 +18,13 @@
 <body>
 
 
-
+<script>
+        
+        if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=chat"
+            
+        }
+    </script>
 
 
 
@@ -64,38 +70,43 @@ if(isset($_POST["text"]))
 
     if($text !== "")
     {
-        if(containsBadWord(strtolower($_POST["text"])) == FALSE){
-            
-            $sql = "INSERT INTO ju_chat (content, USER_FK) VALUES ('$text', '$user')";
-        
+        if ($_SESSION['userPK']) {
+            if (containsBadWord(strtolower($_POST["text"])) == FALSE) {
+
+                $sql = "INSERT INTO ju_chat (content, USER_FK) VALUES ('$text', '$user')";
 
 
 
 
-            if (mysqli_query($conn, $sql)) {
 
-                $sqlL = "SELECT * FROM ju_chat";
-                $nbChat = $conn->query($sqlL)->num_rows;
+                if (mysqli_query($conn, $sql)) {
 
-                if ($nbChat > $CHAT_LIMIT) {
-                    $sqlD = "DELETE FROM ju_chat LIMIT 1";
-                    mysqli_query($conn, $sqlD);
+                    $sqlL = "SELECT * FROM ju_chat";
+                    $nbChat = $conn->query($sqlL)->num_rows;
+
+                    if ($nbChat > $CHAT_LIMIT) {
+                        $sqlD = "DELETE FROM ju_chat LIMIT 1";
+                        mysqli_query($conn, $sqlD);
+                    }
+
+                    $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_chat = 'on'";
+                    $resultM = $conn->query($sqlM);
+
+                    while ($row = $resultM->fetch_assoc()) {
+                        mail($row["mail"], $_SESSION['user'] . " a envoyé un message dans le chat !", "Voila le message de " . $_SESSION['user'] . " : " . $text . " \n\n  Allez sur https://rmbi.ch/cescosite/chat.php pour lui répondre !");
+                    }
+                    header('Location: ?page=chat');
+
+                } else {
+                    echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
                 }
-                
-                $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_chat = 'on'";
-                $resultM = $conn->query($sqlM);
-                
-                while($row = $resultM->fetch_assoc()) {
-                    mail($row["mail"], $_SESSION['user']." a envoyé un message dans le chat !", "Voila le message de ".$_SESSION['user']." : ".$text." \n\n  Allez sur https://rmbi.ch/cescosite/chat.php pour lui répondre !");
-                }
-                header('Location: ?page=chat');
-    
-            }else{
-                echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
+
             }
-
+        }else{
+            echo "dqdw";
+            header('Location: ?page=connection');
+            
         }
-
     }
 
 
@@ -130,7 +141,7 @@ if(isset($_POST["text"]))
 <script src="./chat.js"></script>
 
 <footer>
-    <input id ='chatData' type="text">
+    <input id ='chatData' style="visiblity:none" type="text">
 </footer>
 
 </body>

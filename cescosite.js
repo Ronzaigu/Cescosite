@@ -128,9 +128,9 @@ function loadLike()
     let nbLike = 0
     let nbNeutre = 0
     let nbDislike = 0
-    let scrLike = "upvote_vide.png"
-    let scrNeutre = "neutrevote_vide.png"
-    let scrDislike = "downvote_vide.png"
+    let scrLike = "./img/upvote_vide.png"
+    let scrNeutre = "./img/neutrevote_vide.png"
+    let scrDislike = "./img/downvote_vide.png"
 
     let likeHtml = ""
  
@@ -144,13 +144,13 @@ function loadLike()
             nbDislike = countLike( "-", dataL.reaction)
             user_pk = document.getElementById("user_pk").value
             if (isUserLike("+", user_pk, dataL.reaction)) {
-                scrLike = "upvote_plein.png"
+                scrLike = "./img/upvote_plein.png"
             }
             if (isUserLike("=", user_pk, dataL.reaction)) {
-                scrNeutre = "neutrevote_plein.png"
+                scrNeutre = "./img/neutrevote_plein.png"
             }
             if (isUserLike("-", user_pk, dataL.reaction)) {
-                scrDislike = "downvote_plein.png"
+                scrDislike = "./img/downvote_plein.png"
             }
         
         }
@@ -246,7 +246,7 @@ function loadSite(){
     
                 articlesHtml += "<div style = 'display:"+displayType+"' id = 'large_coms"+pk+"'>"
                 
-                articlesHtml += "<form class='zonetxt' method='post' onsubmit='return sendComData("+pk+");'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+dataS.title+"'> <br> <input class='boutton' type='image' src='send.png' id='submit' alt='submit'> </form>"
+                articlesHtml += "<form class='zonetxt' method='post' onsubmit='return sendComData("+pk+");'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+dataS.title+"'> <br> <input class='boutton' type='image' src='./img/send.png' id='submit' alt='submit'> </form>"
             
                 articlesHtml += "<div  id = 'com"+pk+"'>"
 

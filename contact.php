@@ -17,6 +17,15 @@
 </head>
 
 <body>
+
+<script>
+        
+        if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=contact"
+            
+        }
+    </script>
+      
 <section class = "mail">
 
         <h2>Contatcter AsterJdM :</h2>
