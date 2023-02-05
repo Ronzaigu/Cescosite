@@ -62,7 +62,7 @@ if (isset($_POST['username']))
     session_start();
     $_SESSION["user"] = $username;
     $_SESSION["userPK"] = $row["ju_Users_PK"];
-    header('Location: .?page=home');
+    header('Location: cescosite.php');
     ?>
 
     <?php
