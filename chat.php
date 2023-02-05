@@ -89,12 +89,7 @@ if(isset($_POST["text"]))
                         mysqli_query($conn, $sqlD);
                     }
 
-                    $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_chat = 'on'";
-                    $resultM = $conn->query($sqlM);
-
-                    while ($row = $resultM->fetch_assoc()) {
-                        mail($row["mail"], $_SESSION['user'] . " a envoyé un message dans le chat !", "Voila le message de " . $_SESSION['user'] . " : " . $text . " \n\n  Allez sur https://rmbi.ch/cescosite/chat.php pour lui répondre !");
-                    }
+             
                     header('Location: ?page=chat');
 
                 } else {

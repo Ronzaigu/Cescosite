@@ -35,12 +35,7 @@ if(isset($_SESSION["user"])){
         if (mysqli_query($conn, $sql)) {
 
 
-            $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_coment = 'on' AND username = '$creator'";
-            $mail = $conn->query($sqlM)->fetch_assoc()["mail"];
-
-            mail($mail, $user . " a commenté votre post !", "Le user : " . $_SESSION['user'] . " a commenté votre post : " . $title . " ! \n Avec ce commentaire : " . $content);
-
-
+          
             header('Location: #' . "art" . $articlePK);
 
         } else {

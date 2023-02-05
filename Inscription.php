@@ -27,12 +27,7 @@ include_once("db.php");
     <body>
 
 
-    <script>
-    
-        if (window.location.protocol != "https:") {
-            window.location.protocol="https:";
-        }
-    </script>
+
 
     <h1 class="titre">Inscription</h1>
 
@@ -44,7 +39,7 @@ include_once("db.php");
 
             function containsBadWord($string)
             { 
-                $badWord = array("admin","asterjdm", "moderateur", "modérateur", "modo", "connard", "pute", "fuck", "sex", "sexy", "connard", "fuck","foutre", "ftg", "geul", "geule", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "debile", "débile", "con", "débil", "debil","jdm", "aster", "asteroidus");
+                $badWord = array("admin","asterjdm", "moderateur", "modérateur", "modo", "connard", "pute", "fuck", "sex", "sexy", "connard", "fuck","foutre", "ftg", "geul", "geule", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "debile", "débile", "con", "débil", "debil","jdm", "aster", "asteroidus", "tamer", "hitler", "nique", "niq", "nik");
                 
 
                 for ($i=0; $i<count($badWord); $i++) {
@@ -86,14 +81,7 @@ include_once("db.php");
                   $mail = $_POST["mail"];
 
 
-                $new_post = $_POST["new-post"];
-                $new_chat = $_POST["new-chat"];
-                $new_coment = $_POST["new-coment"];
-                $new_like = $_POST["new-like"];
-                $new_actu = $_POST["new-actu"];
-
-
-
+                
 
 
 
@@ -116,7 +104,7 @@ include_once("db.php");
                             }else{
                      
                             
-                                    $sql = "INSERT INTO ju_Users (username, passwd, mail, mail_new_post, mail_new_chat, mail_new_coment, mail_new_like, mail_new_actu) VALUES ('$username', MD5(MD5('$passwd')), '$mail', '$new_post', '$new_chat', '$new_coment', '$new_like', '$new_actu')";
+                                    $sql = "INSERT INTO ju_Users (username, passwd, mail) VALUES ('$username', MD5(MD5('$passwd')), '$mail')";
                                 
                             
                                     if (mysqli_query($conn, $sql)) {
@@ -168,27 +156,8 @@ include_once("db.php");
         <form action="Inscription.php" method="POST" enctype="multipart/form-data">
             <input class="text" type="text" name="username" placeholder = "Nom d'utilisateur" class="pass"/>
             <input class="text" type="password" name="passwd" placeholder = "Mot de passe" class = pass minlength="8"/>
-            <p>Vous pouvez si vous le souhaiter ajouter votre adresse mail pour resevoir les actualiter du site : </p>
-            <input type="email" class = "text" name="mail" placeholder = "Votre adresse mail (Facultatif)" multiple>
-            <p>
-            Recevoir un mail pour les nouveaux posts ?    <input type="checkbox" name="new-post" />
-            <br>
-            <br>
-            Recevoir un mail pour les nouveaux message dans le chat ?    <input type="checkbox" name="new-chat" />
-            <br>
-            <br>
-            Recevoir un mail pour les nouveaux comentaire à vos post ?    <input type="checkbox" name="new-coment" />
-            <br>
-            <br>
-            Recevoir un mail pour les nouveaux votes à vos post ?    <input type="checkbox" name="new-like" />
-            <br>
-            <br>
-            Recevoir un mail pour les actualitées du site ?    <input type="checkbox" name="new-actu" />
-
-
-
-            </p>
-            
+            <input type="email" class = "text" name="mail" placeholder = "Votre adresse mail" multiple>
+    
 
             <br>
             <br>

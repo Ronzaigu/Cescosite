@@ -97,21 +97,6 @@
 
 	}
 
-	if (isset($_POST['form_sender'])) {
-		$newPost = $_POST['new-post'];
-		$newChat = $_POST['new-chat'];
-		$newComent = $_POST['new-coment'];
-		$newLike = $_POST['new-like'];
-		$newActu = $_POST['new-actu'];
-
-		$sql = "UPDATE ju_Users SET mail_new_post = '$newPost', mail_new_chat = '$newChat', mail_new_coment = '$newComent', mail_new_like = '$newLike', mail_new_actu = '$newActu' WHERE ju_Users_PK = '$userPK'";
-	
-		if (mysqli_query($conn, $sql)) {
-			echo "Vos modification on été enregistrées.";
-		}else{
-			echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
-		}
-	}
 
 ?>
 
@@ -143,52 +128,11 @@
 	</form>
 	</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $(".btn1").click(function(){
-    $(".wsh").show();
-    $(".btn1").hide(1);
-    $(".btn2").show(1);
-  });
-  $(".btn2").click(function(){
-    $(".wsh").hide(1);
-     $(".btn2").hide(1);
-     $(".btn1").show(1);
-  });
-});
-</script>
+	
+
 </head>
 <body>
 
-
-<a class="btn1" ><img class="img1 "src="./img/afficher.png"></a>
-<a class="btn2" hidden><img class="img1 "src="./img/cacher.png"></a>
-	<div class="wsh" hidden>
-	
-		<form action="settings.php" method="post">
-
-				Recevoir un mail pour les nouveaux posts ?    <input type="checkbox" name="new-post">
-				<br>
-				<br>
-				Recevoir un mail pour les nouveaux message dans le chat ?    <input type="checkbox" name="new-chat">
-				<br>
-				<br>
-				Recevoir un mail pour les nouveaux comentaire à vos post ?    <input type="checkbox" name="new-coment">
-				<br>
-				<br>
-				Recevoir un mail pour les nouveaux votes à vos post ?    <input type="checkbox" name="new-like">
-				<br>
-				<br>
-				Recevoir un mail pour les actualitées du site ?    <input type="checkbox" name="new-actu">
-				<br>
-				<input type="text" style = 'display: none;' value = 'The_form_was_sending' name="form_sender">
-				<input class="but" type="image" src="./img/eng.png" id="submit" alt="submit"> 
-
-
-		</form>
-
-</div>
 
 </body>
 </html>
