@@ -1,26 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 
-textarea{
-    width: 75%;
-    height: 50%;
+.mail {
+
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+
 }
 
 
+h2 {
 
- 
+    font-size: 60px;
 
-.mail{
-
-text-align: center;
-font-size: 80px;
-color: white;
-font-family: 'Bebas Neue', cursive;
 }
- .send{
 
-font-size:40px ;
 
- }
-.revers{
-width: 40px;
-height: 40px;}
+.send {
+
+    border: none;
+    background: black;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100px;
+    width: 200px;
+    height: 60px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    font-family: 'Bebas Neue', cursive;
+    line-height: 60px;
+    transition: 0.4s;
+    font-size: 40px;
+
+}
+
+

@@ -1,32 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 
-.Titre-apropos
-{
-text-align: center;
-font-size: 110px;
-font-family: 'Bebas Neue', cursive;
+.about {
 
+    margin-top: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: justify;
+    margin-right: 20%;
+    margin-left: 20%;
 
 }
 
+.inter {
 
-    
-
-.Sous-titre{    
-font-family: 'Ubuntu', sans-serif;
+font-family: 'Quicksand', sans-serif;
 font-size: 45px;
-text-align: center;
-border: ridge white 4px;}
+margin-bottom: 5px;
 
-
-.text{
-font-family: 'ubuntu', sans-serif;
-font-size: 30px }
-
-
-
-  
-
-a{
-    color: rgb(255, 255, 255);
 }
+
+
+.text {
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    animation: appear 1s ease-in-out forwards;
+
+}
+
+
+
+a {
+
+    color: white;
+    transition: 1s;
+
+}
+
+
+a:hover {
+
+    color: black;
+
+}
+
+
+
+
+

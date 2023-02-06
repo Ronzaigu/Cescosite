@@ -7,34 +7,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./chat.css">
+    <link rel="stylesheet" href="./css/chat.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="./chat.js"></script>
+    <script src="./js/chat.js"></script>
     <title>CescoSite - Chat</title>
 </head>
 <body>
 
 
-<script>
-        
-        if(window.location.pathname != "/cescosite/"){
-            window.location.href = ".?page=chat"
-            
-        }
-    </script>
 
-
-
-  
-
-
- 
-
-
-    <div class="border">
+<div class="border">
 
 <?php
 
@@ -70,38 +52,38 @@ if(isset($_POST["text"]))
 
     if($text !== "")
     {
-        if ($_SESSION['userPK']) {
-            if (containsBadWord(strtolower($_POST["text"])) == FALSE) {
-
-                $sql = "INSERT INTO ju_chat (content, USER_FK) VALUES ('$text', '$user')";
-
-
-
-
-
-                if (mysqli_query($conn, $sql)) {
-
-                    $sqlL = "SELECT * FROM ju_chat";
-                    $nbChat = $conn->query($sqlL)->num_rows;
-
-                    if ($nbChat > $CHAT_LIMIT) {
-                        $sqlD = "DELETE FROM ju_chat LIMIT 1";
-                        mysqli_query($conn, $sqlD);
-                    }
-
-             
-                    header('Location: ?page=chat');
-
-                } else {
-                    echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
-                }
-
-            }
-        }else{
-            echo "dqdw";
-            header('Location: ?page=connection');
+        if(containsBadWord(strtolower($_POST["text"])) == FALSE){
             
+            $sql = "INSERT INTO ju_chat (content, USER_FK) VALUES ('$text', '$user')";
+        
+
+
+
+
+            if (mysqli_query($conn, $sql)) {
+
+                $sqlL = "SELECT * FROM ju_chat";
+                $nbChat = $conn->query($sqlL)->num_rows;
+
+                if ($nbChat > $CHAT_LIMIT) {
+                    $sqlD = "DELETE FROM ju_chat LIMIT 1";
+                    mysqli_query($conn, $sqlD);
+                }
+                
+                $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_chat = 'on'";
+                $resultM = $conn->query($sqlM);
+                
+                while($row = $resultM->fetch_assoc()) {
+                    mail($row["mail"], $_SESSION['user']." a envoyé un message dans le chat !", "Voila le message de ".$_SESSION['user']." : ".$text." \n\n  Allez sur https://rmbi.ch/cescosite/chat.php pour lui répondre !");
+                }
+                header('Location: ?page=chat');
+    
+            }else{
+                echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
+            }
+
         }
+
     }
 
 
@@ -112,9 +94,11 @@ if(isset($_POST["text"]))
 
 
 <form class="zonetxt" method="post" onsubmit="return sendChatData();">
-    <textarea class="zonne"name="text" id="chatContent" cols="30" rows="10"></textarea>
+
+    <textarea class="zone" name="text" id="chatContent" cols="30" rows="10"></textarea>
     <br/>     
-    <input class="boutton" type="image" src="./img/send.png" id="submit" alt="submit"> 
+    <button class="button" type="text" id="submit" alt="submit"><p class="subtitle">Envoyer</p></button> 
+
 </form>
 
 
@@ -136,8 +120,9 @@ if(isset($_POST["text"]))
 <script src="./chat.js"></script>
 
 <footer>
-    <input id ='chatData' style="visiblity:none" type="text">
+    <input id ='chatData' type="text">
 </footer>
+ 
 
 </body>
 

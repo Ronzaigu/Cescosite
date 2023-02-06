@@ -1,65 +1,102 @@
-.revers{
-	text-align: right;
-width: 40px;
-height: 40px;
-margin-right: 100%;}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-body{
+
+
+body {
+
     text-align: center;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     height: 100vh;
-    }
-h1{
-	text-align: center;
-font-size: 110px;
-font-family: 'Bebas Neue', cursive;
-color: white;}
+    
+}
 
-.soustitre{
+
+
+.options {
+
+    text-align: center;
+    font-size: 110px;
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+
+}
+
+
+
+.soustitre {
+
 	color: white;
-	text-align: center;
-   font-family: 'Bebas Neue', cursive;
-	font-size: 30px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+	font-size: 50px;
+   
 
 }
 
-.but{
 
-width: 250px;
-text-align: center;
 
+.but {
+
+    border: none;
+    background: black;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100px;
+    width: 200px;
+    height: 60px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    font-family: 'Bebas Neue', cursive;
+    line-height: 60px;
+    transition: 0.4s;
+    font-size: 40px;
 
 }
 
-.nom{
-height: 30px;
+.but:hover {
+
+    background-color: #5e6362;
+    
+}
+
+
+.name {
+    
+    height: 40px;
 	margin-bottom: 7.5px;
-}
-
-
-.mdp{
-
-height: 30px;
-	margin-bottom: 7.5px;	
-}
-
-@keyframes pric {
-
-0%{margin-left: 10%;}
-100%{margin-left: 0%;}
+    border-radius: 100px;
+    border-color: black;
+    border-style: solid;
 
 }
 
-.div1{
 
-animation-name: pric;
+
+.pass {
+
+    height: 40px;
+	margin-bottom: 7.5px;
+    border-radius: 100px;
+    border-color: black;
+    border-style: solid;
+
+}
+
+
+.all {
+
+    animation-name: slowslide;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
 
-
 }
+
+
 
 .img1{
 
@@ -67,18 +104,75 @@ width: 100px;
 
 }
 
-.wsh{
- width: 450px;
-    border: 20px double black;
+@keyframes slide {
 
-    padding: 20px;
-    margin: 20px;
 
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    0% {
 
-    background-color: white;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 15px;
+        margin-left: 10%;
+    
+    }
+    
+    100% {
+    
+        margin-left: 0%;
+
+    }
+
+}
+
+
+@keyframes fade {
+
+    from {
+
+
+        opacity: 0%;
+
+    }
+
+
+    to {
+
+
+        opacity: 100%;
+
+    }
+
+}
+
+
+
+@keyframes slowslide{
+
+
+    from {
+
+        margin-left: -3%;
+
+    }
+
+
+    to {
+
+        margin-left: 0%;
+
+    }
+}
+
+@keyframes slide{
+
+
+    from {
+
+        margin-left: -10%;
+
+    }
+
+
+    to {
+
+        margin-left: 0%;
+
+    }
 }
