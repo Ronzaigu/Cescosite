@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 
 
 .mail {
@@ -12,6 +14,8 @@
 h2 {
 
     font-size: 60px;
+    animation-name: fade;
+    animation-duration: 2s;
 
 }
 
@@ -37,4 +41,90 @@ h2 {
 
 }
 
+
+.intext {
+
+
+    width: 600px;
+    height: 500px;
+    resize: none;
+
+
+}
+
+
+
+
+.send_button{
+
+    animation-name: slide;
+    animation-duration: 0.5s; 
+
+}
+
+
+.send:hover {
+
+    background-color: #5e6362;
+    
+}
+
+
+
+@keyframes fade {
+
+    from {
+
+
+        opacity: 0%;
+
+    }
+
+
+    to {
+
+
+        opacity: 100%;
+
+    }
+
+}
+
+
+
+@keyframes slide{
+
+
+    from {
+
+        margin-left: -10%;
+
+    }
+
+
+    to {
+
+        margin-left: 0%;
+
+    }
+}
+
+
+
+@keyframes slowslide{
+
+
+    from {
+
+        margin-left: -3%;
+
+    }
+
+
+    to {
+
+        margin-left: 0%;
+
+    }
+}
 

@@ -1,8 +1,4 @@
-
-
-
-<html>
-
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -97,7 +93,7 @@ if(isset($_POST["text"]))
 
     <textarea class="zone" name="text" id="chatContent" cols="30" rows="10"></textarea>
     <br/>     
-    <button class="button" type="text" id="submit" alt="submit"><p class="subtitle">Envoyer</p></button> 
+    <button class="button"  id="submit" ><p class="subtitle">Envoyer</p></button> 
 
 </form>
 

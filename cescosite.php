@@ -11,7 +11,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Cescosite : Site de publication d'article pour Cescole.">
-        <link rel="stylesheet" href="./cescosite.css" />
+        <link rel="stylesheet" href="./css/cescosite.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -36,13 +36,7 @@
 </head>
 
 <body>
-<script>
-        
-        if(window.location.pathname != "/cescosite/"){
-            window.location.href = ".?page=home"
-            
-        }
-    </script>
+
       
         <section>
               
@@ -72,7 +66,7 @@
 
 
 
-                <script src="./cescosite2.js"></script>
+                <script src="./js/cescosite2.js"></script>
 
 
                 <input style="visibility: hidden;" type="text" id='user_pk' value=<?php echo $_SESSION[userPK]; ?>>

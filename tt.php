@@ -24,7 +24,14 @@ if(isset($_SESSION['user'])){
     $sql = "INSERT INTO ju_articles (title, content, USER_FK) VALUES ('$title', '$text', '$user')";
     if (mysqli_query($conn, $sql)) {
 
-    
+        $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_post = 'on'";
+        $resultM = $conn->query($sqlM);
+        while($row = $resultM->fetch_assoc()) {
+            mail($row["mail"], $_SESSION['user']." a publié un nouvelle article !", "Allez voir le nouvelle article que ".$_SESSION['user']." a publié sur : \n https://rmbi.ch/cescosite/cescosite.php !");
+        }
+
+        echo "ok";
+
 
     
         header('Location: cescosite.php');

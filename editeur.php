@@ -10,7 +10,7 @@ include_once("db.php");
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="editeur.css">
+    <link rel="stylesheet" type="text/css" href="./css/editeur.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -27,13 +27,7 @@ include_once("db.php");
     <link rel="stylesheet" href="trumbowyg/dist/ui/trumbowyg.min.css">
 
     <!-- Import highlight plugin specific stylesheet -->
-    <script>
-        
-        if(window.location.pathname != "/cescosite/"){
-            window.location.href = ".?page=editor"
-            
-        }
-    </script>
+
 </head>
 
 <body>
@@ -108,7 +102,12 @@ include_once("db.php");
             $sql = "INSERT INTO ju_articles (title, content, USER_FK) VALUES ('$title', '$text', '$user')";
             if (mysqli_query($conn, $sql)) {
 
-              
+                $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_post = 'on'";
+                $resultM = $conn->query($sqlM);
+                while ($row = $resultM->fetch_assoc()) {
+                    mail($row["mail"], $_SESSION['user'] . " a publié un nouvelle article !", "Allez voir le nouvelle article que " . $_SESSION['user'] . " a publié sur : \n https://rmbi.ch/cescosite/cescosite.php !");
+                }
+
 
 
 
@@ -152,7 +151,7 @@ include_once("db.php");
                 <div id='editor'>
 
                 </div>
-                <input class="bouton" type="image" src="./img/postbutt.png" onclick="send()">
+                <input class="bouton" type="image" src="postbutt.png" onclick="send()">
 
 
             </form>

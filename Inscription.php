@@ -9,24 +9,18 @@ include_once("db.php");
 <html>
     <head>
         <title>Cescosite - Inscription</title>
-        <link rel="stylesheet" href="singup.css">
+        <link rel="stylesheet" href="./css/singup.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-<script>
-        
-        if(window.location.pathname != "/cescosite/"){
-            window.location.href = ".?page=inscription"
-            
-        }
-    </script>
+        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     </head>
    
     <body>
-
-
+    <script>
+    
+        if (window.location.protocol != "https:") {
+            window.location.protocol="https:";
+        }
+    </script>
 
 
     <h1 class="titre">Inscription</h1>
@@ -39,7 +33,7 @@ include_once("db.php");
 
             function containsBadWord($string)
             { 
-                $badWord = array("admin","asterjdm", "moderateur", "modérateur", "modo", "connard", "pute", "fuck", "sex", "sexy", "connard", "fuck","foutre", "ftg", "geul", "geule", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "debile", "débile", "con", "débil", "debil","jdm", "aster", "asteroidus", "tamer", "hitler", "nique", "niq", "nik");
+                $badWord = array("admin","asterjdm", "moderateur", "modérateur", "modo", "connard", "pute", "fuck", "sex", "sexy", "connard", "fuck","foutre", "ftg", "geul", "geule", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "debile", "débile", "con", "débil", "debil","jdm", "aster", "asteroidus");
                 
 
                 for ($i=0; $i<count($badWord); $i++) {
@@ -81,7 +75,14 @@ include_once("db.php");
                   $mail = $_POST["mail"];
 
 
-                
+                $new_post = $_POST["new-post"];
+                $new_chat = $_POST["new-chat"];
+                $new_coment = $_POST["new-coment"];
+                $new_like = $_POST["new-like"];
+                $new_actu = $_POST["new-actu"];
+
+
+
 
 
 
@@ -104,7 +105,7 @@ include_once("db.php");
                             }else{
                      
                             
-                                    $sql = "INSERT INTO ju_Users (username, passwd, mail) VALUES ('$username', MD5(MD5('$passwd')), '$mail')";
+                                    $sql = "INSERT INTO ju_Users (username, passwd, mail, mail_new_post, mail_new_chat, mail_new_coment, mail_new_like, mail_new_actu) VALUES ('$username', MD5(MD5('$passwd')), '$mail', '$new_post', '$new_chat', '$new_coment', '$new_like', '$new_actu')";
                                 
                             
                                     if (mysqli_query($conn, $sql)) {
@@ -121,7 +122,7 @@ include_once("db.php");
                                         
                                     
 
-                                        header('Location: cescosite.php');
+                                        header('Location:');
                                     
                                         
                                     }else{
@@ -154,19 +155,17 @@ include_once("db.php");
 
 
         <form action="Inscription.php" method="POST" enctype="multipart/form-data">
+            
             <input class="text" type="text" name="username" placeholder = "Nom d'utilisateur" class="pass"/>
             <input class="text" type="password" name="passwd" placeholder = "Mot de passe" class = pass minlength="8"/>
-            <input type="email" class = "text" name="mail" placeholder = "Votre adresse mail" multiple>
-    
-
-            <br>
-            <br>
-
+            <input class="text" type="email" name="mail" placeholder = "Votre adresse mail" multiple minlength="1" >
+          
             <div class="h-captcha" data-sitekey="bb8bb61a-c05b-4a17-af23-25991a1329c3"></div>
 
-  
-            <input class="buttcon" type="image" src="./img/buttins1.png">
-        <a class="ins" href="?page=connection"><p>Deja un compte ?</p></a>
+            <button class="singup_button"><p class="link">Inscription</p></button>
+
+            <a class="ins" href="?page=connection"><p class="subtitle">Deja un compte ?</p></a>
+        
         </form>
         
         </div>

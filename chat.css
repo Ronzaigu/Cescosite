@@ -27,7 +27,7 @@ body {
 
 .zone{
 	
-	border: ridge black 5px;
+	
 	resize: none;
 	width: 350px;
 	height: 200px;
@@ -36,17 +36,6 @@ body {
 
 	
 		
-.border {
-
-	width: 450px;
-	border: 20px double black;
-	padding: 20px;
-    margin: 20px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-
-}
 
 .button {
 
@@ -70,7 +59,11 @@ body {
 
 }
 
+.button:hover {
 
+    background-color: #5e6362;
+    
+}
 
 .subtitle {
 
@@ -78,6 +71,7 @@ body {
     animation-duration: 0.5s;
 
 }
+
 
 
 

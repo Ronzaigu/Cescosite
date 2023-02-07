@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
-.login
-{
+.login {
+
     width: 450px;
     border: 20px double black;
 
@@ -13,58 +15,173 @@
 
     background-color: white;
 
+}
 
+
+body {
+ 
+    font-family: 'Bebas Neue', cursive;
 
 }
 
 
 
+.titre {
 
-
-nav{
-    
-  }
-
-  
-
-.titre
-{
     text-align: center;
     font-size:110px;
-color: white;
+    color: white;
+
 }
 
 
-.text{
+
+.text {
 
     width: 100%;
     height: 5%;
+    font-family: 'Quicksand', cursive;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #5e6362;
+    margin-top: 2px;
     
 }
 
-.buttcon{
-margin: auto;
-display: block;
-width: 400;
+
+
+.singup_button {
+
+
+    border: none;
+    background: black;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100px;
+    width: 200px;
+    height: 60px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    font-family: 'Bebas Neue', cursive;
+    line-height: 60px;
+    transition: 0.4s;
+    font-size: 40px;
 
 }
 
 
-.mdp
-{
+
+.singup_button:hover {
+
+    background-color: #5e6362;
+
+}
+
+
+
+.subtitle {
+
+    animation-name: slide;
+    animation-duration: 0.5s;
+
+}
+
+
+
+.mdp {
+
 text-align: center;
 color: black;
 
 }
 
-.revers{
-width: 40px;
-height: 40px;}
 
-.ins{
+
+.ins {
 
 text-align: center;
 color: black;
 
 }
 
+
+
+.h-captcha {
+
+
+    margin-top: 5px;
+    border-radius: 20px;
+
+}
+
+
+
+.link {
+
+    transition: 2s;
+
+}
+
+
+
+.link:hover {
+
+
+    color: #5e6362;
+
+}
+
+
+@keyframes slide{
+
+
+    from {
+
+        margin-left: -10%;
+
+    }
+
+
+    to {
+
+        margin-left: 0%;
+
+    }
+}
+
+
+
+@keyframes slowslide{
+
+
+    from {
+
+        margin-left: -3%;
+
+    }
+
+
+    to {
+
+        margin-left: 0%;
+
+    }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .title {
+
+        font-size: 120px;    
+
+    }
+
+
+     
+
+}

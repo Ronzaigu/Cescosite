@@ -48,7 +48,9 @@
                 $userFK = $conn->query($sqlUSERFK)->fetch_assoc()["USER_FK"];
                 $title = $conn->query($sqlUSERFK)->fetch_assoc()["title"];
                 
-            
+                $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_like = 'on' AND ju_Users_PK = '$userFK'";
+                $mail = $conn->query($sqlM)->fetch_assoc()["mail"];
+                mail($mail, $_SESSION['user']." a liké votre post", "Le user ".$_SESSION['user']." a soutenus votre post : ".$title."\n\n https://rmbi.ch/cescosite/cescosite.php#art".$num);
                 header('Location: .?page=home');
             echo $type;
 
