@@ -16,8 +16,11 @@ include_once("db.php");
 
     <script>
 
-        if (window.location.protocol != "https:") {
-            window.location.protocol="https:";
+    if(window.location.pathname != "/cescosite/"){
+
+            window.location.href = ".?page=connection"
+
+
         }
     </script>
 

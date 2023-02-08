@@ -3,8 +3,6 @@
 
 <head>
         <title>CescoSite</title>
-        <link rel="manifest" href="manifest.json">
-
 
 
 
@@ -36,7 +34,12 @@
 </head>
 
 <body>
+<script>
+                if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=home"
 
+        }
+</script>
       
         <section>
               

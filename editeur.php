@@ -32,7 +32,13 @@ include_once("db.php");
 
 <body>
 
+<script>
+      if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=editor"
 
+        }
+
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
     <!-- Import prismjs line highlight plugin -->
     <script
@@ -99,16 +105,6 @@ include_once("db.php");
             }
 
 
-            $sql = "INSERT INTO ju_articles (title, content, USER_FK) VALUES ('$title', '$text', '$user')";
-            if (mysqli_query($conn, $sql)) {
-
-                $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_post = 'on'";
-                $resultM = $conn->query($sqlM);
-                while ($row = $resultM->fetch_assoc()) {
-                    mail($row["mail"], $_SESSION['user'] . " a publié un nouvelle article !", "Allez voir le nouvelle article que " . $_SESSION['user'] . " a publié sur : \n https://rmbi.ch/cescosite/cescosite.php !");
-                }
-
-
 
 
 
@@ -118,7 +114,7 @@ include_once("db.php");
                 echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
             }
 
-        }
+        
 
 
     } else {

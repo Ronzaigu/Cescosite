@@ -37,8 +37,15 @@
 </header>
 
 
+<script>
+          if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=home"
 
-
+        }
+    if (window.location.protocol != "https:") {
+    window.location.protocol="https:";
+}
+</script>
 
         <nav class="butontop">
                 

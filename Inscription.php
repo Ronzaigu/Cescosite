@@ -17,8 +17,9 @@ include_once("db.php");
     <body>
     <script>
     
-        if (window.location.protocol != "https:") {
-            window.location.protocol="https:";
+    if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=inscription"
+
         }
     </script>
 
@@ -105,7 +106,7 @@ include_once("db.php");
                             }else{
                      
                             
-                                    $sql = "INSERT INTO ju_Users (username, passwd, mail, mail_new_post, mail_new_chat, mail_new_coment, mail_new_like, mail_new_actu) VALUES ('$username', MD5(MD5('$passwd')), '$mail', '$new_post', '$new_chat', '$new_coment', '$new_like', '$new_actu')";
+                                $sql = "INSERT INTO ju_Users (username, passwd, mail) VALUES ('$username', MD5(MD5('$passwd')), '$mail')";
                                 
                             
                                     if (mysqli_query($conn, $sql)) {
@@ -122,7 +123,7 @@ include_once("db.php");
                                         
                                     
 
-                                        header('Location:');
+                                        header('Location: cescosite.php');
                                     
                                         
                                     }else{
