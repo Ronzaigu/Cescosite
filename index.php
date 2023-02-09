@@ -56,7 +56,7 @@
                 if (isset($_SESSION["user"])) {
                         echo '<button onclick=window.location.href="./deconect.php"; class="special"><p class="subtitle">Déconnexion</p></button>';
                 } else {
-                        echo '<button onclick=window.location.href="?page=connection""; class="special"><p class="subtitle">Connexion</p></button>';
+                        echo '<button onclick=window.location.href="?page=connection"; class="special"><p class="subtitle">Connexion</p></button>';
                         echo '<button onclick=window.location.href="?page=inscription"; class="navigator"><p class="subtitle">Inscription</p></button>';
                 }
                 ?>
