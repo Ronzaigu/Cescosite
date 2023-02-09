@@ -176,7 +176,7 @@ function sendComData(a_pk)
 
 
    
-
+   
 
     $.ajax({
         type: 'post',
@@ -187,10 +187,15 @@ function sendComData(a_pk)
             title:titlee
         },
         success: function(response) {
-            getCloudData().then(function (result) {
+         
+            $.when(getCloudData()).done(function (result) {
                 let i = Object.keys(data).find(key => data[key].ARTICLES_PK == a_pk)
                 data =  JSON.parse(decodeEntity(result))
-                loadCom(data[i].comments, data[i].ARTICLES_PK)
+                console.log(data)
+           
+                loadCom(data[i].comments, a_pk)
+
+                document.getElementById("comText" + a_pk).value = ""
             });
         }
     });
@@ -266,7 +271,7 @@ function loadPost(index, data){
 
     articlesHtml += "<div style = 'display:none' id = 'large_coms"+pk+"'>"
     
-    articlesHtml += "<form class='zonetxt' id='comment-form' method='post' id='comForm'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+article.title+"'> <br> <input class='boutton' type='submit' src='./img/send.png' id='submit' alt='submit'> </form>"
+    articlesHtml += "<div class='zonetxt' id='comment-form'  id='comForm'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+article.title+"'> <br> <button onclick = 'sendComData("+pk+")' class='boutton' type='submit'  id='submit' alt='submit'>Envoyer</button> </div>"
 
     articlesHtml += "<div  id = 'com"+pk+"'>"
 

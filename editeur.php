@@ -82,7 +82,7 @@ include_once("db.php");
     <!-- Import Trumbowyg plugins... -->
     <script src="trumbowyg/dist/plugins/resizimg/trumbowyg.resizimg.min.js"></script>
 
-
+<button></button>
     <?php
 
 

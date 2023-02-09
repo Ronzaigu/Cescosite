@@ -5,6 +5,7 @@
 
 function sendChatData()
 {
+  
   var chatcontent = document.getElementById("chatContent").value;
 
   $.ajax({
@@ -16,6 +17,8 @@ function sendChatData()
     },
 
   });
+
+
   document.getElementById("chatContent").value = ""
   $.get('getChat.php', function(result) {
     $('#chatData').val(result);

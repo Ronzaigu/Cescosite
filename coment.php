@@ -36,7 +36,7 @@ if(isset($_SESSION["user"])){
 
 
 
-            header('Location: #' . "art" . $articlePK);
+         //   header('Location: #' . "art" . $articlePK);
 
         } else {
             echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);

@@ -10,12 +10,12 @@
 </head>
 <body>
 
-
+<script src="./js/chat.js"></script>
 
 <div class="border">
 
 <?php
-
+error_reporting("E_ALL | E_STRICT | E_NOTICE | E_DEPRECATED | E_USER_");
 $CHAT_LIMIT = 20;
 
 function containsBadWord($string)
@@ -35,67 +35,64 @@ session_start();
 include_once("db.php");
 
 
-
-
-
-if(isset($_POST["text"]))
-{
-    
-    
-    $text = $conn -> real_escape_string(htmlspecialchars($_POST["text"]));
-    $user = $_SESSION['userPK'];
-    
-
-    if($text !== "")
-    {
-        if(containsBadWord(strtolower($_POST["text"])) == FALSE){
-            
-            $sql = "INSERT INTO ju_chat (content, USER_FK) VALUES ('$text', '$user')";
+if(isset($_POST['text'])){
+    header("location: .?page=connection");
+    if(isset($_SESSION['user'])){
+        
+        
+        $text = $conn -> real_escape_string(htmlspecialchars($_POST["text"]));
+        $user = $_SESSION['userPK'];
         
 
-
-
-
-            if (mysqli_query($conn, $sql)) {
-
-                $sqlL = "SELECT * FROM ju_chat";
-                $nbChat = $conn->query($sqlL)->num_rows;
-
-                if ($nbChat > $CHAT_LIMIT) {
-                    $sqlD = "DELETE FROM ju_chat LIMIT 1";
-                    mysqli_query($conn, $sqlD);
-                }
+        if($text !== "")
+        {
+            if(containsBadWord(strtolower($_POST["text"])) == FALSE){
                 
-                $sqlM = "SELECT mail FROM ju_Users WHERE mail_new_chat = 'on'";
-                $resultM = $conn->query($sqlM);
-                
-                while($row = $resultM->fetch_assoc()) {
-                    mail($row["mail"], $_SESSION['user']." a envoyé un message dans le chat !", "Voila le message de ".$_SESSION['user']." : ".$text." \n\n  Allez sur https://rmbi.ch/cescosite/chat.php pour lui répondre !");
+                $sql = "INSERT INTO ju_chat (content, USER_FK) VALUES ('$text', '$user')";
+            
+
+
+
+
+                if (mysqli_query($conn, $sql)) {
+
+                    $sqlL = "SELECT * FROM ju_chat";
+                    $nbChat = $conn->query($sqlL)->num_rows;
+
+                    if ($nbChat > $CHAT_LIMIT) {
+                        $sqlD = "DELETE FROM ju_chat LIMIT 1";
+                        mysqli_query($conn, $sqlD);
+                    }
+                    
+                    header('Location: ?page=chat');
+        
+                }else{
+                    echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
                 }
-                header('Location: ?page=chat');
-    
-            }else{
-                echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
+
             }
 
         }
 
+
+    }else{
+     
+        header("location: .?page=connection");
+
     }
-
-
 }
 ?>
 
 
 
 
-<form class="zonetxt" method="post" onsubmit="return sendChatData();">
+<div class="zonetxt" >
 
     <textarea class="zone" name="text" id="chatContent" cols="30" rows="10"></textarea>
     <br/>     
-    <button class="button"  id="submit" ><p class="subtitle">Envoyer</p></button> 
+    <button class="button" onclick="sendChatData()"  id="submit" ><p class="subtitle">Envoyer</p></button> 
 
-</form>
+</div>
 
 
 
@@ -113,7 +110,7 @@ if(isset($_POST["text"]))
 
 
 
-<script src="./chat.js"></script>
+
 
 <footer>
     <input id ='chatData' type="text">
