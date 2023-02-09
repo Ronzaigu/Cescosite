@@ -104,6 +104,13 @@ include_once("db.php");
                 echo "veuillez ajouter un titre et un text !";
             }
 
+            $sql = "INSERT INTO ju_articles (title, content, USER_FK) VALUES ('$title', '$text', '$user')";
+            if (mysqli_query($conn, $sql)) {
+
+
+
+
+
 
 
 
@@ -114,7 +121,7 @@ include_once("db.php");
                 echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
             }
 
-        
+        }
 
 
     } else {
