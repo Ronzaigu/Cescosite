@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>Cescosite - Home</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  	<script>
+$(document).ready(function(){
+  $(".hide_button").click(function(){
+    $(".many_button").animate({
+      width: 'toggle',
+    });
+  });
+});
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="container"><h1 class="uptitle">CESCOSITE</h1></div>
+  		
+  		<div class="new_post">
+    		<button onclick="window.location.href='?page=editor';" class="navigator"><p class="text_in_button">+ Nouveau Post</p></button>
+	    </div>
+
+	 	 <div class="profile">
+	    	<button class="profile_photo_body"></button>
+	 	 </div>
+	  
+	  	<div class="nav" hidden>
+	    <div class="hide">
+	      <button class="hide_button">--</button>
+	    </div>
+	    
+	    <div class="many_button">
+	    
+	      <button onclick="window.location.href='?page=home';" class="navigator"><p class="text_in_button">Home</p></button>
+	      <button onclick="window.location.href='?page=connection';" class="navigator"><p class="text_in_button">Connexion</p></button>
+	      <button onclick="window.location.href='?page=inscription';" class="navigator"><p class="text_in_button">Inscription</p></button>
+	      <button onclick="window.location.href='?page=contact';" class="navigator"><p class="text_in_button">Contact</p></button>
+	      <button onclick="window.location.href='?page=about';" class="navigator"><p class="text_in_button">A-propos</p></button>
+		
+		</div>
+
+  		</div>
+</header>
+
+<div class="post">
+	
+	<h1 class="post_big_title">POST</h1>
+	<div class="post_zone"><div class="top_of_post">
+		
+		<button class="profile_photo_post"></button>
+		<div class="user_date_post"><p class="post_user">User</p><br>
+		<p class="post_date">Date</p></div>
+	</div>
+
+</div>
+</body>
+</html>

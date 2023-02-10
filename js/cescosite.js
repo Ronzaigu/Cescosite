@@ -334,14 +334,17 @@ function loadPost(index, data){
 
 
 }
-
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
 function loadAll(){
     $.when(getCloudData()).done(function (result) {
         data =  JSON.parse(decodeEntity(result))
+        range = document.getElementById("range").value
     
-        if(document.getElementById("range").value == "more_times"){
+        if(range == "more_times"){
 
-        }else if(document.getElementById("range").value == "more_likes"){
+        }else if(range == "more_likes"){
             data.sort(function(a, b) {
                 let aReactions = 0;
                 let bReactions = 0;
@@ -362,8 +365,9 @@ function loadAll(){
                 return bReactions - aReactions;
               });
               
+        }else if(range == "random"){
+            shuffle(data);
         }
-
         document.getElementById("artZone").innerHTML = ""
 
         for (let i = 0; i < data.length; i++) {
