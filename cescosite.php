@@ -34,6 +34,8 @@
 </head>
 
 <body>
+
+<br><br><br>
 <script>
                 if(window.location.pathname != "/cescosite/"){
             window.location.href = ".?page=home"
