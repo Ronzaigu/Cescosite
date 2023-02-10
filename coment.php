@@ -6,7 +6,7 @@
 
 function containsBadWord($string)
 { 
-    $badWord = array("connard", "pute", "fuck", "sex", "sexy", "connard", "fucke","foutre", "geul", "geule", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "con");
+    $badWord = array("connard", "pute", "fuck", "sex", "sexy", "connard","foutre", "geul", "cul", "merde", "couille", "bite",  "con");
     
 
     for ($i=0; $i<count($badWord); $i++) {
