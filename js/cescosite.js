@@ -1,44 +1,51 @@
-function coments(articlePK){
 
-    var article = document.getElementById("large_coms" + articlePK);
-    if(getComputedStyle(article).display == "none"){
-        article.style.display = "block"
-    }else{
-        article.style.display = "none"
+   
+function decodeEntity(inputStr) {
+    var textarea = document.createElement("textarea");
+    textarea.innerHTML = inputStr;
+    return textarea.value;
+}
+
+
+function isUserLike(Type, userPK, likes){
+
+   
+    //"+", data[i].reaction
+    
+ //   console.log(likes.length)
+    for (let i = 0; i < Object.keys(likes).length; i++) {
+        if(likes["reaction#" + i].type == Type ){
+            if(likes["reaction#" + i].USER_FK == userPK ){
+                return true
+            }
+        }
+        
     }
-
-
-
-
+    return false
 }
 
-function signal(id, title) {
-    let sure = prompt("Cette article ne respect pas les règle de CescoSite ? (oui/non)", "non");
-    if (sure == "oui") {
-    
-        location.href = "./signal.php?id=" + id
+function countLike(Type, likes){
+    //"+", data[i].reaction
+    let result = 0
+ //   console.log(likes.length)
+    for (let i = 0; i < Object.keys(likes).length; i++) {
+        if(likes["reaction#" + i].type == Type ){
+            result ++
+            //console.log(likes["reaction#" + i].type )
+        }
+        
     }
-    
-}
-/*
-function like(PK){
-    //window.location.href=window.location.href='like.php?num='+PK
-    
-    $("#like"+PK).load('like.php?num='+PK).fadeIn("slow");
+    return result;
 }
 
-function dislike(PK){
-    //window.location.href=window.location.href='dislike.php?num='+PK
-    $("#dislike"+PK).load('dislike.php?num='+PK).fadeIn("slow");
+function getCloudData(){
+    return $.get('getPosts.php',true)
 }
-function neutrelike(PK){
-    //window.location.href=window.location.href='neutrelike.php?num='+PK
-    $("#neutrelike"+PK).load('neutrelike.php?num='+PK).fadeIn("slow");
-
-}
-*********************************/
 
 function reaction(type, PK){
+
+    $.get('getPosts.php',true)
+
 
     user_pk = document.getElementById("user_pk").value
 
@@ -55,240 +62,100 @@ function reaction(type, PK){
             num : PK,
             type : type
         })
+        /*
         
-        
-        $.get('getPosts.php?PK=' + PK, function(result) {
+        $.get('getPosts.php',true , function(result) {
+
+    
             data =  JSON.parse(decodeEntity(result))
-            $('#pageApi').val(JSON.stringify( data));
-            loadLike(PK)
-            console.log("ASDwqdqwe")
+
+            updateLikes(data[Object.keys(data).find(key => data[key].ARTICLES_PK == PK)])
+            
+        
+            
         })
-    }
-   
-}
+        
+        */
 
+        $.when(getCloudData()).done(function (result) {
+            data =  JSON.parse(decodeEntity(result))
 
-function isMobileDevice() { 
-    if( navigator.userAgent.match(/iPhone/i)
-    || navigator.userAgent.match(/webOS/i)
-    || navigator.userAgent.match(/Android/i)
-    || navigator.userAgent.match(/iPad/i)
-    || navigator.userAgent.match(/iPod/i)
-    || navigator.userAgent.match(/BlackBerry/i)
-    || navigator.userAgent.match(/Windows Phone/i)
-    ){
-       return true;
-     }
-    else {
-       return false;
-     }
-    }
-
-    
-
-function countLike(Type, likes){
-    //"+", data[i].reaction
-    let result = 0
- //   console.log(likes.length)
-    for (let i = 0; i < Object.keys(likes).length; i++) {
-        if(likes["reaction#" + i].type == Type ){
-            result ++
-            //console.log(likes["reaction#" + i].type )
-        }
+            updateLikes(data[Object.keys(data).find(key => data[key].ARTICLES_PK == PK)])
+         });
         
     }
-    return result;
-}
-
-function isUserLike(Type, userPK, likes){
-    //"+", data[i].reaction
-    
- //   console.log(likes.length)
-    for (let i = 0; i < Object.keys(likes).length; i++) {
-        if(likes["reaction#" + i].type == Type ){
-            if(likes["reaction#" + i].USER_FK == userPK ){
-                return true
-            }
-        }
-        
-    }
-    return false
 }
 
 
-function loadLike()
-{
+function updateLikes(article){
 
-    dataL =  JSON.parse( document.getElementById('pageApi').value) 
-
- 
-   
-    
-
-    let nbLike = 0
-    let nbNeutre = 0
-    let nbDislike = 0
-    let scrLike = "./img/upvote_vide.png"
-    let scrNeutre = "./img/neutrevote_vide.png"
-    let scrDislike = "./img/downvote_vide.png"
-
-    let likeHtml = ""
- 
+    console.log(article)
+    pk = article.ARTICLES_PK
 
 
-        if(typeof dataL.reaction != "undefined"){
-
-            
-            nbLike = countLike( "+", dataL.reaction)
-            nbNeutre = countLike( "=", dataL.reaction)
-            nbDislike = countLike( "-", dataL.reaction)
-            user_pk = document.getElementById("user_pk").value
-            if (isUserLike("+", user_pk, dataL.reaction)) {
-                scrLike = "./img/upvote_plein.png"
-            }
-            if (isUserLike("=", user_pk, dataL.reaction)) {
-                scrNeutre = "./img/neutrevote_plein.png"
-            }
-            if (isUserLike("-", user_pk, dataL.reaction)) {
-                scrDislike = "./img/downvote_plein.png"
-            }
-        
-        }
-       // console.log(scrLike)
-        likeHtml += "<button class='like' onclick = 'reaction(\"+\", "+dataL.ARTICLES_PK+")' ><img width =50 src='"+scrLike+"'></button><p>"+nbLike+"</p>"
-        likeHtml += "<button class='neutrelike' onclick = 'reaction(\"=\", "+dataL.ARTICLES_PK+")' ><img width =50 src='"+scrNeutre+"'></button><p>"+nbNeutre+"</p>"
-        likeHtml += "<button class='dislike' onclick = 'reaction(\"-\", "+dataL.ARTICLES_PK+")' ><img width =50 src='"+scrDislike+"'></button><p>"+nbDislike+"</p>"
-        
-        
-
-        comEmp = document.getElementById('avi' + dataL.ARTICLES_PK)
-
-        comEmp.innerHTML = likeHtml
-
-    
-  
-}
+      
+        let nbLike = 0
+        let nbNeutre = 0
+        let nbDislike = 0
+        let scrLike = "./img/upvote_vide.png"
+        let scrNeutre = "./img/neutrevote_vide.png"
+        let scrDislike = "./img/downvote_vide.png"
 
 
 
-function loadCom(pk)
-{
-    console.log("b")
-    let dataC =  JSON.parse( document.getElementById('pageApi').value) 
+            if(typeof article.reaction != "undefined"){
 
-
-        let comesHtml =""
-        
-     
-  
-
-        if(typeof dataC.comments !== 'undefined'){
-            for (let ii = 0; ii < Object.keys(dataC.comments).length; ii++) {
-                comesHtml += "<section>"
-                comesHtml += "<b>_______________________</b><br>" 
-                    comesHtml += dataC.comments["com"+ii].content
-                    
-                    comesHtml += "</section>"
                 
-            }
-        }
-        comesHtml += "<b>_______________________</b><br>" 
-
-        comEmp = document.getElementById('com' +dataC.ARTICLES_PK)
-
-        comEmp.innerHTML = comesHtml
-    
-}
-
-function loadSite(){
-    
-
-
-  
-        let dataS =  JSON.parse( document.getElementById('pageApi').value)
-        
-     
-     
-
-            artZone = document.getElementById("artZone")
-
-            articlesHtml = ""
-
-
-    pk= dataS.ARTICLES_PK
-                
-
-                articlesHtml += "<section id = art"+pk+" class= 'articles'>"
-                
-                articlesHtml += "<h1>" + dataS.title + "</h1><br>"
-                articlesHtml += dataS.content
-                
-                articlesHtml += "<br><br><strong><i>Article créé par " + dataS.creator + ".    Date : " + dataS.dat + "</strong></i>"
-
-                articlesHtml += "<br>"
-
-                articlesHtml += "<button onclick = 'coments("+pk+")' >&dArr;Commentaires&dArr;</button>"
-                articlesHtml += "<button onclick = 'signal("+pk+")' >Signaler</button>"
-
-                comComtentText=""
-                
-                if(document.querySelector("#"+'large_coms'+pk)){
-                    displayType = document.getElementById('large_coms'+pk).style.display
-
-                  
-
-                    
-                    //console.log(comComtentText)
-
-                }else{
-                    displayType = "none"
+                nbLike = countLike( "+", article.reaction)
+                nbNeutre = countLike( "=", article.reaction)
+                nbDislike = countLike( "-", article.reaction)
+                user_pk = document.getElementById("user_pk").value
+                if (isUserLike("+", user_pk, article.reaction)) {
+                    scrLike = "./img/upvote_plein.png"
                 }
+                if (isUserLike("=", user_pk, article.reaction)) {
+                    scrNeutre = "./img/neutrevote_plein.png"
+                }
+                if (isUserLike("-", user_pk, article.reaction)) {
+                    scrDislike = "./img/downvote_plein.png"
+                }
+            
+            }
+            console.log("imgLike" + pk)
+            document.getElementById("imgLike" + pk).src = scrLike
+            document.getElementById("imgDislike" + pk).src = scrDislike
+            document.getElementById("imgNeutrelike" + pk).src = scrNeutre
+
+            console.log("LikeP" + pk)
+            document.getElementById("LikeP" + pk).innerHTML = nbLike
+            document.getElementById("NeutreP" + pk).innerHTML = nbNeutre
+            document.getElementById("DislikeP" + pk).innerHTML = nbDislike
+
+
     
-                articlesHtml += "<div style = 'display:"+displayType+"' id = 'large_coms"+pk+"'>"
-                
-                articlesHtml += "<form class='zonetxt' method='post' onsubmit='return sendComData("+pk+");'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+dataS.title+"'> <br> <input class='boutton' type='image' src='./img/send.png' id='submit' alt='submit'> </form>"
-            
-                articlesHtml += "<div  id = 'com"+pk+"'>"
+        
 
-                    //coments here
+    
+}
 
-                articlesHtml += "</div>"
+function coments(articlePK){
 
-                articlesHtml += "</div>"
-
-
-                
-
-                //Like here
-
-            
-                articlesHtml += "<div class = 'avi' id = 'avi"+pk+"'>"
-
-                
-
-                articlesHtml += "</div>"
+    var article = document.getElementById("large_coms" + articlePK);
+    if(getComputedStyle(article).display == "none"){
+        article.style.display = "block"
+    }else{
+        article.style.display = "none"
+    }
 
 
-                articlesHtml += "</section>"
 
-                artZone.innerHTML += articlesHtml
-                
-             
-               
-          
-                
 
-}  
-
-   
-function decodeEntity(inputStr) {
-    var textarea = document.createElement("textarea");
-    textarea.innerHTML = inputStr;
-    return textarea.value;
 }
 
 function sendComData(a_pk)
 {
+
+
     console.log("a")
     user_pk = document.getElementById("user_pk").value
 
@@ -308,66 +175,215 @@ function sendComData(a_pk)
 
 
 
-        $.post("coment.php",{
+   
+   
+
+    $.ajax({
+        type: 'post',
+        url: 'coment.php',
+        data: {
             textC:comcontent,
-
             articlePK:a_pk,
-
             title:titlee
+        },
+        success: function(response) {
+         
+            $.when(getCloudData()).done(function (result) {
+                let i = Object.keys(data).find(key => data[key].ARTICLES_PK == a_pk)
+                data =  JSON.parse(decodeEntity(result))
+                console.log(data)
+           
+                loadCom(data[i].comments, a_pk)
 
-        })
-
-
-
+                document.getElementById("comText" + a_pk).value = ""
+            });
+        }
+    });
+    
+        
      
-        $.get('getPosts.php?PK=' + a_pk, function(result) {
-            data =  JSON.parse(decodeEntity(result))
-            $('#pageApi').val(JSON.stringify( data));
-            loadCom(a_pk)
-            document.getElementById("comText" + a_pk).value =""
-        })
-
-
-      
-        
-        
-        return false
     }
 }
 
 
-
-    /*
-
-$.get('getPosts.php', function(result) {
-    $('#pageApi').val(result);
-}).done(loadSite, loadLike, loadCom)
-
-*/
-
-$.get('getPosts.php',false , function(result) {
-
+function signal(id, title) {
+    let sure = prompt("Cette article ne respect pas les règle de CescoSite ? (oui/non)", "non");
+    if (sure == "oui") {
     
-    data =  JSON.parse(decodeEntity(result))
-    for (let i = 0; i < data.length; i++) {
-   
-   
-        $('#pageApi').val(JSON.stringify( data[i]));
-    
-        loadSite()
-        loadLike()
-        loadCom()
+        location.href = "./signal.php?id=" + id
     }
+    
+}
+
+function loadCom(coments, pk)
+{
+   
+
+
+
+        let comesHtml =""
+        
+        console.log(coments)
+  
+
+        if(typeof coments != 'undefined'){
+            for (let ii = 0; ii < Object.keys(coments).length; ii++) {
+                comesHtml += "<section>"
+                comesHtml += "<b>_______________________</b><br>" 
+                    comesHtml += coments["com"+ii].content
+                    
+                    comesHtml += "</section>"
+                
+            }
+        }
+        comesHtml += "<b>_______________________</b><br>" 
+
+        comEmp = document.getElementById('com' +pk)
+
+        comEmp.innerHTML = comesHtml
+    
+}
+
+
+function loadPost(index, data){
+    console.log(index)
+
+    article = data[index]
+    pk = article.ARTICLES_PK
+
+    artZone = document.getElementById("artZone")
+
+    let articlesHtml = ""
+
+    articlesHtml += "<section id = art"+pk+" class= 'articles'>"
+                
+    articlesHtml += "<h1>" + article.title + "</h1><br>"
+    articlesHtml += article.content
+    
+    articlesHtml += "<br><br><strong><i>Article créé par " + article.creator + ".    Date : " + article.dat + "</strong></i>"
+
+    articlesHtml += "<br>"
+
+    articlesHtml += "<button onclick = 'coments("+pk+")' >&dArr;Commentaires&dArr;</button>"
+    articlesHtml += "<button onclick = 'signal("+pk+")' >Signaler</button>"
+
+
+
+    articlesHtml += "<div style = 'display:none' id = 'large_coms"+pk+"'>"
+    
+    articlesHtml += "<div class='zonetxt' id='comment-form'  id='comForm'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+article.title+"'> <br> <button onclick = 'sendComData("+pk+")' class='boutton' type='submit'  id='submit' alt='submit'>Envoyer</button> </div>"
+
+    articlesHtml += "<div  id = 'com"+pk+"'>"
+
+        //coments here
+
+    articlesHtml += "</div>"
+
+    articlesHtml += "</div>"
+
 
     
-})
 
-/*
-data =  JSON.parse(decodeEntity( document.getElementById('pageApi').value ) )
+        
 
-for (let i = 0; i < data.length; i++) {
-    loadSite(data[i].ARTICLES_PK)
-    loadLike(data[i].ARTICLES_PK)
-    loadCom(data[i].ARTICLES_PK)
+    articlesHtml += "<div class = 'avi' id = 'avi"+pk+"'>"
+
+        let nbLike = 0
+        let nbNeutre = 0
+        let nbDislike = 0
+        let scrLike = "./img/upvote_vide.png"
+        let scrNeutre = "./img/neutrevote_vide.png"
+        let scrDislike = "./img/downvote_vide.png"
+
+
+
+            if(typeof article.reaction != "undefined"){
+
+                
+                nbLike = countLike( "+", article.reaction)
+                nbNeutre = countLike( "=", article.reaction)
+                nbDislike = countLike( "-", article.reaction)
+                user_pk = document.getElementById("user_pk").value
+                if (isUserLike("+", user_pk, article.reaction)) {
+                    scrLike = "./img/upvote_plein.png"
+                }
+                if (isUserLike("=", user_pk, article.reaction)) {
+                    scrNeutre = "./img/neutrevote_plein.png"
+                }
+                if (isUserLike("-", user_pk, article.reaction)) {
+                    scrDislike = "./img/downvote_plein.png"
+                }
+            
+            }
+        // console.log(scrLike)
+            articlesHtml += "<button class='like' onclick = 'reaction(\"+\", "+pk+")' ><img id='imgLike" + pk + "' width =50 src='"+scrLike+"'></button><p id=LikeP"+pk+" >"+nbLike+"</p>"
+            articlesHtml += "<button class='neutrelike' onclick = 'reaction(\"=\", "+pk+")' ><img id='imgNeutrelike" + pk + "'width =50 src='"+scrNeutre+"'></button><p id=NeutreP"+pk+" >"+nbNeutre+"</p>"
+            articlesHtml += "<button class='dislike' onclick = 'reaction(\"-\", "+pk+")' ><img id='imgDislike" + pk + "' width =50 src='"+scrDislike+"'></button><p id=DislikeP"+pk+" >"+nbDislike+"</p>"
+            
+
+
+    articlesHtml += "</div>"
+
+
+    articlesHtml += "</section>"
+
+    artZone.innerHTML += articlesHtml
+  
     
-}*/
+
+
+
+}
+
+function loadAll(){
+    $.when(getCloudData()).done(function (result) {
+        data =  JSON.parse(decodeEntity(result))
+    
+        if(document.getElementById("range").value == "more_times"){
+
+        }else if(document.getElementById("range").value == "more_likes"){
+            data.sort(function(a, b) {
+                let aReactions = 0;
+                let bReactions = 0;
+                if (a.reaction) {
+                  Object.values(a.reaction).forEach(function(reaction) {
+                    if (reaction.type === '+') {
+                      aReactions += 1;
+                    }
+                  });
+                }
+                if (b.reaction) {
+                  Object.values(b.reaction).forEach(function(reaction) {
+                    if (reaction.type === '+') {
+                      bReactions += 1;
+                    }
+                  });
+                }
+                return bReactions - aReactions;
+              });
+              
+        }
+
+        document.getElementById("artZone").innerHTML = ""
+
+        for (let i = 0; i < data.length; i++) {
+        
+        
+            loadPost(i, data)
+            loadCom(data[i].comments, data[i].ARTICLES_PK)
+        
+            
+        }
+     });
+    
+}
+
+
+loadAll()   
+
+$(document).ready(function() {
+    
+    $('#range').change(function(){
+     loadAll()
+    });
+});

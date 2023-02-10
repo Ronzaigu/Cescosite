@@ -45,13 +45,17 @@
               
 
 
+                
 
 
 
 
 
-
-
+        <select id="range">
+                <option value="more_likes">Le plus apprécier</option>
+                <option value="more_times">Le plus récent</option>
+     
+        </select> 
 
 
 
@@ -69,7 +73,7 @@
 
 
 
-                <script src="./js/cescosite2.js"></script>
+                <script src="./js/cescosite.js"></script>
 
 
                 <input style="visibility: hidden;" type="text" id='user_pk' value=<?php echo $_SESSION[userPK]; ?>>
