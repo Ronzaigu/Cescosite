@@ -34,15 +34,18 @@ include_once("db.php");
     <div class="login">
 
     	<?php
+            function alert($msg){
+              echo "<script>alert('$msg')</script>";
+          }
 
     if (isset($_POST['username']))
     {
 
 
       $username = $conn -> real_escape_string($_POST['username']);
-      $passwd = $conn -> real_escape_string($_POST['passwd']) ; 
+      $passwd = $conn -> hash("sha256", $_POST['passwd'])  ; 
 
-      $sql = "SELECT passwd, username, ju_Users_PK FROM ju_Users WHERE username = '".$username."' AND passwd = MD5(MD5('".$passwd."'))";
+      $sql = "SELECT passwd, username, ju_Users_PK FROM ju_Users WHERE username = '".$username."' AND passwd = '$passwd'))";
       //echo $sql ; 
       $result = $conn->query($sql);
       $row = $result->fetch_assoc();
@@ -57,7 +60,7 @@ include_once("db.php");
 
         <?php
       } else {
-        echo "Le mot de passe et le nom d'utulisateur doivent être juste... .";
+        alert( "Le mot de passe et le nom d'utulisateur doivent être juste... .");
       }
 
       $conn->close();

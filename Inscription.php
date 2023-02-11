@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 
 include_once("db.php");
-
+session_start();
 ?>
 
 <html>
@@ -31,7 +31,11 @@ include_once("db.php");
         
         <?php
         
-
+            function alert($msg){
+                  echo '<script type="text/javascript">';
+                    echo 'alert("' . addslashes($msg) . '");';
+                    echo '</script>';
+            }
             function containsBadWord($string)
             { 
                 $badWord = array("admin","asterjdm", "moderateur", "modérateur", "modo", "connard", "pute", "fuck", "sex", "sexy", "connard", "fuck","foutre", "ftg", "geul", "geule", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "debile", "débile", "con", "débil", "debil","jdm", "aster", "asteroidus");
@@ -72,15 +76,10 @@ include_once("db.php");
 
       
                   $username = $conn -> real_escape_string(htmlspecialchars($_POST['username']));
-                  $passwd = $_POST['passwd'] ; 
-                  $mail = $_POST["mail"];
+                  $passwd = hash("sha256", $_POST['passwd'] ) ; 
+                  $mail =  hash("sha256", $_POST["mail"]);
 
 
-                $new_post = $_POST["new-post"];
-                $new_chat = $_POST["new-chat"];
-                $new_coment = $_POST["new-coment"];
-                $new_like = $_POST["new-like"];
-                $new_actu = $_POST["new-actu"];
 
 
 
@@ -89,61 +88,61 @@ include_once("db.php");
 
                 
 
-                  if(str_replace(' ', '', $username == "") || str_replace(' ', '', $passwd == "")){
-                    echo "Votre Nom d'utilisateur ou votre mot de pass ne peux pas être vide";
+                  if(str_replace(' ', '', $_POST["mail"] == "") || str_replace(' ', '', $_POST['passwd'] == "") || !filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)){
+                    alert( "Veuillez saisir un nom d'utilisateur et un mot ainsi que un email valide.");
                   }else{
                         if(containsBadWord(strtolower($username))){
-                            echo "Votre nom d'utulisateur contient des mot interdis";
+                            alert( "Votre nom d'utulisateur contient des mot interdis.");
                         }else{
                     
                             $sql = "SELECT username FROM ju_Users WHERE username = '".$username."'";
+                            $sqlM = "SELECT mail FROM ju_Users WHERE mail = '".$mail."'";
                             //echo $sql ; 
                             $result = $conn->query($sql);
+                            $resultM = $conn->query($sqlM);
                             
                             if ($result->num_rows > 0 ) {
-                                echo "Ce nom d'utilisateur est déja utulisé, veuillez en choisir un autre...";
+                                alert( "Ce nom d'utilisateur est déja utulisé, veuillez en choisir un autre...");
                                 
+                            }elseif($resultM->num_rows > 0){
+
+                                alert("Ce mail est déja utulisé.");
                             }else{
                      
-                            
-                                $sql = "INSERT INTO ju_Users (username, passwd, mail) VALUES ('$username', MD5(MD5('$passwd')), '$mail')";
-                                
-                            
-                                    if (mysqli_query($conn, $sql)) {
-                                        $sqlU = "SELECT ju_Users_PK FROM ju_Users WHERE username = '".$username."'";
-                                        $result = $conn->query($sqlU);
-                                        $row = $result->fetch_assoc();
-
-                                        $userPK = $row["ju_Users_PK"];
-
-                        
-                                        $_SESSION["user"] = $username;
-                                        $_SESSION["userPK"] = $userPK;
-                                        
-                                        
+                            //send verification email :
+                                $to = $mail;
+                                $subject = "Code de vérification";
+                                $code = rand(100000000, 9999999999);
+                                $message = "<p>Voici votre liens de vérification : <p><a href='https://rmbi.ch/cescosite/mailverify.php?code=" . $code . "'></a>";
+                                $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+                               
+                              
+                                if (mail($to, $subject, $message)) {
+                                    $_SESSION["mail_username"] = $username;
+                                    $_SESSION["mail_password"] = $passwd;
+                                    $_SESSION["mail_mail"] = $mail;
+                                    $_SESSION["mail_code"] =$code;
+                                    alert("Veuillez vérifier votre mail.");
                                     
 
-                                        header('Location: cescosite.php');
-                                    
-                                        
-                                    }else{
-                                        echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
-                                    }
-                                    
+                                } else {
+                                  alert("error : L'envoi du code de vérification a échoué.");
                                 }
+
+
+
+                      
+                                    
+                            }
     
                         }
-    
-                }
-                
-                
-                
+                  }
                 }else{
-                echo "Veuillez résoudre le captcha";
+                alert( "Veuillez résoudre le captcha");
                 }
     
     
-                } 
+            } 
                 
                 
             
@@ -154,7 +153,7 @@ include_once("db.php");
    
 
 
-        <form action="Inscription.php" method="POST" enctype="multipart/form-data">
+        <form action="?page=inscription" method="POST" enctype="multipart/form-data">
             
             <input class="text" type="text" name="username" placeholder = "Nom d'utilisateur" class="pass"/>
             <input class="text" type="password" name="passwd" placeholder = "Mot de passe" class = pass minlength="8"/>

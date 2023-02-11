@@ -268,12 +268,12 @@ function loadPost(index, data){
     articlesHtml += '<div class="post_text">'+ article.content +'</div>'
     articlesHtml += '<div class="bottom_post_button">'
     articlesHtml += '<div '+ "onclick='signal("+pk+")'" +' class="report"><p class="text_in_button_bottom">!</p></div>'
-    articlesHtml += '<div  class="comment"><p class="text_in_button_bottom">></p></div>'
+    articlesHtml += '<div onclick="coments('+pk+')" class="comment"><p class="text_in_button_bottom">></p></div>'
 
     articlesHtml += "<div style = 'display:none' id = 'large_coms"+pk+"'>"
     
     articlesHtml += "<div class='zonetxt' id='comment-form'  id='comForm'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+article.title+"'> <br> <button onclick = 'sendComData("+pk+")' class='boutton' type='submit'  id='submit' alt='submit'>Envoyer</button> </div>"
-
+    
     articlesHtml += "<div  id = 'com"+pk+"'>"
 
         //coments here
