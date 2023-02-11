@@ -255,7 +255,35 @@ function loadPost(index, data){
 
     let articlesHtml = ""
 
-    articlesHtml += "<section id = art"+pk+" class= 'articles'>"
+    
+
+    articlesHtml += "<div id = art"+pk+" class= 'post_zone'>"
+    articlesHtml += "<div class='top_of_post'>"
+    articlesHtml += "<div class='hight_left_post'>"
+    articlesHtml += "<button class='profile_photo_post'></button>"
+    articlesHtml += '<div class="user_date_post"><p class="post_user">' + article.creator + '</p>'
+    articlesHtml += '<p class="post_date">'+ article.dat +'</p></div></div><br>'
+    articlesHtml += '<div class="little"><p class="post_little_title">'+ article.title +'</p></div>'
+    articlesHtml += '<div class="line"></div>'
+    articlesHtml += '<div class="post_text">'+ article.content +'</div>'
+    articlesHtml += '<div class="bottom_post_button">'
+    articlesHtml += '<div '+ "onclick='signal("+pk+")'" +' class="report"><p class="text_in_button_bottom">!</p></div>'
+    articlesHtml += '<div  class="comment"><p class="text_in_button_bottom">></p></div>'
+
+    articlesHtml += "<div style = 'display:none' id = 'large_coms"+pk+"'>"
+    
+    articlesHtml += "<div class='zonetxt' id='comment-form'  id='comForm'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+article.title+"'> <br> <button onclick = 'sendComData("+pk+")' class='boutton' type='submit'  id='submit' alt='submit'>Envoyer</button> </div>"
+
+    articlesHtml += "<div  id = 'com"+pk+"'>"
+
+        //coments here
+
+    articlesHtml += "</div>"
+    articlesHtml += "</div>"
+   
+    articlesHtml += "</div>"
+
+    /*
                 
     articlesHtml += "<h1>" + article.title + "</h1><br>"
     articlesHtml += article.content
@@ -326,7 +354,7 @@ function loadPost(index, data){
 
 
     articlesHtml += "</section>"
-
+*/
     artZone.innerHTML += articlesHtml
   
     

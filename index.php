@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+          if(window.location.pathname != "/cescosite/"){
+            window.location.href = ".?page=home"
 
+        }
+    if (window.location.protocol != "https:") {
+    window.location.protocol="https:";
+}
+</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<link rel="stylesheet" type="text/css" href="./css/cescosite.css">
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,12 +47,23 @@ $(document).ready(function(){
 	    <div class="hide">
 	      <button class="hide_button">--</button>
 	    </div>
-	    
+
+
 	    <div class="many_button">
 	    
 	      <button onclick="window.location.href='?page=home';" class="navigator"><p class="text_in_button">Home</p></button>
-	      <button onclick="window.location.href='?page=connection';" class="navigator"><p class="text_in_button">Connexion</p></button>
-	      <button onclick="window.location.href='?page=inscription';" class="navigator"><p class="text_in_button">Inscription</p></button>
+          <?php
+                session_start();
+                if (isset($_SESSION["user"])) {
+                        echo "<button onclick=\"window.location.href='./deconect.php';\" class='navigator'><p class='text_in_button'>Deconnexion</p></button>";
+                } else {
+                        echo "<button onclick=\"window.location.href='?page=connection';\" class='navigator'><p class='text_in_button'>Connexion</p></button>";
+                        echo "<button onclick=\"window.location.href='?page=inscription';\" class='navigator'><p class='text_in_button'>Inscription</p></button>";
+                }
+                ?>
+                
+
+	      
 	      <button onclick="window.location.href='?page=contact';" class="navigator"><p class="text_in_button">Contact</p></button>
 	      <button onclick="window.location.href='?page=about';" class="navigator"><p class="text_in_button">A-propos</p></button>
 		

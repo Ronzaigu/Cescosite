@@ -37,21 +37,23 @@
 
 <br><br><br>
 <script>
+        /*
                 if(window.location.pathname != "/cescosite/"){
             window.location.href = ".?page=home"
 
-        }
+        }*/
+
 </script>
       
-        <section>
+    
               
 
 
-                
+<h1 class="post_big_title">POST</h1>
 
 
 
-
+<br>
 
         <select id="range">
                 <option value="more_likes">Le plus apprécier</option>
@@ -62,14 +64,13 @@
 
 
 
-                <article id="artZone">
+        <br>
+        <div id ='artZone' class="post">
 
 
 
-
-
-                </article>
-        </section>
+        </div>
+        
         <footer>
 
                 <p>ⓒ 2022 - AsterJdM production</p>
@@ -79,7 +80,7 @@
                 <script src="./js/cescosite.js"></script>
 
 
-                <input style="visibility: hidden;" type="text" id='user_pk' value=<?php echo $_SESSION[userPK]; ?>>
+                <input style="visibility: hidden;" type="text" id='user_pk' value=<?php echo $_SESSION['userPK']; ?>>
         </footer>
 </body>
 

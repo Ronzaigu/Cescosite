@@ -31,7 +31,7 @@ include_once("db.php");
 </head>
 
 <body>
-
+<br><br><br><br>
 <script>
       if(window.location.pathname != "/cescosite/"){
             window.location.href = ".?page=editor"
@@ -82,7 +82,7 @@ include_once("db.php");
     <!-- Import Trumbowyg plugins... -->
     <script src="trumbowyg/dist/plugins/resizimg/trumbowyg.resizimg.min.js"></script>
 
-<button></button>
+
     <?php
 
 

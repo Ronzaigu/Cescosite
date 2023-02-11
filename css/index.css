@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 
 
@@ -8,11 +9,6 @@ body {
   background-color: lightgrey;
   margin: 0;
   padding: 0;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 1000000% 1000000%;
-  animation: gradient 15s ease infinite;
-  height: 100vh;
-  overflow-wrap: anywhere;
 
 }
 
@@ -162,8 +158,8 @@ header {
 
 .profile_photo_post {
 
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  width: 70px;
   padding: 0;
   border: none;
   background-color: #3f4062;
@@ -184,12 +180,45 @@ header {
 }
 
 
+.hight_left_post {
+
+	display: flex;
+ 
+
+
+}
+
+
 .user_date_post {
+
+	margin-left: 10px;
+	margin-top: 7px;
 
 
 
 }
 
+.post_user, .post_date {
+
+	background-color: lightgrey;
+	border-radius: 8px;
+	padding: 3px;
+
+}
+
+
+.post_little_title {
+
+		
+	display: flex;
+	height: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	background-color: lightgrey;
+	border-radius: 8px;
+	padding: 3px;
+
+}
 
 
 
@@ -239,11 +268,18 @@ header {
 
 }
 
+.chat_post_comment {
+
+
+	display: flex;
+
+
+}
 
 
 .post_big_title {
 
-	margin-left: 35%;
+	
 	position: none;
 	font-family: 'Fredoka One', cursive;
 	left: 35%;
@@ -261,14 +297,88 @@ header {
 	width: 600px;
 	height: 500px;
 	position: none;
-	margin-left: 35%;
-	top: 45%;
 	border-radius: 25px;
 	border-color: black;
 	border-width: 2px;
 	border-style: solid;
+	font-family: 'Montserrat', sans-serif;
 
 }	
+
+
+.line {
+
+
+	background-color: black;
+	height: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 10px;
+	background-color: #888888;
+
+}
+
+.post_text {
+
+
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+
+
+}
+
+.comment {
+
+	background-color: #3f4062;
+	height: 50px;
+	width: 50px;
+	border-radius: 20px;
+	transition: 0.3s;
+	margin-left: 460px;
+
+}
+
+.report {
+
+	background-color: #3f4062;
+	height: 50px;
+	width: 50px;
+	border-radius: 20px;
+	transition: 0.3s;
+	margin-left: 20px;
+
+}
+
+
+.bottom_post_button {
+
+	display: flex;
+	margin-top: 13.5%;
+
+
+}
+
+
+.text_in_button_bottom {
+
+	margin-left: 45%;
+	color: white;
+	font-size: 20px;
+	line-height: 45%;
+	font-family: 'Fredoka One', cursive;
+
+}
+
+
+.report:hover, .comment:hover {
+
+
+	background-color: #6e7093;
+
+}
+
+
 
 
 
