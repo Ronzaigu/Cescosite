@@ -114,7 +114,7 @@ session_start();
                                 $subject = "Code de vérification";
                                 $code = rand(100000000, 9999999999);
                                 $message = "<p>Voici votre liens de vérification : <p><a href='https://rmbi.ch/cescosite/mailverify.php?code=" . $code . "'></a>";
-                                $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+                               
                                
                               
                                 if (mail($to, $subject, $message)) {
