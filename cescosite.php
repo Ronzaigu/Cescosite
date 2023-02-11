@@ -37,11 +37,10 @@
 
 <br><br><br>
 <script>
-        /*
-                if(window.location.pathname != "/cescosite/"){
-            window.location.href = ".?page=home"
-
-        }*/
+        
+if(window.location.pathname != "/cescosite/"){
+        window.location.href = ".?page=home"
+}
 
 </script>
       
