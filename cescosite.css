@@ -6,7 +6,7 @@
 
 body {
 
-  background-color: lightgray;
+  background-color: lightgrey;
   margin: 0;
   padding: 0;
 
@@ -41,12 +41,10 @@ img {
 
 }
 
-
 .user_date_post {
 
-	margin-left: 10px;
-	margin-top: 20px;
-
+  margin-top: 7px;
+  margin-left: 5px;
 
 
 }
@@ -56,7 +54,8 @@ img {
 	background-color: lightgrey;
 	border-radius: 8px;
 	padding: 3px;
-  font-size: 14px;
+  font-size: 16px;
+
 
 }
 
@@ -71,65 +70,14 @@ img {
 	background-color: lightgrey;
 	border-radius: 8px;
 	padding: 3px;
-  line-height: 14px;
-
-}
-
-
-
-.many_button {
-
-  top: 270px;
-  left: 120px;
-  position: absolute;
-  padding-top: 10px;
-  padding-bottom: 11px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  background-color: lightgrey;
-
   
-}
-
-.hide {
-
-  top: 270px;
-  left: 30px;
-  position: absolute;
-  background-color: lightgrey;
-  border-radius: 10px;
-  padding: 5px;
 
 }
 
-.hide_button {
-
-  padding: 0;
-  border: none;
-  background: #3f4062;
-  width: 66px;
-  height: 66px;
-  border-radius: 22px;
-  transition: 0.3s;
-  line-height: 0px;
-  ;
-
-}
-
-.hide_button:hover {
-
-  background-color: #6e7093;
-
-}
-
-.chat_post_comment {
 
 
-	display: flex;
+.
 
-
-}
 
 
 .post_big_title {
@@ -222,7 +170,7 @@ img {
 	margin-left: 45%;
 	color: white;
 	font-size: 20px;
-	line-height: 45%;
+	
 	font-family: 'Fredoka One', cursive;
   margin-top: 20px;
 
@@ -233,7 +181,7 @@ img {
   margin-left: 40%;
   color: white;
   font-size: 20px;
-  line-height: 45%;
+  
   font-family: 'Fredoka One', cursive;
   margin-top: 20px;
 
@@ -252,6 +200,7 @@ img {
 .fake_copyright {
 
   margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
 
 }
 
