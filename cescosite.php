@@ -55,7 +55,7 @@ if(window.location.pathname != "/cescosite/"){
 <br>
 
         <select id="range">
-                <option value="more_likes">Le plus apprécier</option>
+                <option value="more_likes">Le plus liké</option>
                 <option value="more_times">Le plus récent</option>
                 <option value="random">Aléatoire</option>
      
@@ -72,7 +72,7 @@ if(window.location.pathname != "/cescosite/"){
         
         <footer>
 
-                <p>ⓒ 2022 - AsterJdM production</p>
+                <p class="fake_copyright">ⓒ 2022 - AsterJdM production</p>
 
 
 
