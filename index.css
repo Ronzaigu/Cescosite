@@ -17,15 +17,15 @@ body {
 header {
 
   background-color: white;
- 
   top: -30px;
-  padding: 130px;
+  padding: 25px;
+  
 
 }
 
 
 
-/* Title with underline animation */
+/* Title  */
 
 
 .uptitle {
@@ -41,26 +41,6 @@ header {
 }
 
 
-
-.uptitle::after {
-
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background: #000;
-    transition: transform 0.4s ease-in-out;
-    transform: scale(0);
-}
-
-
-
-.uptitle:hover::after {
-
-    transform: scale(1);
-
-}
 
 
 
@@ -186,6 +166,19 @@ header {
 }
  
 
+.many_button {
+
+  text-align: center;
+
+
+}
+
+.nav {
+
+  text-align: center;
+  margin-top: 200px;
+
+}
 
 @media only screen and (max-width: 1200px) {
 
