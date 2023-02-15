@@ -13,7 +13,7 @@
         $username = $_SESSION['mail_username'];
         $mail = $_SESSION['mail_mail'];
 
-        if($code != $_SESSION["mail_code"]){
+        if(hash("sha256", $code) != $_SESSION["mail_code"]){
             echo "Invalid code";
 
         }else{

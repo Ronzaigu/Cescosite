@@ -77,7 +77,7 @@ session_start();
       
                   $username = $conn -> real_escape_string(htmlspecialchars($_POST['username']));
                   $passwd = hash("sha256", $_POST['passwd'] ) ; 
-                  $mail =  hash("sha256", $_POST["mail"]);
+                  $mail =  $_POST["mail"];
 
 
 
@@ -110,19 +110,22 @@ session_start();
                             }else{
                      
                             //send verification email :
-                                $to = $mail;
+                
                                 $subject = "Code de vérification";
-                                $code = rand(100000000, 9999999999);
-                                $message = "<p>Voici votre liens de vérification : <p><a href='https://rmbi.ch/cescosite/mailverify.php?code=" . $code . "'></a>";
+                                $code = rand(100000000, 9999999999) ;
+                                $message = "<p>Salut ".$username.", <br><br> Voici votre liens de vérification : <p><a href='https://rmbi.ch/cescosite/mailverify.php?code=" . $code . "'></a>";
                                
-                               
+                                
+                                      
                               
-                                if (mail($to, $subject, $message)) {
+                              
+                                if (mail($mail, $subject, $message)) {
                                     $_SESSION["mail_username"] = $username;
                                     $_SESSION["mail_password"] = $passwd;
-                                    $_SESSION["mail_mail"] = $mail;
-                                    $_SESSION["mail_code"] =$code;
+                                    $_SESSION["mail_mail"] = hash("sha256", $mail);
+                                    $_SESSION["mail_code"] =hash("sha256", $code);
                                     alert("Veuillez vérifier votre mail.");
+                                   die();
                                     
 
                                 } else {
