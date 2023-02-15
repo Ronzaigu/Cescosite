@@ -1,33 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-          if(window.location.pathname != "/cescosite/"){
-            window.location.href = ".?page=home"
 
-        }
-    if (window.location.protocol != "https:") {
-    window.location.protocol="https:";
-}
-</script>
-	<meta charset="utf-8">
+    <script>
+              if(window.location.pathname != "/cescosite/"){
+                window.location.href = ".?page=home"
+
+            }
+        if (window.location.protocol != "https:") {
+        window.location.protocol="https:";
+    }
+    
+    </script>
+	
+    <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="./css/cescosite.css">
-
-
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<title>Cescosite - Home</title>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  	<script>
-$(document).ready(function(){
-  $(".hide_button").click(function(){
-    $(".many_button").animate({
-      width: 'toggle',
-    });
-  });
-});
-</script>
+	
 </head>
 
 <body>
@@ -42,16 +33,18 @@ $(document).ready(function(){
 	 	 <div class="profile">
 	    	<button class="profile_photo_body"></button>
 	 	 </div>
-	  
+	    
 	  	<div class="nav">
-	    <div class="hide">
-	      <button class="hide_button">--</button>
+	    
+	     
 	    </div>
 
 
-	    <div class="many_button">
+	       <div class="many_button">
 	    
 	      <button onclick="window.location.href='?page=home';" class="navigator"><p class="text_in_button">Home</p></button>
+          
+
           <?php
                 session_start();
                 if (isset($_SESSION["user"])) {
@@ -62,14 +55,12 @@ $(document).ready(function(){
                 }
                 ?>
                 
-
-	      
 	      <button onclick="window.location.href='?page=contact';" class="navigator"><p class="text_in_button">Contact</p></button>
 	      <button onclick="window.location.href='?page=about';" class="navigator"><p class="text_in_button">A-propos</p></button>
 		
 		</div>
 
-  		</div>
+  		
 </header>
 
 <br><br>

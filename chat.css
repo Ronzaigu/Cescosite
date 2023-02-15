@@ -1,0 +1,117 @@
+@import font-family: 'Bebas Neue', cursive;
+
+body {
+
+	object-position: center;
+	color: aliceblue;
+	overflow-wrap: anywhere;
+}
+	
+
+	
+.mess { 
+
+	text-align: center;
+
+}
+	
+	
+
+.zonetxt {
+
+	text-align: center;
+	
+}
+	
+	
+
+.zone{
+	
+	
+	resize: none;
+	width: 350px;
+	height: 200px;
+	
+}
+
+	
+		
+
+.button {
+
+    
+    border: none;
+    background: black;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100px;
+    width: 200px;
+    height: 60px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    font-family: 'Bebas Neue', cursive;
+    line-height: 60px;
+    transition: 0.4s;
+    font-size: 40px;
+
+}
+
+.button:hover {
+
+    background-color: #5e6362;
+    
+}
+
+.subtitle {
+
+    animation-name: slide;
+    animation-duration: 0.5s;
+
+}
+
+
+
+
+@keyframes fade {
+
+    from {
+
+
+        opacity: 0%;
+
+    }
+
+
+    to {
+
+
+        opacity: 100%;
+
+    }
+
+}
+
+
+
+@keyframes slide{
+
+
+    from {
+
+        margin-left: -10%;
+
+    }
+
+
+    to {
+
+        margin-left: 0%;
+
+    }
+}
+
+
+
