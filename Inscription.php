@@ -80,12 +80,6 @@ session_start();
                   $mail =  $_POST["mail"];
 
 
-
-
-
-
-
-
                 
 
                   if(str_replace(' ', '', $_POST["mail"] == "") || str_replace(' ', '', $_POST['passwd'] == "") || !filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)){
@@ -96,7 +90,7 @@ session_start();
                         }else{
                     
                             $sql = "SELECT username FROM ju_Users WHERE username = '".$username."'";
-                            $sqlM = "SELECT mail FROM ju_Users WHERE mail = '".$mail."'";
+                            $sqlM = "SELECT mail FROM ju_Users WHERE mail = '".hash("sha256", $mail)."'";
                             //echo $sql ; 
                             $result = $conn->query($sql);
                             $resultM = $conn->query($sqlM);
