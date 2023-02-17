@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Cescosite : Site de publication d'article pour Cescole.">
         <link rel="stylesheet" href="./css/cescosite.css" />
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
         <!-- Import prismjs stylesheet -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/themes/prism.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-highlight/prism-line-highlight.min.css">
@@ -16,12 +17,9 @@
         
         <!-- Import highlight plugin specific stylesheet -->
         <link rel="stylesheet" href="trumbowyg/dist/plugins/highlight/ui/trumbowyg.highlight.min.css">
-<<<<<<< HEAD
 
 
-=======
         
->>>>>>> fe214331de2f35225c9ee54f7db43266f0538d06
 </head>
 
 <body>
