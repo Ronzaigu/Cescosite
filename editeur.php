@@ -107,7 +107,7 @@ include_once("db.php");
             $sql = "INSERT INTO ju_articles (title, content, USER_FK) VALUES ('$title', '$text', '$user')";
             if (mysqli_query($conn, $sql)) {
 
-
+            
 
 
 
