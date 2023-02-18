@@ -47,10 +47,10 @@ function reaction(type, PK){
     $.get('getPosts.php',true)
 
 
-    user_pk = document.getElementById("user_pk").value
+    is_co = document.getElementById("user_pk").value
 
 
-    if(user_pk == ''){
+    if(is_co == 'false'){
         window.location.href = "?page=connection"
        
 

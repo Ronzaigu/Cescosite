@@ -68,7 +68,13 @@ if(window.location.pathname != "/cescosite/"){
                 <script src="./js/cescosite.js"></script>
 
 
-                <input style="visibility: hidden;" type="text" id='user_pk' value=<?php echo $_SESSION['userPK']; ?>>
+                <input style="visibility: hidden;" type="text" id='user_pk' value=<?php 
+                      
+                                echo $_SESSION['userPK'];
+                       
+                         
+                
+                ?>>
         </footer>
 </body>
 
