@@ -267,58 +267,13 @@ function loadPost(index, data){
     articlesHtml += '<div class="line"></div>'
     articlesHtml += '<div class="post_text">'+ article.content +'</div>'
     articlesHtml += '<div class="bottom_post_button">'
-    articlesHtml += '<div '+ "onclick='signal("+pk+")'" +' class="report"><p class="text_in_button_bottom">!</p></div>'
-
-
-
-    articlesHtml += "<div class = 'avi' id = 'avi"+pk+"'>"
-
-    let nbLike = 0
-    let nbNeutre = 0
-    let nbDislike = 0
-    let scrLike = "./img/upvote_vide.png"
-    let scrNeutre = "./img/neutrevote_vide.png"
-    let scrDislike = "./img/downvote_vide.png"
-
-
-
-        if(typeof article.reaction != "undefined"){
-
-            
-            nbLike = countLike( "+", article.reaction)
-            nbNeutre = countLike( "=", article.reaction)
-            nbDislike = countLike( "-", article.reaction)
-            user_pk = document.getElementById("user_pk").value
-            if (isUserLike("+", user_pk, article.reaction)) {
-                scrLike = "./img/upvote_plein.png"
-            }
-            if (isUserLike("=", user_pk, article.reaction)) {
-                scrNeutre = "./img/neutrevote_plein.png"
-            }
-            if (isUserLike("-", user_pk, article.reaction)) {
-                scrDislike = "./img/downvote_plein.png"
-            }
-        
-        }
-    // console.log(scrLike)
-        articlesHtml += "<button class='like' onclick = 'reaction(\"+\", "+pk+")' ><img id='imgLike" + pk + "' width =50 src='"+scrLike+"'></button><p id=LikeP"+pk+" >"+nbLike+"</p>"
-        articlesHtml += "<button class='neutrelike' onclick = 'reaction(\"=\", "+pk+")' ><img id='imgNeutrelike" + pk + "'width =50 src='"+scrNeutre+"'></button><p id=NeutreP"+pk+" >"+nbNeutre+"</p>"
-        articlesHtml += "<button class='dislike' onclick = 'reaction(\"-\", "+pk+")' ><img id='imgDislike" + pk + "' width =50 src='"+scrDislike+"'></button><p id=DislikeP"+pk+" >"+nbDislike+"</p>"
-        
-
-
-articlesHtml += "</div>"
-
-
-
-    articlesHtml += '<div onclick="coments('+pk+')" class="comment"><p class="text_in_button_bottom">></p></div>'
+    articlesHtml += '<div '+ "onclick='signal("+pk+")'" +' class="report"><p class="text_in_button_bottom_left">!</p></div>'
+    articlesHtml += '<div onclick="coments('+pk+')" class="comment"><p class="text_in_button_bottom_right">></p></div>'
 
     articlesHtml += "<div style = 'display:none' id = 'large_coms"+pk+"'>"
     
     articlesHtml += "<div class='zonetxt' id='comment-form'  id='comForm'> <textarea class='comText' id='comText"+pk+"' name='textC'></textarea>  <input id = 'title"+pk+"' name='title'  style='visibility : hidden' value='"+article.title+"'> <br> <button onclick = 'sendComData("+pk+")' class='boutton' type='submit'  id='submit' alt='submit'>Envoyer</button> </div>"
-
-
-
+    
     articlesHtml += "<div  id = 'com"+pk+"'>"
 
         //coments here
