@@ -17,167 +17,18 @@ body {
 header {
 
   background-color: white;
- 
   top: -30px;
-  padding: 130px;
 
 }
 
 
+img {
 
-/* Title with underline animation */
-
-
-.uptitle {
-
-  margin-top: 0px;
-  text-align: center;
-  font-size: 140px;
-  font-family: 'Oswald', sans-serif;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 120px;
-  left: 50%;
-}
-
-
-
-.uptitle::after {
-
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background: #000;
-    transition: transform 0.4s ease-in-out;
-    transform: scale(0);
-}
-
-
-
-.uptitle:hover::after {
-
-    transform: scale(1);
-
-}
-
-
-
-/* Button model for all site */
-
-
-
-.navigator {
-
-  padding: 0;
-  border: none;
-  background: #3f4062;
-  width: 200px;
-  height: 60px;
-  border-radius: 25px;
-  transition: 0.3s;
-  line-height: 0px;
-  clear: both;
-  margin-left: 5px;
-  
-
-}
-
-
-
-.navigator:hover {
-
-  background-color: #6e7093;
-
-}
-
-
-/* In button text model for all site */
-
-
-.text_in_button {
-
-  color: white;
-  font-size: 20px;
-
-}
-
-
-
-/* Button for create a new post */
-
-.new_post {
-
-  position: absolute;
-  top: 20px;
-  right: 85px;
-  padding: 0;
-
-}
-
-
-
-/* Placement for "profile_photo_body" */
-
-.profile {
-
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 0;
-
-
-}
-
-/* Button to see own profile photo on top of the page*/
-
-.profile_photo_body {
-
-  height: 60px;
-  width: 60px;
-  padding: 0;
-  border: none;
-  background-color: #3f4062;
   border-radius: 20px;
-  transition: 0.3s;
-  line-height: 0px;
 
 }
 
 
-
-.profile_photo_body:hover {
-
-  background-color: #6e7093;
-
-}
-
-/* Button to see poeple profile photo on top of the post */
-
-
-.profile_photo_post {
-
-  height: 70px;
-  width: 70px;
-  padding: 0;
-  border: none;
-  background-color: #3f4062;
-  border-radius: 20px;
-  transition: 0.3s;
-  line-height: 0px;
-  margin-top: 20px;
-  margin-left: 20px;
-
-}
-
-
-
-.profile_photo_post:hover {
-
-  background-color: #6e7093;
-
-}
 
 
 .hight_left_post {
@@ -188,12 +39,10 @@ header {
 
 }
 
-
 .user_date_post {
 
-	margin-left: 10px;
-	margin-top: 7px;
-
+  margin-top: 7px;
+  margin-left: 5px;
 
 
 }
@@ -203,6 +52,8 @@ header {
 	background-color: lightgrey;
 	border-radius: 8px;
 	padding: 3px;
+  font-size: 16px;
+
 
 }
 
@@ -217,64 +68,13 @@ header {
 	background-color: lightgrey;
 	border-radius: 8px;
 	padding: 3px;
-
-}
-
-
-
-.many_button {
-
-  top: 270px;
-  left: 120px;
-  position: absolute;
-  padding-top: 10px;
-  padding-bottom: 11px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  background-color: lightgrey;
-
   
-}
-
-.hide {
-
-  top: 270px;
-  left: 30px;
-  position: absolute;
-  background-color: lightgrey;
-  border-radius: 10px;
-  padding: 5px;
 
 }
 
-.hide_button {
-
-  padding: 0;
-  border: none;
-  background: #3f4062;
-  width: 66px;
-  height: 66px;
-  border-radius: 22px;
-  transition: 0.3s;
-  line-height: 0px;
-  ;
-
-}
-
-.hide_button:hover {
-
-  background-color: #6e7093;
-
-}
-
-.chat_post_comment {
 
 
-	display: flex;
 
-
-}
 
 
 .post_big_title {
@@ -295,9 +95,11 @@ header {
 
 	background-color: white;
 	width: 600px;
-	height: 500px;
+	height: auto;
+  padding-bottom: 20px;
+  margin-top: 12px;
 	position: none;
-	border-radius: 25px;
+	border-radius: 30px;
 	border-color: black;
 	border-width: 2px;
 	border-style: solid;
@@ -360,13 +162,20 @@ header {
 }
 
 
-.text_in_button_bottom {
+.text_in_button_bottom_left {
 
 	margin-left: 45%;
 	color: white;
-	font-size: 20px;
-	line-height: 45%;
 	font-family: 'Fredoka One', cursive;
+  
+
+}
+
+.text_in_button_bottom_right {
+
+  margin-left: 40%;
+  color: white;
+  font-family: 'Fredoka One', cursive;
 
 }
 
@@ -380,7 +189,12 @@ header {
 
 
 
+.fake_copyright {
 
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+
+}
 
 
 @media only screen and (max-width: 1200px) {
