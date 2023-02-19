@@ -89,8 +89,8 @@ session_start();
                             alert( "Votre nom d'utulisateur contient des mot interdis.");
                         }else{
                     
-                            $sql = "SELECT username FROM ju_Users WHERE username = '".$username."'";
-                            $sqlM = "SELECT mail FROM ju_Users WHERE mail = '".hash("sha256", $mail)."'";
+                            $sql = "SELECT username FROM ju_Users WHERE username = '$username'";
+                            $sqlM = "SELECT mail FROM ju_Users WHERE mail = hash('sha256', $mail)";
                             //echo $sql ; 
                             $result = $conn->query($sql);
                             $resultM = $conn->query($sqlM);
@@ -107,19 +107,33 @@ session_start();
                 
                                 $subject = "Code de vérification";
                                 $code = rand(100000000, 9999999999) ;
-                                $message = "<p>Salut ".$username.", <br><br> Voici votre liens de vérification : <p><a href='https://rmbi.ch/cescosite/mailverify.php?code=" . $code . "'></a>";
+                                $message = "<p>Salut ".$username.", <br><br> Voici votre liens de vérification : <p><a href='https://rmbi.ch/cescosite/mailverify.php?code=$code&user=$username'></a>";
                                
                                 
                                       
                               
                               
                                 if (mail($mail, $subject, $message)) {
-                                    $_SESSION["mail_username"] = $username;
-                                    $_SESSION["mail_password"] = $passwd;
-                                    $_SESSION["mail_mail"] = hash("sha256", $mail);
-                                    $_SESSION["mail_code"] =hash("sha256", $code);
-                                    alert("Veuillez vérifier votre mail.");
-                                   die();
+                                    $mail_hash = hash('sha256', $mail);
+                                    $code_hash = hash('sha256', $code);
+                                    $sql = "INSERT INTO ju_Users (username, passwd, mail, is_validate, verif_code) VALUES ('$username', '$passwd', '$mail_hash', 'no', '$code_hash')";
+                                
+                            
+                                    if (mysqli_query($conn, $sql)) {
+                                     
+                                        alert("Veuillez vérifier votre mail.");
+                                        
+                                        
+                                    
+                        
+                                        die();
+                                    
+                                        
+                                    }else{
+                                        echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
+                                    }
+                        
+                                   
                                     
 
                                 } else {
@@ -172,3 +186,5 @@ session_start();
 
 </body>
 </html>
+
+

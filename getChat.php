@@ -24,7 +24,7 @@ for ($i = 0; $i < count($chatData); $i++) {
     $sqlC = "SELECT username FROM ju_Users WHERE ju_Users_PK = " . $chatData[$i][USER_FK];
 
     $creator = $conn->query($sqlC)->fetch_assoc()["username"];
-    $chatData[$i][creator] = $creator;
+    $chatData[$i]["creator"] = $creator;
 }
 
 
