@@ -38,7 +38,7 @@
       $username = $conn -> real_escape_string($_POST['username']);
       $passwd =  hash("sha256", $_POST['passwd'])  ; 
       alert($username);
-      $sql = "SELECT passwd, username, ju_Users_PK FROM ju_Users WHERE username = '$username' AND passwd = '$passwd'";
+      $sql = "SELECT passwd, username, ju_Users_PK, is_validate FROM ju_Users WHERE username = '$username' AND passwd = '$passwd'";
       //echo $sql ;
 
 
@@ -46,17 +46,27 @@
         echo mysqli_error($conn);
   
       }
+      
+      
 
 
       $result = $conn->query($sql);
       $row = $result->fetch_assoc();
       
+
+
+
+
       if ($result->num_rows > 0) {
-        alert( "Connected");
-        session_start();
-        $_SESSION["user"] = $username;
-        $_SESSION["userPK"] = $row["ju_Users_PK"];
-        header('Location: .?page=home');
+        if(row['is_validate'] == 1) {
+          session_start();
+          $_SESSION["user"] = $username;
+          $_SESSION["userPK"] = $row["ju_Users_PK"];
+          header('Location: .?page=home');
+        }
+        else {
+          alert("Veuillez vérifiez votre mail.")
+        }
         ?>
 
         <?php

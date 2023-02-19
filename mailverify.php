@@ -24,7 +24,12 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
             echo "wrong code";
         }else{
             echo "success";
+            $sql = "UPDATE ju_Users SET is_validate = 1 WHERE username = '$user'";
+
+            $conn->query($sql);
             header("location: Connexion.php");
+
+            
         }
 
     
