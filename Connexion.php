@@ -65,7 +65,7 @@
           header('Location: .?page=home');
         }
         else {
-          alert("Veuillez vérifiez votre mail.")
+          alert("Veuillez vérifiez votre mail.");
         }
         ?>
 
