@@ -39,10 +39,11 @@ function loadChat(){
     chatHtml = ""
     
     for (let i = 0; i < data.length; i++) {
-      
+      /*
       chatHtml += "<strong>" + data[i].creator + "</strong>" + "    " + "<em>" + data[i].dat + "</em>";
       chatHtml+= "<br>";
       chatHtml += "<p>" + data[i].content + "</p>" + "<br>" + "<b>_________________________________________________</b>" + "<br>";
+      */
     }
 
     document.getElementById("mess").innerHTML = chatHtml

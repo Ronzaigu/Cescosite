@@ -206,8 +206,6 @@ include_once("db.php");
                             ['fullscreen'],
                             ['highlight'],
 
-                            ['emoji'],
-
                             ['giphy']
 
                         ]
