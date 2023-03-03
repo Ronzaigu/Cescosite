@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>Cescosite - Home</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  	<script>
+$(document).ready(function(){
+  $(".hide_button").click(function(){
+    $(".many_button").animate({
+      width: 'toggle',
+    });
+  });
+});
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="container"><h1 class="uptitle">CESCOSITE</h1></div>
+  		
+  		<div class="new_post">
+    		<button onclick="window.location.href='?page=editor';" class="navigator"><p class="text_in_button">+ Nouveau Post</p></button>
+	    </div>
+
+	 	 <div class="profile">
+	    	<button class="profile_photo_body"></button>
+	 	 </div>
+	  
+	  	<div class="nav" hidden>
+	    <div class="hide">
+	      <button class="hide_button">--</button>
+	    </div>
+	    
+	    <div class="many_button">
+	    
+	      <button onclick="window.location.href='?page=home';" class="navigator"><p class="text_in_button">Home</p></button>
+	      <button onclick="window.location.href='?page=connection';" class="navigator"><p class="text_in_button">Connexion</p></button>
+	      <button onclick="window.location.href='?page=inscription';" class="navigator"><p class="text_in_button">Inscription</p></button>
+	      <button onclick="window.location.href='?page=contact';" class="navigator"><p class="text_in_button">Contact</p></button>
+	      <button onclick="window.location.href='?page=about';" class="navigator"><p class="text_in_button">A-propos</p></button>
+		
+		</div>
+
+  		</div>
+</header>
+<div class="chat_post_comment">
+<div class="post">
+	
+	<h1 class="post_big_title">POST</h1>
+	<div class="post_zone"><div class="top_of_post">
+		<div class="hight_left_post">
+		<button class="profile_photo_post"></button>
+		<div class="user_date_post"><p class="post_user">User</p>
+		<p class="post_date">01.01.2001</p></div></div><br>
+		<div class="little"><p class="post_little_title">My firts post on cescosite its amazing</p></div>
+		<div class="line"></div>
+		<div class="post_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+	</div>
+	<div class="bottom_post_button">
+
+	<!-- Reporting button -->
+	<div class="report"><p class="text_in_button_bottom">!</p></div>
+	<!-- Hide/Show comment, button -->
+	<div class="comment"><p class="text_in_button_bottom">></p></div>	
+	
+	</div>
+</div>
+</div>
+</body>
+</html>

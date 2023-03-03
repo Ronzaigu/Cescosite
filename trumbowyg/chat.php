@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="./css/chat.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="./js/chat.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>CescoSite - Chat</title>
 </head>
 <body>
@@ -86,13 +85,7 @@ if(isset($_POST['text'])){
 
 
 
-<script>
-    
-    if(window.location.pathname != "/cescosite/"){
-            window.location.href = ".?page=chat"
 
-        }
-</script>
 
 
 
@@ -107,7 +100,7 @@ if(isset($_POST['text'])){
 
 <div class="input_bottom">
 <div class="chat_bottom">
-<input type="text" name="send" id='chatContent' class="send_chat_input">
+<input type="text" name="send" class="send_chat_input">
 <div>
 <button onclick="sendChatData()" class="send_chat_button">Send</button>
 

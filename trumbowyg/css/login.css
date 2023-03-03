@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+.login {
+
+    width: 450px;
+    border: 20px double black;
+
+    padding: 20px;
+    margin: 20px;
+
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: white;
+
+}
+
+
+body {
+ 
+    font-family: 'Bebas Neue', cursive;
+
+}
+
+
+
+.titre {
+
+    text-align: center;
+    font-size:110px;
+    color: white;
+
+}
+
+
+.text {
+
+    width: 100%;
+    height: 5%;
+    font-family: 'Quicksand', cursive;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #5e6362;
+    margin-top: 2px;
+    
+}
+
+
+
+.connect_button {
+
+
+    border: none;
+    background: black;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100px;
+    width: 200px;
+    height: 60px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    font-family: 'Bebas Neue', cursive;
+    line-height: 60px;
+    transition: 0.4s;
+    font-size: 40px;
+
+}
+
+
+.connect_button:hover {
+
+    background-color: #5e6362;
+
+}
+
+.subtitle {
+
+    animation-name: slide;
+    animation-duration: 0.5s;
+
+}
+
+.mdp {
+
+text-align: center;
+color: black;
+
+}
+
+
+
+.ins {
+
+text-align: center;
+color: black;
+
+}
+
+
+.link {
+
+    transition: 2s;
+
+}
+
+
+
+.link:hover {
+
+
+    color: #5e6362;
+
+}
+
+
+@keyframes slide{
+
+
+    from {
+
+        margin-left: -10%;
+
+    }
+
+
+    to {
+
+        margin-left: 0%;
+
+    }
+}
+
+
+
+@keyframes slowslide{
+
+
+    from {
+
+        margin-left: -3%;
+
+    }
+
+
+    to {
+
+        margin-left: 0%;
+
+    }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .title {
+
+        font-size: 120px;    
+
+    }
+
+
+     
+
+}

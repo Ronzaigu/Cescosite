@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+
+body {
+
+  background-color: lightgrey;
+  margin: 0;
+  padding: 0;
+
+}
+
+
+
+header {
+
+  background-color: white;
+  top: -30px;
+
+}
+
+
+img {
+
+  border-radius: 20px;
+
+}
+
+
+
+
+.hight_left_post {
+
+	display: flex;
+ 
+
+
+}
+
+.user_date_post {
+
+  margin-top: 7px;
+  margin-left: 5px;
+
+
+}
+
+.post_user, .post_date {
+
+	background-color: lightgrey;
+	border-radius: 8px;
+	padding: 3px;
+  font-size: 16px;
+
+
+}
+
+
+.post_little_title {
+
+		
+	display: flex;
+	height: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	background-color: lightgrey;
+	border-radius: 8px;
+	padding: 3px;
+  
+
+}
+
+
+
+
+
+
+.post_big_title {
+
+	
+	position: none;
+	font-family: 'Fredoka One', cursive;
+	left: 35%;
+	margin-bottom: -1px;
+
+
+}
+
+
+
+.post_zone {
+
+
+	background-color: white;
+	width: 600px;
+	height: auto;
+  padding-bottom: 20px;
+  margin-top: 12px;
+	position: none;
+	border-radius: 30px;
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+	font-family: 'Montserrat', sans-serif;
+
+}	
+
+
+.line {
+
+
+	background-color: black;
+	height: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 10px;
+	background-color: #888888;
+
+}
+
+.post_text {
+
+
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+
+
+}
+
+.comment {
+
+	background-color: #3f4062;
+	height: 50px;
+	width: 50px;
+	border-radius: 20px;
+	transition: 0.3s;
+	margin-left: 460px;
+
+}
+
+.report {
+
+	background-color: #3f4062;
+	height: 50px;
+	width: 50px;
+	border-radius: 20px;
+	transition: 0.3s;
+	margin-left: 20px;
+
+}
+
+
+.bottom_post_button {
+
+	display: flex;
+	margin-top: 13.5%;
+
+
+}
+
+
+.text_in_button_bottom_left {
+
+	margin-left: 45%;
+	color: white;
+	font-family: 'Fredoka One', cursive;
+  
+
+}
+
+.text_in_button_bottom_right {
+
+  margin-left: 40%;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+
+}
+
+
+.report:hover, .comment:hover {
+
+
+	background-color: #6e7093;
+
+}
+
+
+
+.fake_copyright {
+
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+    .uptitle {
+
+    	font-size: 120px;
+
+    }
+
+
+    .navigator {
+
+
+    	height: 50px;
+    	width: 160px;
+
+    }
+     
+
+    .text_in_button {
+
+    	font-size: 15px;
+
+    }
+
+
+    .profile_photo_body {
+
+
+    	height: 50px;
+    	width: 50px;
+
+    }
+}
+
+
+
+
+@media only screen and (max-width: 1050px) {
+
+    .uptitle {
+
+    	font-size: 100px;
+
+    }
+
+
+    .navigator {
+
+
+    	height: 40px;
+    	width: 135px;
+
+    }
+     
+
+    .text_in_button {
+
+    	font-size: 12px;
+
+    }
+
+
+    .profile_photo {
+
+
+    	height: 40px;
+    	width: 40px;
+    }
+}
+
+
+
+@media only screen and (max-width: 820px) {
+
+    .uptitle {
+
+    	font-size: 70px;
+    	padding: 0px;
+
+    }
+
+
+    .navigator {
+
+
+    	height: 30px;
+    	width: 120px;
+
+
+    }
+     
+
+    .text_in_button {
+
+    	font-size: 9px;
+
+    }
+
+
+    .profile_photo {
+
+
+    	height: 30px;
+    	width: 30px;
+    }
+}

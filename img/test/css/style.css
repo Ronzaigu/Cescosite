@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+
+body {
+
+  background-color: lightgrey;
+  margin: 0;
+  padding: 0;
+
+}
+
+
+
+header {
+
+  background-color: white;
+ 
+  top: -30px;
+  padding: 130px;
+
+}
+
+
+
+/* Title with underline animation */
+
+
+.uptitle {
+
+  margin-top: 0px;
+  text-align: center;
+  font-size: 140px;
+  font-family: 'Oswald', sans-serif;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 120px;
+  left: 50%;
+}
+
+
+
+.uptitle::after {
+
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #000;
+    transition: transform 0.4s ease-in-out;
+    transform: scale(0);
+}
+
+
+
+.uptitle:hover::after {
+
+    transform: scale(1);
+
+}
+
+
+
+/* Button model for all site */
+
+
+
+.navigator {
+
+  padding: 0;
+  border: none;
+  background: #3f4062;
+  width: 200px;
+  height: 60px;
+  border-radius: 25px;
+  transition: 0.3s;
+  line-height: 0px;
+  clear: both;
+  margin-left: 5px;
+  
+
+}
+
+
+
+.navigator:hover {
+
+  background-color: #6e7093;
+
+}
+
+
+/* In button text model for all site */
+
+
+.text_in_button {
+
+  color: white;
+  font-size: 20px;
+
+}
+
+
+
+/* Button for create a new post */
+
+.new_post {
+
+  position: absolute;
+  top: 20px;
+  right: 85px;
+  padding: 0;
+
+}
+
+
+
+/* Placement for "profile_photo_body" */
+
+.profile {
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0;
+
+
+}
+
+/* Button to see own profile photo on top of the page*/
+
+.profile_photo_body {
+
+  height: 60px;
+  width: 60px;
+  padding: 0;
+  border: none;
+  background-color: #3f4062;
+  border-radius: 20px;
+  transition: 0.3s;
+  line-height: 0px;
+
+}
+
+
+
+.profile_photo_body:hover {
+
+  background-color: #6e7093;
+
+}
+
+/* Button to see poeple profile photo on top of the post */
+
+
+.profile_photo_post {
+
+  height: 70px;
+  width: 70px;
+  padding: 0;
+  border: none;
+  background-color: #3f4062;
+  border-radius: 20px;
+  transition: 0.3s;
+  line-height: 0px;
+  margin-top: 20px;
+  margin-left: 20px;
+
+}
+
+
+
+.profile_photo_post:hover {
+
+  background-color: #6e7093;
+
+}
+
+
+.hight_left_post {
+
+	display: flex;
+ 
+
+
+}
+
+
+.user_date_post {
+
+	margin-left: 10px;
+	margin-top: 7px;
+
+
+
+}
+
+.post_user, .post_date {
+
+	background-color: lightgrey;
+	border-radius: 8px;
+	padding: 3px;
+
+}
+
+
+.post_little_title {
+
+		
+	display: flex;
+	height: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	background-color: lightgrey;
+	border-radius: 8px;
+	padding: 3px;
+
+}
+
+
+
+.many_button {
+
+  top: 270px;
+  left: 120px;
+  position: absolute;
+  padding-top: 10px;
+  padding-bottom: 11px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  background-color: lightgrey;
+
+  
+}
+
+.hide {
+
+  top: 270px;
+  left: 30px;
+  position: absolute;
+  background-color: lightgrey;
+  border-radius: 10px;
+  padding: 5px;
+
+}
+
+.hide_button {
+
+  padding: 0;
+  border: none;
+  background: #3f4062;
+  width: 66px;
+  height: 66px;
+  border-radius: 22px;
+  transition: 0.3s;
+  line-height: 0px;
+  ;
+
+}
+
+.hide_button:hover {
+
+  background-color: #6e7093;
+
+}
+
+.chat_post_comment {
+
+
+	display: flex;
+
+
+}
+
+
+.post_big_title {
+
+	
+	position: none;
+	font-family: 'Fredoka One', cursive;
+	left: 35%;
+	margin-bottom: -1px;
+
+
+}
+
+
+
+.post_zone {
+
+
+	background-color: white;
+	width: 600px;
+	height: 500px;
+	position: none;
+	border-radius: 25px;
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+	font-family: 'Montserrat', sans-serif;
+
+}	
+
+
+.line {
+
+
+	background-color: black;
+	height: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 10px;
+	background-color: #888888;
+
+}
+
+.post_text {
+
+
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+
+
+}
+
+.comment {
+
+	background-color: #3f4062;
+	height: 50px;
+	width: 50px;
+	border-radius: 20px;
+	transition: 0.3s;
+	margin-left: 460px;
+
+}
+
+.report {
+
+	background-color: #3f4062;
+	height: 50px;
+	width: 50px;
+	border-radius: 20px;
+	transition: 0.3s;
+	margin-left: 20px;
+
+}
+
+
+.bottom_post_button {
+
+	display: flex;
+	margin-top: 13.5%;
+
+
+}
+
+
+.text_in_button_bottom {
+
+	margin-left: 45%;
+	color: white;
+	font-size: 20px;
+	line-height: 45%;
+	font-family: 'Fredoka One', cursive;
+
+}
+
+
+.report:hover, .comment:hover {
+
+
+	background-color: #6e7093;
+
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1200px) {
+
+    .uptitle {
+
+    	font-size: 120px;
+
+    }
+
+
+    .navigator {
+
+
+    	height: 50px;
+    	width: 160px;
+
+    }
+     
+
+    .text_in_button {
+
+    	font-size: 15px;
+
+    }
+
+
+    .profile_photo_body {
+
+
+    	height: 50px;
+    	width: 50px;
+
+    }
+}
+
+
+
+
+@media only screen and (max-width: 1050px) {
+
+    .uptitle {
+
+    	font-size: 100px;
+
+    }
+
+
+    .navigator {
+
+
+    	height: 40px;
+    	width: 135px;
+
+    }
+     
+
+    .text_in_button {
+
+    	font-size: 12px;
+
+    }
+
+
+    .profile_photo {
+
+
+    	height: 40px;
+    	width: 40px;
+    }
+}
+
+
+
+@media only screen and (max-width: 820px) {
+
+    .uptitle {
+
+    	font-size: 70px;
+    	padding: 0px;
+
+    }
+
+
+    .navigator {
+
+
+    	height: 30px;
+    	width: 120px;
+
+
+    }
+     
+
+    .text_in_button {
+
+    	font-size: 9px;
+
+    }
+
+
+    .profile_photo {
+
+
+    	height: 30px;
+    	width: 30px;
+    }
+}
