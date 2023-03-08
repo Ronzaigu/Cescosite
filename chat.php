@@ -95,14 +95,14 @@ if(isset($_POST['text'])){
 
 <article class="chat">
 <div class = "mess" id = "mess">
-<p>Veuillez patienter....</p>
+<p class="wait">Veuillez patienter....</p>
 </div>
 
 <div class="input_bottom">
 <div class="chat_bottom">
 <input type="text" name="send" id='chatContent' class="send_chat_input">
 <div>
-<button onclick="sendChatData()" class="send_chat_button">Send</button>
+<button onclick="sendChatData()" class="send_chat_button"><p class="send_text">></p></button>
 
 </div></div></article>
 
@@ -112,7 +112,7 @@ if(isset($_POST['text'])){
 
 
 <footer>
-    <input id ='chatData' type="text">
+
 </footer>
  
 
