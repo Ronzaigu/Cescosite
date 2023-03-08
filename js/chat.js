@@ -5,28 +5,36 @@
 
 function sendChatData()
 {
-  
-  let chatcontent = document.getElementById("chatContent").value;
+  user_pk = document.getElementById("user_pk").value
 
 
-  $.ajax({
-    type: 'post',
-    url: 'chat.php',
-    data: {
-  
-        text:chatcontent
-    },
+  if(user_pk == ''){
+      window.location.href = "?page=connection"
+     
+
+  }else{
+    let chatcontent = document.getElementById("chatContent").value;
+
+
+    $.ajax({
+      type: 'post',
+      url: 'chat.php',
+      data: {
     
-  });
+          text:chatcontent
+      },
+      
+    });
 
 
-  document.getElementById("chatContent").value = ""
-  $.get('getChat.php', function(result) {
-    $('#chatData').val(result);
-}).done(loadChat)
+    document.getElementById("chatContent").value = ""
+    $.get('getChat.php', function(result) {
+      $('#chatData').val(result);
+  }).done(loadChat)
 
 
-  return false;
+    return false;
+  }
 }
 
 function decodeEntity(inputStr) {
@@ -35,11 +43,11 @@ function decodeEntity(inputStr) {
   return textarea.value;
 }
 
-function loadChat(){
-    data = JSON.parse(decodeEntity(document.getElementById("chatData").value))
-   
-    var chatHtml = ''
+function loadChat(data){
     
+   
+    data = JSON.parse(decodeEntity(data));
+    let chatHtml = ""
     for (let i = 0; i < data.length; i++) {
    //   console.log(data[i])
       chatHtml += '<div class="hight_chat">';
@@ -64,21 +72,29 @@ function loadChat(){
     }
 
     
-    document.getElementById("mess").innerHTML = chatHtml
+    document.getElementById("chatjs").innerHTML = chatHtml
+}
+
+function getCloudChatData(){
+  return $.get('getChat.php',true)
 }
 
 
-$.get('getChat.php', function(result) {
-  $('#chatData').val(result);
-}).done(loadChat)
+$.when(getCloudChatData()).done(function (result) {
+  loadChat(result)
+})
+
 
 var auto_refresh = setInterval(
     
   function (){
 
-    $.get('getChat.php', function(result) {
-      $('#chatData').val(result);
-    }).done(loadChat)
+    $.when(getCloudChatData()).done(function (result) {
+     
+      loadChat(result)
+    })
     
+
+   
   
   }, 3000);

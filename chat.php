@@ -1,28 +1,13 @@
-<!DOCTYPE html>
+
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/chat.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   
-    <title>CescoSite - Chat</title>
-</head>
-<body>
-
-<script src="./js/chat.js"></script>
-
-<div class="border">
 
 <?php
 error_reporting("E_ALL | E_STRICT | E_NOTICE | E_DEPRECATED | E_USER_");
-$CHAT_LIMIT = 20;
+$CHAT_LIMIT = 10;
 
 function containsBadWord($string)
 { 
-    $badWord = array("connard", "pute", "fuck", "sex", "sexy", "connard", "fucke","foutre", "geul", "geule","tamer", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "con");
+    $badWord = array("connar", "pute", "fuck", "sex", "sexy", "connard", "fucke","foutre", "geul", "geule","tamer", "cul", "merde", "couille", "bite");
     
 
     for ($i=0; $i<count($badWord); $i++) {
@@ -58,15 +43,8 @@ if(isset($_POST['text'])){
 
                 if (mysqli_query($conn, $sql)) {
 
-                    $sqlL = "SELECT * FROM aj_chat";
-                    $nbChat = $conn->query($sqlL)->num_rows;
 
-                    if ($nbChat > $CHAT_LIMIT) {
-                        $sqlD = "DELETE FROM aj_chat LIMIT 1";
-                        mysqli_query($conn, $sqlD);
-                    }
-                    
-                    header('Location: ?page=chat');
+                 
         
                 }else{
                     echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
@@ -79,7 +57,7 @@ if(isset($_POST['text'])){
 
     }else{
      
-        header("location: .?page=connection");
+        header("location: Connexion.php");
 
     }
 }
@@ -87,37 +65,8 @@ if(isset($_POST['text'])){
 
 
 
-<script src="./js/chat.js"></script>
-
-<br>
-<br>
 
 
-<article class="chat">
-<div class = "mess" id = "mess">
-<p class="wait">Veuillez patienter....</p>
-</div>
-
-<div class="input_bottom">
-<div class="chat_bottom">
-<input type="text" name="send" id='chatContent' class="send_chat_input">
-<div>
-<button onclick="sendChatData()" class="send_chat_button"><p class="send_text">></p></button>
-
-</div></div></article>
-
-
-
-
-
-
-<footer>
-
-</footer>
- 
-
-</body>
 
 
 </html>
-
