@@ -37,7 +37,7 @@
 
       $username = $conn -> real_escape_string($_POST['username']);
       $passwd =  hash("sha256", $_POST['passwd'])  ; 
-      alert($username);
+
       $sql = "SELECT passwd, username, users_PK, is_validate FROM aj_Users WHERE username = '$username' AND passwd = '$passwd'";
       //echo $sql ;
 
