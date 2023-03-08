@@ -52,7 +52,7 @@
 				echo "ERREUR : Votre pseudo contient des mots interdits !";
 
 			}else{
-				$sql = "UPDATE aj_Users SET username = '$newPseudo' WHERE aj_Users_PK = '$userPK'";
+				$sql = "UPDATE aj_Users SET username = '$newPseudo' WHERE users_PK = '$userPK'";
 				if (mysqli_query($conn, $sql)) {
 					echo "Votre pseudo a été mis a jour.";
 				}else{
@@ -68,14 +68,14 @@
 			$NewPasswd = $conn -> real_escape_string($_POST['newPass']) ; 
 			
 
-			$sql = "SELECT username FROM aj_Users WHERE aj_Users_PK = '$userPK' AND passwd = MD5(MD5('$OldPasswd'))";
+			$sql = "SELECT username FROM aj_Users WHERE users_PK = '$userPK' AND passwd = MD5(MD5('$OldPasswd'))";
 
 			$result = $conn->query($sql);
 			$row = $result->fetch_assoc();
 			
 			if ($result->num_rows > 0) {
 				//old passwd OK:
-				$sql = "UPDATE aj_Users SET passwd = MD5(MD5('$NewPasswd')) WHERE aj_Users_PK = '$userPK'";
+				$sql = "UPDATE aj_Users SET passwd = MD5(MD5('$NewPasswd')) WHERE users_PK = '$userPK'";
 
 				if (mysqli_query($conn, $sql)) {
 					echo "Votre mot de passe a été mis a jour.";
@@ -98,7 +98,7 @@
 			$newLike = $_POST['new-like'];
 			$newActu = $_POST['new-actu'];
 
-			$sql = "UPDATE aj_Users SET mail_new_post = '$newPost', mail_new_chat = '$newChat', mail_new_coment = '$newComent', mail_new_like = '$newLike', mail_new_actu = '$newActu' WHERE aj_Users_PK = '$userPK'";
+			$sql = "UPDATE aj_Users SET mail_new_post = '$newPost', mail_new_chat = '$newChat', mail_new_coment = '$newComent', mail_new_like = '$newLike', mail_new_actu = '$newActu' WHERE users_PK = '$userPK'";
 		
 			if (mysqli_query($conn, $sql)) {
 				echo "Vos modification on été enregistrées.";
