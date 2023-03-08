@@ -58,7 +58,7 @@
 
 
       if ($result->num_rows > 0) {
-        if(row['is_validate'] == 1) {
+        if($row['is_validate'] == 1) {
           session_start();
           $_SESSION["user"] = $username;
           $_SESSION["userPK"] = $row["users_PK"];
@@ -67,9 +67,8 @@
         else {
           alert("Veuillez vérifiez votre mail.");
         }
-        ?>
+       
 
-        <?php
       } else {
         alert( "Le mot de passe et le nom d'utulisateur doivent être juste... .");
       }
