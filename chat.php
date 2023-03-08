@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/chat.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script src="./js/chat.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
     <title>CescoSite - Chat</title>
 </head>
 <body>
@@ -86,15 +87,7 @@ if(isset($_POST['text'])){
 
 
 
-<script>
-    
-    if(window.location.pathname != "/cescosite/"){
-            window.location.href = ".?page=chat"
-
-        }
-</script>
-
-
+<script src="./js/chat.js"></script>
 
 <br>
 <br>

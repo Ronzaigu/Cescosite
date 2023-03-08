@@ -8,6 +8,7 @@ function sendChatData()
   
   let chatcontent = document.getElementById("chatContent").value;
 
+
   $.ajax({
     type: 'post',
     url: 'chat.php',
@@ -15,7 +16,7 @@ function sendChatData()
   
         text:chatcontent
     },
-
+    
   });
 
 
@@ -40,11 +41,12 @@ function loadChat(){
     var chatHtml = ''
     
     for (let i = 0; i < data.length; i++) {
+   //   console.log(data[i])
       chatHtml += '<div class="hight_chat">';
           chatHtml += '<button class="chat_profile"></button>'
           chatHtml += '<div class="user_date_chat">'
-           --55f    chatHtml += '<p class="chat_user">'+data[i].creator+'</p>'
-              chatHtml = '<p class="chat_date">01.01.2001</p>'
+          chatHtml += '<p class="chat_user">'+data[i].creator+'</p>'
+              chatHtml += '<p class="chat_date">'+ data[i].dat +'</p>'
 
 
         chatHtml += "</div><br>"
@@ -53,7 +55,7 @@ function loadChat(){
       chatHtml += '<p class="chat_text">'+data[i].content+'</p>'
       chatHtml += '<div class="line"></div> '
       chatHtml += '<div class="jépludidé"></div>'
-
+   
       /*chat
       chatHtml += "<strong>" + data[i].creator + "</strong>" + "    " + "<em>" + data[i].dat + "</em>";
       chatHtml+= "<br>";
@@ -61,7 +63,7 @@ function loadChat(){
       */
     }
 
-
+    
     document.getElementById("mess").innerHTML = chatHtml
 }
 
