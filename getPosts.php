@@ -18,10 +18,10 @@ include_once("db.php");
 
     for ($i = 0; $i < count($chatData); $i++) {
 
-        $sqlC = "SELECT username FROM aj_Users WHERE users_PK = " . $chatData[$i][USER_FK];
+        $sqlC = "SELECT username FROM aj_Users WHERE users_PK = " . $chatData[$i]["USER_FK"];
 
         $creator = $conn->query($sqlC)->fetch_assoc()["username"];
-        $chatData[$i][creator] = $creator;
+        $chatData[$i]["creator"] = $creator;
     }
 
     $sql = "SELECT COMENT_PK, ARTICLE_FK, content, dat, USER_FK FROM aj_coments ORDER BY COMENT_PK DESC";
@@ -42,10 +42,10 @@ include_once("db.php");
     $nb = 0;
     for ($ii = 0; $ii < count($chatData); $ii++) {
         $nb = 0;
-        $chatData[$ii][comments];
+        $chatData[$ii]["comments"];
         for ($i = 0; $i < count($ComData); $i++) {
-            if ($ComData[$i][ARTICLE_FK] == $chatData[$ii][ARTICLES_PK]) {
-                $chatData[$ii][comments]["com" . $nb] = $ComData[$i];
+            if ($ComData[$i]["ARTICLE_FK"] == $chatData[$ii]["ARTICLES_PK"]) {
+                $chatData[$ii]["comments"]["com" . $nb] = $ComData[$i];
                 $nb += 1;
 
             }
@@ -70,8 +70,8 @@ include_once("db.php");
     for ($ii = 0; $ii < count($chatData); $ii++) {
         $nb = 0;
         for ($i = 0; $i < count($LikeData); $i++) {
-            if ($LikeData[$i][ARTICLE_FK] == $chatData[$ii][ARTICLES_PK]) {
-                $chatData[$ii][reaction]["reaction#" . $nb] = $LikeData[$i];
+            if ($LikeData[$i]["ARTICLE_FK"] == $chatData[$ii]["ARTICLES_PK"]) {
+                $chatData[$ii]["reaction"]["reaction#" . $nb] = $LikeData[$i];
                 $nb += 1;
 
             }
