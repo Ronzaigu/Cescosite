@@ -33,8 +33,18 @@ if(window.location.pathname != "/cescosite/"){
 
 </script>
       
-    
-              
+<article class="chat">
+<div class = "chatjs" id = "chatjs">
+<p class="wait">Veuillez patienter....</p>
+</div>
+
+<div class="input_bottom">
+<div class="chat_bottom">
+<input type="text" name="send" id='chatContent' class="send_chat_input">
+<div>
+<button onclick="sendChatData()" class="send_chat_button"><p class="send_text">></p></button>
+
+</div></div></article>       
 
 
 <h1 class="post_big_title">POST</h1>
@@ -67,18 +77,7 @@ if(window.location.pathname != "/cescosite/"){
 <br>
 
 
-<article class="chat">
-<div class = "chatjs" id = "chatjs">
-<p class="wait">Veuillez patienter....</p>
-</div>
 
-<div class="input_bottom">
-<div class="chat_bottom">
-<input type="text" name="send" id='chatContent' class="send_chat_input">
-<div>
-<button onclick="sendChatData()" class="send_chat_button"><p class="send_text">></p></button>
-
-</div></div></article>
 
         <footer>
 
