@@ -29,7 +29,9 @@
         }
 
 </script>
-      
+
+<h1 class="post_big_title">CHAT</h1>
+<div class="chat_post_commentary">
 <article class="chat">
 <div class = "chatjs" id = "chatjs">
 <p class="wait">Veuillez patienter....</p>
@@ -52,7 +54,7 @@
 
 <br>
 
-        <select id="range">
+        <select id="range" hidden>
                 <option value="more_likes">Le plus liké</option>
                 <option value="more_times">Le plus récent</option>
                 <option value="random">Aléatoire</option>
@@ -71,6 +73,7 @@
 
 
         <script src="./js/chat.js"></script>
+</div>
 </div>
 <br>
 <br>

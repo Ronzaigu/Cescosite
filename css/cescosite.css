@@ -10,7 +10,7 @@ body {
   background-color: lightgrey;
   margin: 0;
   padding: 0;
-  
+
 
 }
 
@@ -427,10 +427,18 @@ border-radius: 5px;
 }
 
 
+.chat_post_commentary {
+
+	display: flex;
+
+
+
+}
+
 .post {
 
 
-text-align: center;
+ 	margin-left: 20px;
 
 
 }
