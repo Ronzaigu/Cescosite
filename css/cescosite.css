@@ -10,7 +10,7 @@ body {
   background-color: lightgrey;
   margin: 0;
   padding: 0;
-
+	font-family: 'Montserrat', sans-serif;
 
 }
 
@@ -99,7 +99,7 @@ img {
 	width: 600px;
 	height: auto;
   padding-bottom: 20px;
-  margin-top: 12px;
+  margin-bottom: 12px;
 	position: none;
 	border-radius: 30px;
 	border-color: black;
@@ -182,7 +182,7 @@ img {
 }
 
 
-.report:hover, .comment:hover {
+.report:hover, .comment:hover, .chat_profile:hover, .send_chat_button:hover {
 
 
 	background-color: #6e7093;
@@ -313,10 +313,11 @@ img {
 	height: 600px;
 	width: 400px;
 	border-color: black;
-	border-radius: 20px;
+	border-radius: 30px;
 	border-style: solid;
 	border-width: 2px;
 	overflow-y: auto;
+	margin-left: 15px;
 
 }
 
@@ -339,6 +340,8 @@ img {
     margin-top: 15px;
 
 }
+
+
 
 .user_date_chat {
 
@@ -396,6 +399,7 @@ border-radius: 5px;
 	border-color: black;
 	font-size: 20px;
 	margin-left: 20px;
+
 }
 
 
@@ -414,7 +418,7 @@ border-radius: 5px;
 .chat_bottom {
 
 	display: flex;
-	/*margin-top: 95%;*/
+	margin-top: 6px;
 	
 } 
 
@@ -437,8 +441,22 @@ border-radius: 5px;
 
 .post {
 
-
+	margin-top: -20px;
  	margin-left: 20px;
 
+
+}
+
+.wait_message {
+
+
+font-family: 'Montserrat', sans-serif;
+
+}
+
+.send_text {
+
+
+	color: white;
 
 }
