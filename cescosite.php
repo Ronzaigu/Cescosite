@@ -47,7 +47,7 @@
 
 </article>       
 
-<div class="post">
+
 <!-- <h1 class="post_big_title">POST</h1> -->
 
 

@@ -100,7 +100,6 @@ img {
 	height: auto;
   padding-bottom: 20px;
   margin-bottom: 12px;
-	position: none;
 	border-radius: 30px;
 	border-color: black;
 	border-width: 2px;
@@ -321,18 +320,12 @@ border-radius: 5px;
 .chat_post_commentary {
 
 	display: flex;
-
-
-
-}
-
-.post {
-
-	margin-top: -20px;
- 	margin-left: 20px;
+	margin-top: -50px;
 
 
 }
+
+
 
 .wait_message {
 
@@ -418,7 +411,7 @@ font-family: 'Montserrat', sans-serif;
     }
 
 
-    .profile_photo {
+    .profile_photo_body {
 
 
     	height: 40px;
@@ -455,7 +448,7 @@ font-family: 'Montserrat', sans-serif;
     }
 
 
-    .profile_photo {
+    .profile_photo_body {
 
 
     	height: 30px;
