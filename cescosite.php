@@ -16,10 +16,7 @@
         <link rel="stylesheet" href="trumbowyg/dist/ui/trumbowyg.min.css">
         
         <!-- Import highlight plugin specific stylesheet -->
-        <link rel="stylesheet" href="trumbowyg/dist/plugins/highlight/ui/trumbowyg.highlight.min.css">
-
-
-        
+        <link rel="stylesheet" href="trumbowyg/dist/plugins/highlight/ui/trumbowyg.highlight.min.css">        
 </head>
 
 <body>
@@ -27,9 +24,9 @@
 <br><br><br>
 <script>
         
-if(window.location.pathname != "/cescosite/"){
-        window.location.href = ".?page=home"
-}
+        if(window.location.pathname != "/cescosite/"){
+                window.location.href = ".?page=home"
+        }
 
 </script>
       
@@ -44,9 +41,11 @@ if(window.location.pathname != "/cescosite/"){
 <div>
 <button onclick="sendChatData()" class="send_chat_button"><p class="send_text">></p></button>
 
-</div></div></article>       
+</div></div>
 
+</article>       
 
+<div class="post">
 <h1 class="post_big_title">POST</h1>
 
 
@@ -72,7 +71,7 @@ if(window.location.pathname != "/cescosite/"){
 
 
         <script src="./js/chat.js"></script>
-
+</div>
 <br>
 <br>
 

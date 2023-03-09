@@ -10,6 +10,7 @@ body {
   background-color: lightgrey;
   margin: 0;
   padding: 0;
+  
 
 }
 
@@ -426,4 +427,10 @@ border-radius: 5px;
 }
 
 
+.post {
 
+
+text-align: center;
+
+
+}
