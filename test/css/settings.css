@@ -1,0 +1,38 @@
+body {
+
+
+	background-color: lightgrey;
+
+
+}
+
+.settings {
+
+	width: 300px;
+	height: 500px;
+	border-color: black;
+	border-style: solid;
+	border-radius: 30px;
+	background-color: white;
+
+}
+
+.settings_h1{
+
+	font-size: 25px;
+	margin-left: 20px;
+
+}
+
+.line {
+
+	
+	height: 5px;
+	margin-top: -10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 10px;
+	background-color: #888888;
+
+
+}
