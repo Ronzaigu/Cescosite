@@ -4,9 +4,7 @@
 
 body {
 
-
 	background-color: lightgrey;
-
 
 }
 
@@ -64,16 +62,27 @@ body {
 
 	height: 90px;
 	width: 90px;
+	margin-top: 20px;
+	margin-left: 20px;	
 	border-style: solid;
 	border-color: black;
-	background-color: gray;
+	border-radius: 20px;
+	background-color: light-gray;
 
 }
 
 .change_photo_button {
 
-	height: 15px;
-	width: 60px;
+	border: 0;
+	color: white;
+	height: 40px;
+	width: 165px;
+	font-size: 11px;
+	margin-top: 40px;
+	margin-left: 5px;
+	margin-right: 20px;	
+	border-radius: 20px;
 	background-color: #3f4062;
+	font-family: 'Montserrat', sans-serif;
 
 }
