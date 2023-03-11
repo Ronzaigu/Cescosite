@@ -86,3 +86,37 @@ body {
 	font-family: 'Montserrat', sans-serif;
 
 }
+
+
+.color_choice {
+
+
+}
+
+.choice {
+
+	padding: 5px;
+	margin-top: 10px;
+	margin-left: 20px;
+	border-radius: 20px;
+	margin-right: 115px;
+	background-color: lightgrey;
+	
+}
+
+.predefined_colors {
+
+	margin-left: 2px;
+
+}
+
+.color_1, .color_2, .color_3, .color_4, .color_5, .color_6, .color_7, .color_8, .color_9, .color_10 {
+
+	border: 0;
+	width: 25px;
+	height: 25px;
+	margin-left: 1px;
+	border-radius: 5px;
+	margin-bottom: 1px;
+
+}
