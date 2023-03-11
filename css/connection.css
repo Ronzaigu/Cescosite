@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+body {
+
+	background-color: lightgrey;
+
+}
+
+.connection {
+
+	width: 400px;
+	height: 600px;
+	border-radius: 30px;
+	border-color: black;
+	border-style: solid;
+	border-radius: 30px;
+	background-color: white;
+
+}
+
+.connection_h1 {
+
+	font-size: 50px;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.inputs {
+
+	text-align: center;
+
+}
+
+.username_text, .password_text {
+
+	font-size: 20px;
+	text-align: left;
+	margin-left: 20px;
+	margin-bottom: 3px;
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+.username_input, .password_input {
+
+	width: 360px;
+	height: 45px;
+	margin-top: 10px;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: lightgrey;
+
+}
+
+.line {
+
+	height: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 10px;
+	background-color: #888888;
+
+}
+
+.connection_button {
+
+	color: white;
+	width: 360px;
+	height: 60px;
+	border: none;
+	font-size: 35px;
+	margin-top: 20px;
+	transition: 0.3s;
+	margin-left: 20px;
+	border-radius: 15px;
+	background-color: #3f4062;
+
+
+}
+
+.no_account {
+
+	color: inherit;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+.connection_button:hover {
+
+	background-color: #6e7093;
+
+
+}
