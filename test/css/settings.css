@@ -40,7 +40,7 @@ body {
 	height: 50px;
 	margin-top: 16px;
  	margin-left: 70px;
- 	
+
 }
 
 .line {
@@ -54,3 +54,26 @@ body {
 
 }
 
+.change_photo {
+
+	display: flex;
+
+}
+
+.photo_preview {
+
+	height: 90px;
+	width: 90px;
+	border-style: solid;
+	border-color: black;
+	background-color: gray;
+
+}
+
+.change_photo_button {
+
+	height: 15px;
+	width: 60px;
+	background-color: #3f4062;
+
+}
