@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 body {
 
 
@@ -17,16 +21,30 @@ body {
 
 }
 
+.text_gear {
+
+	display: flex;
+
+}
+
 .settings_h1{
 
 	font-size: 25px;
 	margin-left: 20px;
+	font-family: 'Montserrat', sans-serif;
 
+}
+
+.gear {
+
+	height: 50px;
+	margin-top: 16px;
+ 	margin-left: 70px;
+ 	
 }
 
 .line {
 
-	
 	height: 5px;
 	margin-top: -10px;
 	margin-left: 20px;
@@ -34,5 +52,5 @@ body {
 	border-radius: 10px;
 	background-color: #888888;
 
-
 }
+
