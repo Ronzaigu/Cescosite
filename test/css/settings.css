@@ -81,7 +81,7 @@ body {
 	margin-top: 40px;
 	margin-left: 5px;
 	margin-right: 20px;	
-	border-radius: 20px;
+	border-radius: 10px;
 	background-color: #3f4062;
 	font-family: 'Montserrat', sans-serif;
 
@@ -118,5 +118,17 @@ body {
 	margin-left: 1px;
 	border-radius: 5px;
 	margin-bottom: 1px;
+
+}
+
+.other_colors {
+
+	height: 20px;
+	border: none;
+	width: 150px;
+	margin-top: 3px;
+	margin-left: 3px;
+	border-radius: 4px;
+	background-color: #3f4062;
 
 }
