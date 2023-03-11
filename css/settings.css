@@ -16,6 +16,7 @@ body {
 	border-style: solid;
 	border-radius: 30px;
 	background-color: white;
+	overflow-y: auto;
 
 }
 
@@ -37,6 +38,7 @@ body {
 
 	height: 50px;
 	margin-top: 16px;
+	transition: 0.8s;
  	margin-left: 70px;
 
 }
@@ -79,6 +81,7 @@ body {
 	width: 165px;
 	font-size: 11px;
 	margin-top: 40px;
+	transition: 0.3s;
 	margin-left: 5px;
 	margin-right: 20px;	
 	border-radius: 10px;
@@ -90,6 +93,7 @@ body {
 
 .color_choice {
 
+	display: flex;
 
 }
 
@@ -98,9 +102,10 @@ body {
 	padding: 5px;
 	margin-top: 10px;
 	margin-left: 20px;
-	border-radius: 20px;
-	margin-right: 115px;
+	border-radius: 12px;
+	margin-right: 20px;
 	background-color: lightgrey;
+
 	
 }
 
@@ -113,22 +118,95 @@ body {
 .color_1, .color_2, .color_3, .color_4, .color_5, .color_6, .color_7, .color_8, .color_9, .color_10 {
 
 	border: 0;
-	width: 25px;
-	height: 25px;
+	width: 44px;
+	height: 44px;
+	transition: 0.3s;
 	margin-left: 1px;
-	border-radius: 5px;
-	margin-bottom: 1px;
+	border-radius: 8px;
+	margin-bottom: 4px;
+	
 
 }
 
-.other_colors {
+.other_colors, .save_button {
 
-	height: 20px;
+	height: 50px;
 	border: none;
-	width: 150px;
+	width: 245px;
+	font-size: 20px;
 	margin-top: 3px;
+	transition: 0.3s;
 	margin-left: 3px;
-	border-radius: 4px;
+	border-radius: 18px;
 	background-color: #3f4062;
 
+
 }
+
+.choice_text, .save_text {
+
+
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 0px;
+
+}
+
+.insight_button {
+
+	border: 0;
+	width: 90px;
+	color: white;
+	background: #3f4062;
+	border-radius: 10px;
+
+}
+
+.center_input {
+
+text-align: center;
+
+}
+
+
+input {
+
+	height: 20px;
+	margin-top: 5px;
+	border-color: gray;
+	border-radius: 7px;
+	border-style: solid;
+
+}
+
+
+.enter {
+
+	text-align: center;
+
+
+}
+
+.save {
+
+	text-align: center;
+
+}
+
+.change_photo_button:hover, .other_colors:hover, .save_button:hover {
+
+	background-color: #6e7093;
+
+}
+
+.gear:hover {
+
+	transform: rotate(360deg);
+}
+
+.color_1:hover, .color_2:hover, .color_3:hover, .color_4:hover, .color_5:hover, .color_6:hover, .color_7:hover, .color_8:hover, .color_9:hover, .color_10:hover {
+  
+	box-shadow: 2.5px 2.5px 2.5px black;
+
+}
+
