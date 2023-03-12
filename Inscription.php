@@ -73,7 +73,7 @@ session_start();
                         }else{
                     
                             $sql = "SELECT username FROM aj_Users WHERE username = '$username'";
-                            $sqlM = "SELECT mail FROM aj_Users WHERE mail = hash('sha256', $mail)";
+                            $sqlM = "SELECT mail FROM aj_Users WHERE mail = hash('sha256', $mail) and is_validate = 1";
                             //echo $sql ; 
                             $result = $conn->query($sql);
                             $resultM = $conn->query($sqlM);
