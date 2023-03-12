@@ -30,70 +30,71 @@
 
 </script>
 <div class="chat_post_commentary">
-<!-- <h1 class="post_big_title">CHAT/h1> -->
+        
+        <!-- <h1 class="post_big_title">CHAT/h1> -->
 
-<article class="chat">
-<div class = "chatjs" id = "chatjs">
-<p class="wait_message">Veuillez patienter....</p>
-</div>
+        <article class="chat">
+        
+                <div class = "chatjs" id = "chatjs">
+                        <p class="wait_message">Veuillez patienter....</p>
+                </div>
 
-<div class="input_bottom">
-<div class="chat_bottom">
-<input type="text" name="send" id='chatContent' class="send_chat_input" placeholder="Envoyez un message">
-<div>
-<button onclick="sendChatData()" class="send_chat_button"><p class="send_text">></p></button>
+                <div class="input_bottom">
+                        <div class="chat_bottom">
+                        <input type="text" name="send" id='chatContent' class="send_chat_input" placeholder="Envoyez un message">
+                <div>
+                <button onclick="sendChatData()" class="send_chat_button"><p class="send_text">></p></button>
 
-</div></div>
+                </div></div>
 
-</article>       
-
-
-<!-- <h1 class="post_big_title">POST</h1> -->
-
-<article class="chat" id='coms'>
-        <div class = "chatjs" id = "comsjs">
-                <p class="wait_message">Veuillez patienter....</p>
-        </div>
-        <div class="input_bottom">
-        <div class="chat_bottom">
-        <input type="text" name="send" id='comsContent' name='textC' class="send_chat_input" placeholder="Envoyez un commentaire">
-        <div>
-        <button id='sendComButton' class="send_chat_button"><p class="send_text">></p></button>
-        </div></div>
+        </article>       
 
 
+        <!-- <h1 class="post_big_title">POST</h1> -->
 
-</article>       
-
-
-
-<br>
-
-        <select id="range" hidden>
-                <option value="more_likes">Le plus liké</option>
-                <option value="more_times">Le plus récent</option>
-                <option value="random">Aléatoire</option>
-     
-        </select> 
+            
 
 
 
         <br>
-        <div id ='artZone' class="post">
+
+                <select id="range" hidden>
+                        <option value="more_likes">Le plus liké</option>
+                        <option value="more_times">Le plus récent</option>
+                        <option value="random">Aléatoire</option>
+             
+                </select> 
 
 
 
+                <br>
+                <div id ='artZone' class="post">
+
+
+
+                </div>
+                <article class="chat" id='coms'>
+                <div class = "chatjs" id = "comsjs">
+                        <p class="wait_message">Veuillez patienter....</p>
+                </div>
+                <div class="input_bottom">
+                <div class="chat_bottom">
+                <input type="text" name="send" id='comsContent' name='textC' class="send_chat_input" placeholder="Envoyez un commentaire">
+                <div>
+                <button id='sendComButton' class="send_chat_button"><p class="send_text">></p></button>
+                </div></div>
+
+
+
+        </article>   
+
+
+                <script src="./js/chat.js"></script>
         </div>
-
-
-
-        <script src="./js/chat.js"></script>
-</div>
 </div>
 <br>
 <br>
-
-
+       
 
 
         <footer>

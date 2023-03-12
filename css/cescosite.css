@@ -263,6 +263,7 @@ img {
 
 	display: flex;
 	margin-top: -50px;
+	justify-content: center;
 
 }
 
@@ -277,6 +278,12 @@ img {
 	color: white;
 	margin-top: 10px;
 	font-family: 'Fredoka One', cursive;
+
+}
+
+.post {
+
+	margin-left: 15px;
 
 }
 
