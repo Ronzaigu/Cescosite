@@ -9,7 +9,7 @@ session_start();
 <html>
     <head>
         <title>Cescosite - Inscription</title>
-        <link rel="stylesheet" href="./css/singup.css">
+        <link rel="stylesheet" href="./css/inscription.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     </head>
@@ -24,10 +24,6 @@ session_start();
     </script>
 
 
-    <h1 class="titre">Inscription</h1>
-
-        <div class="login">
-
         
         <?php
         
@@ -38,6 +34,7 @@ session_start();
             }
             function containsBadWord($string)
             { 
+                
                 $badWord = array("admin","asterjdm", "moderateur", "modérateur", "modo", "connard", "pute", "fuck", "sex", "sexy", "connard", "fuck","foutre", "ftg", "geul", "geule", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "debile", "débile", "con", "débil", "debil","jdm", "aster", "asteroidus");
                 
 
@@ -56,22 +53,8 @@ session_start();
             {
                 
             
-
                 
-                $data = array(
-                    'secret' => "0xb2094Fda50De87Fa9e42063D2521083296b09b97",
-                    'response' => $_POST['h-captcha-response']
-                );
-                $verify = curl_init();
-                curl_setopt($verify, CURLOPT_URL, "https://hcaptcha.com/siteverify");
-                curl_setopt($verify, CURLOPT_POST, true);
-                curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($data));
-                curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
-                $response = curl_exec($verify);
-                // var_dump($response);
-                $responseData = json_decode($response);
-
-                if($responseData->success) {
+                
 
 
       
@@ -148,11 +131,7 @@ session_start();
     
                         }
                   }
-                }else{
-                alert( "Veuillez résoudre le captcha");
-                }
-    
-    
+             
             } 
                 
                 
@@ -161,9 +140,9 @@ session_start();
 
         ?>          
             
-   
 
 
+<!--
         <form action="?page=inscription" method="POST" enctype="multipart/form-data">
             
             <input class="text" type="text" name="username" placeholder = "Nom d'utilisateur" class="pass"/>
@@ -177,8 +156,34 @@ session_start();
             <a class="ins" href="?page=connection"><p class="subtitle">Deja un compte ?</p></a>
         
         </form>
+        -->
+        <form action="?page=inscription" method="POST">
+    <div class="inscription">
+		
+		<h1 class="inscription_h1">INSCRIPTION</h1>
+		<div class="inputs">
+			<p class="username_text" style="margin-top: 75">Nom d'utilisateur</p>
+			<div class="line"></div>
+			<input type="text" name="username" placeholder="Nom d'utilisateur" class="username_input">
+			<p class="password_text">Mot de passe</p>
+			<div class="line"></div>
+			<input type="password" name="passwd" placeholder="Mot de passe" class="password_input">
+			<p class="email_text">Email</p>
+			<div class="line"></div>
+			<input type="text" name="mail" placeholder="Email" class="email_input">
+
+		</div>
+		<div class="buttons">
+		<button class="inscription_button">Inscription</button>
+		</div>
+		<!-- Place for captcha -->
+		<a class="already_account" href="?page=connection"><p>Deja un compte ?</p></a>
+
+	</div>
+    </form>
+
         
-        </div>
+        
 
 
        
