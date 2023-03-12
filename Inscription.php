@@ -11,7 +11,7 @@ session_start();
         <title>Cescosite - Inscription</title>
         <link rel="stylesheet" href="./css/inscription.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
     </head>
    
     <body>
