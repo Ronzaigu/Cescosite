@@ -89,7 +89,7 @@ function reaction(type, PK){
 
 function updateLikes(article){
 
-    console.log(article)
+
     pk = article.ARTICLES_PK
 
 
@@ -121,12 +121,12 @@ function updateLikes(article){
                 }
             
             }
-            console.log("imgLike" + pk)
+  
             document.getElementById("imgLike" + pk).src = scrLike
             document.getElementById("imgDislike" + pk).src = scrDislike
             document.getElementById("imgNeutrelike" + pk).src = scrNeutre
 
-            console.log("LikeP" + pk)
+          
             document.getElementById("LikeP" + pk).innerHTML = nbLike
             document.getElementById("NeutreP" + pk).innerHTML = nbNeutre
             document.getElementById("DislikeP" + pk).innerHTML = nbDislike
@@ -138,25 +138,16 @@ function updateLikes(article){
     
 }
 
-function coments(articlePK){
-
-    var article = document.getElementById("large_coms" + articlePK);
-    if(getComputedStyle(article).display == "none"){
-        article.style.display = "block"
-    }else{
-        article.style.display = "none"
-    }
 
 
 
-
-}
 
 function sendComData(a_pk)
 {
 
+    
 
-    console.log("a")
+    console.log("SEND COM DATAAAAAAAAAAAAAAAAAAAAAAAAA")
     user_pk = document.getElementById("user_pk").value
 
 
@@ -167,10 +158,7 @@ function sendComData(a_pk)
     }else{
 
 
-    var comcontent = document.getElementById("comText" + a_pk).value;
-
-
-    var titlee = document.getElementById("title" + a_pk).value;
+    var comcontent = document.getElementById("comsContent").value;
 
 
 
@@ -184,18 +172,17 @@ function sendComData(a_pk)
         data: {
             textC:comcontent,
             articlePK:a_pk,
-            title:titlee
+           
         },
         success: function(response) {
          
             $.when(getCloudData()).done(function (result) {
                 let i = Object.keys(data).find(key => data[key].ARTICLES_PK == a_pk)
                 data =  JSON.parse(decodeEntity(result))
-                console.log(data)
-           
+         
                 loadCom(data[i].comments, a_pk)
 
-                document.getElementById("comText" + a_pk).value = ""
+                document.getElementById("comsContent").value = ""
             });
         }
     });
@@ -205,6 +192,18 @@ function sendComData(a_pk)
     }
 }
 
+function getAllParents(element) {
+    var parents = [];
+  
+    // Ajouter le parent direct de l'élément
+    var parent = element.parentElement;
+    while (parent !== null) {
+      parents.push(parent);
+      parent = parent.parentElement;
+    }
+  
+    return parents;
+  }
 
 function signal(id, title) {
     let sure = prompt("Cette article ne respect pas les règle de CescoSite ? (oui/non)", "non");
@@ -221,33 +220,40 @@ function loadCom(coments, pk)
 
 
 
-        let comesHtml =""
+    comentsHtml = "";
         
-        console.log(coments)
+   
   
+        comsEmp = document.getElementById("comsjs")
 
         if(typeof coments != 'undefined'){
             for (let ii = 0; ii < Object.keys(coments).length; ii++) {
-                comesHtml += "<section>"
-                comesHtml += "<b>_______________________</b><br>" 
-                    comesHtml += coments["com"+ii].content
+                
+                com = coments["com"+ii]
+                comentsHtml += '<div class="hight_chat">';
+                comentsHtml += "<button class='chat_profile'></button>"
+                comentsHtml += '<div class="user_date_chat">'
+              //  comentsHtml += '<p class="chat_user">'+com.creator+'</p>'
+                comentsHtml += '<p class="chat_date">'+ com.dat +'</p>'
+                comentsHtml += "</div><br>"
+                comentsHtml += '</div>'
+                comentsHtml += '<p class="chat_text">'+com.content+'</p>'
+                comentsHtml += '<div class="line"></div> '
+                comentsHtml += '<div class="jépludidé"></div>'
                     
-                    comesHtml += "</section>"
+                    
                 
             }
+            
         }
-        comesHtml += "<b>_______________________</b><br>" 
-
-        comEmp = document.getElementById('com' +pk)
-
-        comEmp.innerHTML = comesHtml
+        comsEmp.innerHTML = comentsHtml
+       
     
 }
 
 
 function loadPost(index, data){
-    console.log(index)
-
+  
     article = data[index]
     pk = article.ARTICLES_PK
 
@@ -257,7 +263,7 @@ function loadPost(index, data){
 
     
 
-    articlesHtml += "<div id = art"+pk+" class= 'post_zone'>"
+    articlesHtml += "<div ' id = art#"+pk+" class= 'post_zone'>"
     articlesHtml += "<div class='top_of_post'>"
     articlesHtml += "<div class='hight_left_post'>"
     articlesHtml += "<button class='profile_photo_post'></button>"
@@ -268,6 +274,10 @@ function loadPost(index, data){
     articlesHtml += '<div class="post_text">'+ article.content +'</div>'
     articlesHtml += '<div class="bottom_post_button">'
     articlesHtml += '<div '+ "onclick='signal("+pk+")'" +' class="report"><p class="text_in_button_bottom_left">!</p></div>'
+
+    /*
+    old comments :
+    
     articlesHtml += '<div onclick="coments('+pk+')" class="comment"><p class="text_in_button_bottom_right">></p></div>'
 
     articlesHtml += "<div style = 'display:none' id = 'large_coms"+pk+"'>"
@@ -280,8 +290,11 @@ function loadPost(index, data){
 
     articlesHtml += "</div>"
     articlesHtml += "</div>"
-   
+   */
     articlesHtml += "</div>"
+
+    
+
 
     /*
                 
@@ -356,7 +369,8 @@ function loadPost(index, data){
     articlesHtml += "</section>"
 */
     artZone.innerHTML += articlesHtml
-  
+
+   
     
 
 
@@ -369,10 +383,16 @@ function loadAll(){
     $.when(getCloudData()).done(function (result) {
         data =  JSON.parse(decodeEntity(result))
         range = document.getElementById("range").value
+        //just a test :
     
+
+       
+        
+      
         if(range == "more_times"){
 
         }else if(range == "more_likes"){
+            
             data.sort(function(a, b) {
                 let aReactions = 0;
                 let bReactions = 0;
@@ -383,6 +403,7 @@ function loadAll(){
                     }
                   });
                 }
+                
                 if (b.reaction) {
                   Object.values(b.reaction).forEach(function(reaction) {
                     if (reaction.type === '+') {
@@ -390,8 +411,12 @@ function loadAll(){
                     }
                   });
                 }
+
                 return bReactions - aReactions;
+                
               });
+              
+              
               
         }else if(range == "random"){
             shuffle(data);
@@ -402,11 +427,14 @@ function loadAll(){
         
         
             loadPost(i, data)
-            loadCom(data[i].comments, data[i].ARTICLES_PK)
-        
+            
             
         }
+        
+        loadCom(data[7].comments, data[1].ARTICLES_PK)
      });
+
+     
     
 }
 
@@ -418,4 +446,36 @@ $(document).ready(function() {
     $('#range').change(function(){
      loadAll()
     });
+
+
 });
+
+
+artZone = document.getElementById("artZone")
+artZone.addEventListener(
+    "mouseover",
+    (event) => {
+        
+        
+        parents = getAllParents(event.target)
+        
+
+        for (let i = 0; i < parents.length; i++) {
+            element = parents[i]
+            infos = element.id.split("#")
+            if(infos[0] == "art"){
+
+                let i = Object.keys(data).find(key => data[key].ARTICLES_PK == infos[1])
+                loadCom(data[i].comments, infos[1])
+               document.getElementById("sendComButton").setAttribute("onclick", "sendComData("+infos[1]+")")
+    
+                break;
+            }
+            
+    
+        }
+
+    }
+        
+        
+)

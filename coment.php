@@ -26,8 +26,7 @@ if(isset($_SESSION["user"])){
     $content = $conn -> real_escape_string(htmlspecialchars($_POST["textC"]));
     $articlePK = $_POST["articlePK"];
     $user = $_SESSION["userPK"];
-    $title = $_POST['title'];
-    $creator = $_SESSION["user"];
+
 
     if (containsBadWord($content) == False) {
         $sql = "INSERT INTO aj_coments (content, USER_FK, ARTICLE_FK) VALUES ('$content', '$user', '$articlePK')";

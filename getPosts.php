@@ -24,7 +24,7 @@ include_once("db.php");
         $chatData[$i]["creator"] = $creator;
     }
 
-    $sql = "SELECT COMENT_PK, ARTICLE_FK, content, dat, USER_FK FROM aj_coments ORDER BY COMENT_PK DESC";
+    $sql = "SELECT COMENT_PK, ARTICLE_FK, content, dat, USER_FK FROM aj_coments ";
     $coments = $conn->query($sql);
 
     $ComData = [];

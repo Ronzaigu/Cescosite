@@ -39,7 +39,7 @@
 
 <div class="input_bottom">
 <div class="chat_bottom">
-<input type="text" name="send" id='chatContent' class="send_chat_input" placeholder="Envoyer un message">
+<input type="text" name="send" id='chatContent' class="send_chat_input" placeholder="Envoyez un message">
 <div>
 <button onclick="sendChatData()" class="send_chat_button"><p class="send_text">></p></button>
 
@@ -49,6 +49,21 @@
 
 
 <!-- <h1 class="post_big_title">POST</h1> -->
+
+<article class="chat" id='coms'>
+        <div class = "chatjs" id = "comsjs">
+                <p class="wait_message">Veuillez patienter....</p>
+        </div>
+        <div class="input_bottom">
+        <div class="chat_bottom">
+        <input type="text" name="send" id='comsContent' name='textC' class="send_chat_input" placeholder="Envoyez un commentaire">
+        <div>
+        <button id='sendComButton' class="send_chat_button"><p class="send_text">></p></button>
+        </div></div>
+
+
+
+</article>       
 
 
 
