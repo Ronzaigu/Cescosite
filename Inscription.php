@@ -58,7 +58,7 @@ session_start();
                 
 
                   if(str_replace(' ', '', $_POST["mail"] == "") || str_replace(' ', '', $_POST['passwd'] == "") || !filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)){
-                    alert( "Veuillez saisir un nom d'utilisateur et un mot ainsi que un email valide.");
+                    alert( "Veuillez saisir un nom d'utilisateur, un mot de passe ainsi que un email valide.");
                   }else{
                         if(containsBadWord(strtolower($username))){
                             alert( "Votre nom d'utulisateur contient des mot interdis.");
