@@ -63,19 +63,19 @@ session_start();
                         if(containsBadWord(strtolower($username))){
                             alert( "Votre nom d'utulisateur contient des mot interdis.");
                         }else{
-                    
+                            $mail_hash = hash('sha256', $mail);
                             $sql = "SELECT username FROM aj_Users WHERE username = '$username'";
-                            $sqlM = "SELECT mail FROM aj_Users WHERE mail = hash('sha256', $mail) and is_validate = 1";
+                            $sqlM = "SELECT mail FROM aj_Users WHERE mail = '$mail_hash' and is_validate = 1";
                             //echo $sql ; 
                             $result = $conn->query($sql);
                             $resultM = $conn->query($sqlM);
-                            
+                    
                             if ($result->num_rows > 0 ) {
-                                alert( "Ce nom d'utilisateur est déja utulisé, veuillez en choisir un autre...");
+                                alert( "Ce nom d'utilisateur est déja utilisé, veuillez en choisir un autre...");
                                 
                             }elseif($resultM->num_rows > 0){
 
-                                alert("Ce mail est déja utulisé.");
+                                alert("Ce mail est déja utilisé.");
                             }else{
                      
                             //send verification email :
@@ -123,7 +123,7 @@ session_start();
     
                         }
                   }
-                  echo "<script>window.location.href='index.php' </script>";
+                 echo "<script>window.location.href='index.php' </script>";
              
             } 
                 
