@@ -9,20 +9,12 @@ session_start();
 <html>
     <head>
         <title>Cescosite - Inscription</title>
-        <link rel="stylesheet" href="./css/inscription.css">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     </head>
    
     <body>
-    <script>
-    
-    if(window.location.pathname != "/cescosite/"){
-            window.location.href = ".?page=inscription"
-
-        }
-    </script>
-
 
         
         <?php
@@ -109,7 +101,7 @@ session_start();
                                         
                                     
                         
-                                        die();
+
                                     
                                         
                                     }else{
@@ -131,6 +123,7 @@ session_start();
     
                         }
                   }
+                  echo "<script>window.location.href='index.php' </script>";
              
             } 
                 
@@ -157,33 +150,6 @@ session_start();
         
         </form>
         -->
-        <form action="?page=inscription" method="POST">
-    <div class="inscription">
-		
-		<h1 class="inscription_h1">INSCRIPTION</h1>
-		<div class="inputs">
-			<p class="username_text" style="margin-top: 75">Nom d'utilisateur</p>
-			<div class="line"></div>
-			<input type="text" name="username" placeholder="Nom d'utilisateur" class="username_input">
-			<p class="password_text">Mot de passe</p>
-			<div class="line"></div>
-			<input type="password" name="passwd" placeholder="Mot de passe" class="password_input">
-			<p class="email_text">Email</p>
-			<div class="line"></div>
-			<input type="text" name="mail" placeholder="Email" class="email_input">
-
-		</div>
-		<div class="buttons">
-		<button class="inscription_button">Inscription</button>
-		</div>
-		<!-- Place for captcha -->
-		<a class="already_account" href="?page=connection"><p>Deja un compte ?</p></a>
-
-	</div>
-    </form>
-
-        
-        
 
 
        

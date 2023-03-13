@@ -24,6 +24,7 @@ session_start()
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/inscription.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cescosite - Home</title>
 	
@@ -59,7 +60,7 @@ session_start()
                         echo "<button onclick=\"window.location.href='./deconect.php';\" class='navigator'><p class='text_in_button'>Deconnexion</p></button>";
                 } else {
                         echo "<button onclick=\"window.location.href='?page=connection';\" class='navigator'><p class='text_in_button'>Connexion</p></button>";
-                        echo "<button onclick=\"window.location.href='?page=inscription';\" class='navigator'><p class='text_in_button'>Inscription</p></button>";
+                        echo "<button onclick='show_inscription();' class='navigator'><p class='text_in_button'>Inscription</p></button>";
                 }
                 ?>
                 
@@ -71,6 +72,33 @@ session_start()
   		
 </header>
 
+<div class='inscription_popup' id='inscription_popup' style='display:none'>
+        <form action="Inscription.php" method="POST">
+        <div class="inscription">
+                        
+                        <h1 class="inscription_h1">INSCRIPTION</h1>
+                        <div class="inputs">
+                                <p class="username_text" style="margin-top: 75">Nom d'utilisateur</p>
+                                <div class="line"></div>
+                                <input type="text" name="username" placeholder="Nom d'utilisateur" class="username_input">
+                                <p class="password_text">Mot de passe</p>
+                                <div class="line"></div>
+                                <input type="password" name="passwd" placeholder="Mot de passe" class="password_input">
+                                <p class="email_text">Email</p>
+                                <div class="line"></div>
+                                <input type="text" name="mail" placeholder="Email" class="email_input">
+
+                        </div>
+                        <div class="buttons">
+                        <button class="inscription_button">Inscription</button>
+                        </div>
+                        <!-- Place for captcha -->
+                        <a class="already_account" href="?page=connection"><p>Deja un compte ?</p></a>
+
+                </div>
+        </form>
+
+</div>
 <br><br>
 
     <?php
@@ -111,6 +139,6 @@ session_start()
 
 
 
-
+<script src="js/inscription.js"></script>
 </body>
 </html>

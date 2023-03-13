@@ -8,6 +8,14 @@ body {
 
 }
 
+
+.inscription_popup {
+	position: fixed;
+	left: 35%;
+	top: 6%;
+	
+}
+
 .inscription {
 
 	width: 400px;
