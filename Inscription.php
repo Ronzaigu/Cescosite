@@ -53,6 +53,7 @@ session_start();
                   $username = $conn -> real_escape_string(htmlspecialchars($_POST['username']));
                   $passwd = hash("sha256", $_POST['passwd'] ) ; 
                   $mail =  $_POST["mail"];
+                  
 
 
                 
@@ -82,13 +83,15 @@ session_start();
                 
                                 $subject = "Code de vérification";
                                 $code = rand(100000000, 9999999999) ;
-                                $message = "<p>Salut ".$username.", <br><br> Voici votre liens de vérification : <p><a href='https://rmbi.ch/cescosite/mailverify.php?code=$code&user=$username'></a>";
+                                $message = "<p>Salut ".$username.", <br><br> Voici votre liens de vérification : <p><a href='https://rmbi.ch/cescosite/mailverify.php?code=$code&user=$username'>rmbi.ch/cescosite/mailverify.php</a>";
                                
-                                
+                                    $headers = "MIME-Version: 1.0" . "\r\n";
+                            $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+                   
                                       
                               
                               
-                                if (mail($mail, $subject, $message)) {
+                                if (mail($mail, $subject, $message, $headers)) {
                                     $mail_hash = hash('sha256', $mail);
                                     $code_hash = hash('sha256', $code);
                                     $sql = "INSERT INTO aj_Users (username, passwd, mail, is_validate, verif_code) VALUES ('$username', '$passwd', '$mail_hash', 'no', '$code_hash')";
@@ -112,7 +115,7 @@ session_start();
                                     
 
                                 } else {
-                                  alert("error : L'envoi du code de vérification a échoué.");
+                                  alert("error : L'envoi du code de vérification a échoué. Erreur : ".error_get_last());
                                 }
 
 
