@@ -19,6 +19,7 @@ body {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
 
+
 }
 
 .inscription_popup {
@@ -36,21 +37,6 @@ body {
 	transform: translate(-50%, -50%);
 }
 
-@keyframes fade{
-
-	from {
-
-		opacity: 0%;
-
-	}
-
-	to {
-
-		opacity: 100%;
-
-	}
-}
-
 .inscription {
 
 	width: 400px;
@@ -60,6 +46,8 @@ body {
 	border-style: solid;
 	border-radius: 30px;
 	background-color: white;
+	animation-name: slide_down;
+	animation-duration: 0.7s;
 
 }
 
@@ -136,4 +124,33 @@ body {
 	background-color: #6e7093;
 
 
+}
+
+@keyframes fade{
+
+	from {
+
+		opacity: 0%;
+
+	}
+
+	to {
+
+		opacity: 100%;
+
+	}
+}
+
+@keyframes slide_down{
+
+	from {
+
+		margin-top: -20px;
+	}
+
+	to {
+
+		margin-top: none;
+
+	}
 }
