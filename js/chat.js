@@ -79,6 +79,9 @@ function getCloudChatData(){
   return $.get('getChat.php',true)
 }
 
+//auto scroll to the bottom
+chat_input = document.getElementById("chat_input")
+chat_input.scrollIntoView()
 
 $.when(getCloudChatData()).done(function (result) {
   loadChat(result)

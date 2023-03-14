@@ -116,7 +116,7 @@ session_start()
                         <button class="inscription_button">Inscription</button>
                         </div>
                   
-                        <a class="already_account" href="?page=connection"><p>Deja un compte ?</p></a>
+                        <a class="already_account" onclick="hideInscription(); show_connection();"><p>Deja un compte ?</p></a>
 
                 </div>
         </form>

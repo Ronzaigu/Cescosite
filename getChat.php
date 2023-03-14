@@ -20,6 +20,7 @@ while ($row = $result->fetch_assoc()) {
 
 if (count($chatData) > $MAX_MESSAGES) {
     $sql = "DELETE FROM aj_chat WHERE CHAT_PK = count($chatData)-1";
+    mysqli_query($conn, $sql);
 }
 
 for ($i = 0; $i < count($chatData); $i++) {
