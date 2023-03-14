@@ -157,11 +157,28 @@ img {
 	width: 400px;
 	overflow-y: auto;
 	border-width: 2px;
+	border-color: black;
+	border-radius: 30px;
+	border-style: solid;
+	background-color: white;
+	position: fixed;
+	margin-right: 55%;
+
+}
+
+.coms{
+	
+	height: 600px;
+	width: 400px;
+	overflow-y: auto;
+	border-width: 2px;
 	margin-left: 15px;
 	border-color: black;
 	border-radius: 30px;
 	border-style: solid;
 	background-color: white;
+	position: fixed;
+	margin-left: 55%;
 
 }
 
@@ -281,11 +298,6 @@ img {
 
 }
 
-.post {
-
-	margin-left: 15px;
-
-}
 
 .report:hover, .comment:hover, .chat_profile:hover, .send_chat_button:hover {
 

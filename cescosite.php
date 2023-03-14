@@ -74,7 +74,7 @@
 
 
                 </div>
-                <article class="chat" id='coms'>
+                <article class="coms" id='coms'>
                 <div class = "chatjs" id = "comsjs">
                         <p class="wait_message">Veuillez patienter....</p>
                 </div>
