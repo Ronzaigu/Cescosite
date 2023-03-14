@@ -23,14 +23,14 @@ h2 {
 .send {
 
     border: none;
-    background: black;
+    background-color: #3f4062;
     color: white;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 100px;
     width: 200px;
     height: 60px;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 5px;
     animation-name: fade;
     animation-duration: 1.5s;
@@ -48,7 +48,10 @@ h2 {
     width: 600px;
     height: 500px;
     resize: none;
-
+    border-radius: 45px;
+    padding: 15px;
+    border: none;
+    font-size: 20px;
 
 }
 
@@ -58,14 +61,15 @@ h2 {
 .send_button{
 
     animation-name: slide;
-    animation-duration: 0.5s; 
+    animation-duration: 0.5s;
+
 
 }
 
 
 .send:hover {
 
-    background-color: #5e6362;
+    background-color: #6e7093;
     
 }
 
@@ -127,4 +131,3 @@ h2 {
 
     }
 }
-
