@@ -8,16 +8,20 @@ body {
 
 }
 
-.conn_popup{
-	position: fixed;
+.conn_popup {
+	
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10000;
-    background-color: white;
-    padding: 20px;
     filter: none; /* désactiver le flou sur le contenu du popup */
+    z-index: 10000;
+    position: fixed;
+    border-width: 5px;
 	border-radius: 50px;
+	animation-name: fade;
+	background-color: white;
+	animation-duration: 0.7s;
+	transform: translate(-50%, -50%);
+
 }
 .connection {
 
@@ -28,6 +32,8 @@ body {
 	border-style: solid;
 	border-radius: 30px;
 	background-color: white;
+	animation-duration: 0.7s;
+	animation-name: slide_down;
 
 }
 
@@ -92,9 +98,11 @@ body {
 }
 
 .no_account {
-
+	
+	cursor: pointer;
 	color: inherit;
 	text-align: center;
+	text-decoration: none;
 	font-family: 'Montserrat', sans-serif;
 
 }
@@ -104,4 +112,33 @@ body {
 	background-color: #6e7093;
 
 
+}
+
+@keyframes fade{
+
+	from {
+
+		opacity: 0%;
+
+	}
+
+	to {
+
+		opacity: 100%;
+
+	}
+}
+
+@keyframes slide_down{
+
+	from {
+
+		margin-top: -20px;
+	}
+
+	to {
+
+		margin-top: none;
+
+	}
 }
