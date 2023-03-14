@@ -8,11 +8,28 @@ body {
 
 }
 
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+    filter: blur(5px);
+}
 
 .inscription_popup {
-	position: fixed;
-	left: 35%;
-	top: 6%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    background-color: white;
+    padding: 20px;
+    filter: none; /* désactiver le flou sur le contenu du popup */
+	border-radius: 50px;
 	
 }
 

@@ -72,6 +72,8 @@ session_start()
   		
 </header>
 
+
+
 <div class='inscription_popup' id='inscription_popup' style='display:none'>
         <form action="Inscription.php" method="POST">
         <div class="inscription">
@@ -99,6 +101,7 @@ session_start()
         </form>
 
 </div>
+<div id="overlay"></div>
 <br><br>
 
     <?php
