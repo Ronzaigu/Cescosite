@@ -5,10 +5,10 @@ function show_inscription()
   
 }
 
-function hidePopup()
+function hideInscription()
 {
     document.getElementById("inscription_popup").style.display = "none";
     document.getElementById("overlay").style.display = "none";
 }
 
-document.getElementById("overlay").addEventListener("click", hidePopup);
+document.getElementById("overlay").addEventListener("click", hideInscription);
