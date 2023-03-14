@@ -115,7 +115,7 @@ session_start()
                         <div class="buttons">
                         <button class="inscription_button">Inscription</button>
                         </div>
-                        <!-- Place for captcha -->
+                  
                         <a class="already_account" href="?page=connection"><p>Deja un compte ?</p></a>
 
                 </div>
