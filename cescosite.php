@@ -34,13 +34,13 @@
         
         <!-- <h1 class="post_big_title">CHAT/h1> -->
 
-        <article class="chat">
+        <article class="chat" id="chat_space">
         
                 <div class = "chatjs" id = "chatjs">
                         <p class="wait_message">Veuillez patienter....</p>
                 </div>
 
-                <div class="input_bottom">
+                <div id="chat_input" class="input_bottom">
                         <div class="chat_bottom">
                         <input type="text" name="send" id='chatContent' class="send_chat_input" placeholder="Envoyez un message">
                 <div>

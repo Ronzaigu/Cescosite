@@ -23,7 +23,7 @@ include_once("db.php");
 
 
 if(isset($_POST['text'])){
-    header("location: .?page=connection");
+  
     if(isset($_SESSION['user'])){
         
         
