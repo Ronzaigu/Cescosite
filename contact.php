@@ -12,16 +12,16 @@
 <section class = "mail">
 
         <h2>Contatcter AsterJdM :</h2>
-        <form action="mail.php" method="post">
-            
-            
+
+        <form action="mail.php" method="post">  
+        
             <textarea name="message" id="message" class="intext" minlength="1"></textarea>
             <br>
-            <button class="send" type="submit"><p class="send_button">ENVOYER</p></button>
-
+            <button class="send" type="submit">ENVOYER</button>
+        
         </form>
 
 
-        </section>
+    </section>
 </body>
 </html>
