@@ -8,6 +8,17 @@ body {
 
 }
 
+.conn_popup{
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    background-color: white;
+    padding: 20px;
+    filter: none; /* désactiver le flou sur le contenu du popup */
+	border-radius: 50px;
+}
 .connection {
 
 	width: 400px;
