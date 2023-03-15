@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="./css/settings.css">
+
 	<title>Parametres</title>
-	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
 	
 
 
@@ -20,7 +20,9 @@
 </head>
 
 	<?php
-
+            function alert($msg){
+				echo "<script>alert('$msg')</script>";
+			}
 		function containsBadWord($string)
 		{ 
 			$badWord = array("admin","asterjdm", "moderateur", "modérateur", "modo", "connard", "pute", "fuck", "sex", "sexy", "connard", "fuck","foutre", "ftg", "geul", "geule", "cul", "merde", "couille", "bite", "hitler", "staline", "nazi", "debile", "débile", "con", "débil", "debil","jdm", "aster", "asteroidus");
@@ -49,64 +51,49 @@
 			$newPseudo = $conn -> real_escape_string($_POST["newPseudo"]);
 
 			if(containsBadWord($newPseudo)){
-				echo "ERREUR : Votre pseudo contient des mots interdits !";
+				alert( "ERREUR : Votre pseudo contient des mots interdits !");
 
 			}else{
 				$sql = "UPDATE aj_Users SET username = '$newPseudo' WHERE users_PK = '$userPK'";
 				if (mysqli_query($conn, $sql)) {
-					echo "Votre pseudo a été mis a jour.";
+					alert("Votre pseudo a été mis a jour.");
 				}else{
-					echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
+					alert( "Erreur : " . $sql . "<br>" . mysqli_error($conn));
 				}
 			}
 			
 		}
 
+		if($_POST['newPass'] != ""){
+			if (isset($_POST['oldPass']) && isset($_POST['newPass'])) {
+				$OldPasswd = $conn -> real_escape_string($_POST['oldPass']) ; 
+				$NewPasswd = $conn -> real_escape_string($_POST['newPass']) ; 
+				
 
-		if (isset($_POST['oldPass']) && isset($_POST['newPass'])) {
-			$OldPasswd = $conn -> real_escape_string($_POST['oldPass']) ; 
-			$NewPasswd = $conn -> real_escape_string($_POST['newPass']) ; 
-			
+				$sql = "SELECT username FROM aj_Users WHERE users_PK = '$userPK' AND passwd = MD5(MD5('$OldPasswd'))";
 
-			$sql = "SELECT username FROM aj_Users WHERE users_PK = '$userPK' AND passwd = MD5(MD5('$OldPasswd'))";
+				$result = $conn->query($sql);
+				$row = $result->fetch_assoc();
+				
+				if ($result->num_rows > 0) {
+					//old passwd OK:
+					$sql = "UPDATE aj_Users SET passwd = MD5(MD5('$NewPasswd')) WHERE users_PK = '$userPK'";
 
-			$result = $conn->query($sql);
-			$row = $result->fetch_assoc();
-			
-			if ($result->num_rows > 0) {
-				//old passwd OK:
-				$sql = "UPDATE aj_Users SET passwd = MD5(MD5('$NewPasswd')) WHERE users_PK = '$userPK'";
+					if (mysqli_query($conn, $sql)) {
+						alert("Votre mot de passe a été mis a jour.");
+					}else{
+						alert("Erreur : " . $sql . "<br>" . mysqli_error($conn));
+					}
 
-				if (mysqli_query($conn, $sql)) {
-					echo "Votre mot de passe a été mis a jour.";
 				}else{
-					echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
+					alert( "Ancien mot de passe incorrect");
 				}
-
-			}else{
-				echo "<br>Ancien mot de passe incorrect";
-			}
 		  
-
+		}
 
 		}
 
-		if (isset($_POST['form_sender'])) {
-			$newPost = $_POST['new-post'];
-			$newChat = $_POST['new-chat'];
-			$newComent = $_POST['new-coment'];
-			$newLike = $_POST['new-like'];
-			$newActu = $_POST['new-actu'];
-
-			$sql = "UPDATE aj_Users SET mail_new_post = '$newPost', mail_new_chat = '$newChat', mail_new_coment = '$newComent', mail_new_like = '$newLike', mail_new_actu = '$newActu' WHERE users_PK = '$userPK'";
-		
-			if (mysqli_query($conn, $sql)) {
-				echo "Vos modification on été enregistrées.";
-			}else{
-				echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
-			}
-		}
-
+		echo "<script>window.location.href='index.php' </script>";
 	?>
 
 
@@ -144,48 +131,7 @@
 	-->
 
 
-	<div class="settings">
-		<form action="settings.php" method="post">
-			<div class="top_settings">
-				<div class="text_gear">
-				<p class="settings_h1">Paramètres</p>
-				<img class="gear" src="./img/gear.png" alt="gear icon">
-				</div>
-				<div class="line"></div>
-			</div>
 
-			<div class="change_photo">
-				<button class="photo_preview"></button>
-				<button class="change_photo_button"><p>Changer la photo de profil</p></button>
-			</div>
-
-			<div>
-				<!--
-				<div class="color_choice">
-					<div class="choice">
-						<input type="color" name="color" id="">
-					</div>
-				</div>
-			</div>
-	-->
-			<div class="change_username_password">
-					<p class="settings_h1">Nom d'utilisateur</p>
-					<div class="line"></div>
-					<div class="center_input">
-						<input class="enter" type="text" name="newPseudo" placeholder="Nouveau nom d'utilisateur">
-					</div>
-					<p class="settings_h1">Mot de passe</p>
-					<div class="line"></div>
-					<div class="center_input">
-						<input class="enter" type="password" name="oldPass" placeholder="Ancien mot de passe">
-						<input class="enter" type="password" name="newPass" placeholder="Nouveau mot de passe"  style="margin-bottom: 10px;">
-					</div>
-			</div>
-			<div class="save">
-				<button class="save_button" style="margin-bottom: 10px;"><p class="save_text">Sauvegarder</p></button>
-			</div>
-		</form>
-	</div>
 
 
 </head>

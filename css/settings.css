@@ -7,7 +7,21 @@ body {
 	background-color: lightgrey;
 
 }
+.settings_popup {
+	
+    top: 50%;
+    left: 50%;
+    filter: none; /* désactiver le flou sur le contenu du popup */
+    z-index: 10000;
+    position: fixed;
+    border-width: 5px;
+	border-radius: 50px;
+	animation-name: fade;
+	background-color: white;
+	animation-duration: 0.7s;
+	transform: translate(-50%, -50%);
 
+}
 .settings {
 
 	width: 300px;
