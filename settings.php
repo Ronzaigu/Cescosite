@@ -38,7 +38,7 @@
 		include_once("db.php");
 		session_start();
 		if(isset($_SESSION['user']) == FALSE){
-			header('Location: ?page=connection');
+		//	header('Location: ?page=connection');
 		}
 		$userPK = $_SESSION['userPK'];
 		
@@ -111,12 +111,12 @@
 
 
 <body>
-
+<!--
 	<div class='all'>
 	
 	<h1 class="options">OPTIONS</h1>
 	
-	<!-- Change username -->
+	
 	<p class="soustitre">Changer de pseudo</p>
 
 	<form action="settings.php" method="post">
@@ -128,7 +128,7 @@
 
 	</form>
 	<br>
-	<!-- Change password -->
+	 Change password 
 	<p class="soustitre">Changer de mot de passe</p>
 	
 	<form action="settings.php" method="post">
@@ -140,6 +140,51 @@
 
 	</form>
 	
+	</div>
+	-->
+
+
+	<div class="settings">
+		<form action="settings.php" method="post">
+			<div class="top_settings">
+				<div class="text_gear">
+				<p class="settings_h1">Paramètres</p>
+				<img class="gear" src="./img/gear.png" alt="gear icon">
+				</div>
+				<div class="line"></div>
+			</div>
+
+			<div class="change_photo">
+				<button class="photo_preview"></button>
+				<button class="change_photo_button"><p>Changer la photo de profil</p></button>
+			</div>
+
+			<div>
+				<!--
+				<div class="color_choice">
+					<div class="choice">
+						<input type="color" name="color" id="">
+					</div>
+				</div>
+			</div>
+	-->
+			<div class="change_username_password">
+					<p class="settings_h1">Nom d'utilisateur</p>
+					<div class="line"></div>
+					<div class="center_input">
+						<input class="enter" type="text" name="newPseudo" placeholder="Nouveau nom d'utilisateur">
+					</div>
+					<p class="settings_h1">Mot de passe</p>
+					<div class="line"></div>
+					<div class="center_input">
+						<input class="enter" type="password" name="oldPass" placeholder="Ancien mot de passe">
+						<input class="enter" type="password" name="newPass" placeholder="Nouveau mot de passe"  style="margin-bottom: 10px;">
+					</div>
+			</div>
+			<div class="save">
+				<button class="save_button" style="margin-bottom: 10px;"><p class="save_text">Sauvegarder</p></button>
+			</div>
+		</form>
 	</div>
 
 
