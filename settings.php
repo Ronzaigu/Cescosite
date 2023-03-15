@@ -84,7 +84,7 @@
 				}
 
 			}else{
-				echo "Ancien mot de passe incorrect";
+				echo "<br>Ancien mot de passe incorrect";
 			}
 		  
 
