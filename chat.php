@@ -57,7 +57,7 @@ if(isset($_POST['text'])){
 
     }else{
      
-        header("location: index.php?page=connection");
+        header("location: .?page=connection");
 
     }
 }

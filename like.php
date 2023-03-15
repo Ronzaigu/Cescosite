@@ -4,7 +4,7 @@
 <?php
     session_start();
     if(isset($_SESSION["user"]) == FALSE) {
-        header('Location: index.php?page=connection');
+        header('Location: .?page=connection');
         
     }else
     {

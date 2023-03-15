@@ -135,7 +135,7 @@ session_start()
         <div class="buttons">
         <button  class="connection_button">Connexion</button>
         </div>
-        <a class="no_account" href="index.php?page=inscription"><p>Pas de compte ?</p></a>
+        <a class="no_account" onclick="show_inscription(); hideConnection();"><p>Pas de compte ?</p></a>
         </form>
 
     </div>
@@ -169,6 +169,9 @@ session_start()
 
 </div>
 <div id="overlay"></div>
+<script src="js/inscription.js"></script>
+<script src="js/connection.js"></script>
+<script src="js/settings.js"></script>
 <br><br>
 
     <?php
@@ -209,8 +212,6 @@ session_start()
 
 
 
-<script src="js/inscription.js"></script>
-<script src="js/connection.js"></script>
-<script src="js/settings.js"></script>
+
 </body>
 </html>

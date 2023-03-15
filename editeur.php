@@ -125,7 +125,7 @@ include_once("db.php");
 
 
     } else {
-        header('Location: .index.php?page=connection');
+        header('Location: .?page=connection');
     }
     $conn->close();
 
