@@ -47,7 +47,7 @@ if(isset($_SESSION["user"])){
     }
 
 }else{
-    header('Location: Connexion.php');
+    header('Location: index.php?page=connection');
 }
 
 

@@ -135,7 +135,7 @@ session_start()
         <div class="buttons">
         <button  class="connection_button">Connexion</button>
         </div>
-        <a class="no_account" href="?page=inscription"><p>Pas de compte ?</p></a>
+        <a class="no_account" href="index.php?page=inscription"><p>Pas de compte ?</p></a>
         </form>
 
     </div>
@@ -193,9 +193,16 @@ session_start()
         include("./editeur.php");
     }elseif ($page == "home") {
         include("./cescosite.php");
+    }elseif($page =="connection"){
+        echo "<script>show_connection();</script>";
+    }elseif($page =="inscription"){
+        echo "<script>show_inscription();</script>";
+    }elseif($page =="settings"){
+        echo "<script>show_settings();</script>";
     }else{
         include("./cescosite.php");
     }
+    
 
 
     ?>
