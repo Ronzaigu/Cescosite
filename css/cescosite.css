@@ -73,6 +73,7 @@ img {
 
 	width: 600px;
 	height: auto;
+	margin-left: 15px;
 	border-width: 2px;
   margin-bottom: 12px;
 	border-radius: 30px;
@@ -161,8 +162,7 @@ img {
 	border-radius: 30px;
 	border-style: solid;
 	background-color: white;
-	position: fixed;
-	margin-right: 55%;
+
 
 }
 
@@ -177,8 +177,7 @@ img {
 	border-radius: 30px;
 	border-style: solid;
 	background-color: white;
-	position: fixed;
-	margin-left: 55%;
+
 
 }
 

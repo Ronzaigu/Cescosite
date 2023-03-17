@@ -1,0 +1,33 @@
+.all_consitution {
+
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align: justify;
+
+}
+
+.aim {
+
+	opacity: 60%;
+	font-size: 15px;
+	font-style: italic;
+
+}
+
+.primary_text {
+
+	font-style: bold;
+
+}
+
+.secondary_text {
+
+	margin-left: 20px;
+
+}
+
+.tertiary_text {
+
+	margin-left: 40px;
+
+}
