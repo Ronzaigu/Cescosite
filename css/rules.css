@@ -31,3 +31,16 @@
 	margin-left: 40px;
 
 }
+
+.signatures {
+
+	display: flex;
+
+}
+
+.signature_images {
+
+	width: 90px;
+	height: 90px;
+
+}
