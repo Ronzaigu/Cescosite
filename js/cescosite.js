@@ -218,7 +218,7 @@ function loadCom(coments, pk)
 {
    
 
-
+ 
 
     comentsHtml = "";
         
@@ -253,7 +253,8 @@ function loadCom(coments, pk)
 
 
 function loadPost(index, data){
-  
+    var modods_pk = ["157", "150", "181"]
+    user_pk = document.getElementById("user_pk").value
     article = data[index]
     pk = article.ARTICLES_PK
 
@@ -274,6 +275,11 @@ function loadPost(index, data){
     articlesHtml += '<div class="post_text">'+ article.content +'</div>'
     articlesHtml += '<div class="bottom_post_button">'
     articlesHtml += '<div '+ "onclick='signal("+pk+")'" +' class="report"><p class="text_in_button_bottom_left">!</p></div>'
+
+    if(modods_pk.indexOf(user_pk) != -1) {
+        articlesHtml += '<button '+ "onclick='window.open(\"moderation.php?a_pk="+ pk +"\")'" +' >Delete</button>'
+    }
+
 
     /*
     old comments :
