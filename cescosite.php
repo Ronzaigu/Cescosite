@@ -21,7 +21,12 @@
 
 <body>
 
-
+<select id="range" >
+                        <option value="more_likes">Le plus liké</option>
+                        <option value="more_times">Le plus récent</option>
+                        <option value="random">Aléatoire</option>
+             
+                </select> 
 <br><br><br>
 <script>
         
@@ -59,12 +64,7 @@
 
         <br>
 
-                <select id="range" hidden>
-                        <option value="more_likes">Le plus liké</option>
-                        <option value="more_times">Le plus récent</option>
-                        <option value="random">Aléatoire</option>
-             
-                </select> 
+
 
 
 
