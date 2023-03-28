@@ -11,7 +11,7 @@
 <body>
 <section class = "mail">
 
-        <h2>Contatcter AsterJdM :</h2>
+        <h2>Contacter AsterJdM :</h2>
 
         <form action="mail.php" method="post">  
         
